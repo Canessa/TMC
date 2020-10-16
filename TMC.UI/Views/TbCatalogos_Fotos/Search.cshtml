@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TMC.DATA.TbCatalogos_TbFotos>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registro de Catalogo de Fotos</h2>
+
+<p>
+    @Html.ActionLink(" Catalogo de Foto", "Create", null, new { @class = "fas fa-plus-circle text-muted", @title = "Agregar Catalogo de Foto" })
+</p>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDCatalogoFoto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDCatalogo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDFoto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDCatalogoFoto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDCatalogo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDFoto)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.IDCatalogoFoto }, new { @class = "fas fa-edit text-reset", @title = "Editar Catalogo" }) |
+                @Html.ActionLink(" ", "Detail", new { id = item.IDCatalogoFoto }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Catalogo" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.IDCatalogoFoto }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Catalogo" })
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>

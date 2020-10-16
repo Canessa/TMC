@@ -1,0 +1,51 @@
+﻿@model TMC.DATA.TbRoles_TbPermisos
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Información de Permisos por Rol</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDRolPermiso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDRolPermiso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDRol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDRol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPermiso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDPermiso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(" Editar", "Edit", new { id = Model.IDRolPermiso }, new { @class = "fas fa-edit text-muted", @title = "Editar Permiso" }) |
+    @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+</p>
+<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>

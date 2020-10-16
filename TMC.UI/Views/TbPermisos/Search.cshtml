@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TMC.DATA.TbPermisos>
+
+@{
+    ViewBag.Title = "Permisos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<h2>Registro de Permisos</h2>
+
+<p>
+    @Html.ActionLink(" Permiso", "Create", null, new { @class = "fas fa-plus-circle text-muted", @title="Agregar Permiso" })
+</p>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDPermiso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.detalle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDPermiso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detalle)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new {  id=item.IDPermiso  }, new { @class = "fas fa-edit text-reset", @title = "Editar Permiso" }) |
+            @Html.ActionLink(" ", "Detail", new { id = item.IDPermiso }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Permiso" }) |
+            @Html.ActionLink(" ", "Delete", new { id = item.IDPermiso }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Permiso" })
+        </td>
+    </tr>
+}
+
+</table>
+<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>

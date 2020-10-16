@@ -1,0 +1,74 @@
+﻿@model TMC.DATA.TbServicios
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Elimnar Servicio</h2>
+
+<h3>Está seguro que desea eliminar este Servicio?</h3>
+<div>
+    <h4>TbServicios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDServicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDServicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCatalogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCatalogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-dark" /> |
+            @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+        </div>
+    }
+</div>

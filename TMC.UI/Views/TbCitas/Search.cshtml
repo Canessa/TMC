@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TMC.DATA.TbCitas>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registro de Citas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDCita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaCita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.detalle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDProgreso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDCita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaCita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.detalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDProgreso)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.IDCita }, new { @class = "fas fa-edit text-reset", @title = "Editar Catalogo" }) |
+                @Html.ActionLink(" ", "Detail", new { id = item.IDCita }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Catalogo" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.IDCita }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Catalogo" })
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+

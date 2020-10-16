@@ -1,0 +1,59 @@
+﻿@model TMC.DATA.TbCompras
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Información de la Compra</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDServicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDServicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioFinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(" Editar", "Edit", new { id = Model.IDCompra }, new { @class = "fas fa-edit text-muted", @title = "Editar Permiso" }) |
+    @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+</p>
+<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>

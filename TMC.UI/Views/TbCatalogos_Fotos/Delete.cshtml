@@ -1,0 +1,48 @@
+﻿@model TMC.DATA.TbCatalogos_TbFotos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Elimnar Catalogo de Foto</h2>
+
+<h3>Está seguro que desea eliminar este catalogo de fotos?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCatalogoFoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCatalogoFoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCatalogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCatalogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDFoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDFoto)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-dark" /> |
+    @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+</div>
+    }
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TMC.DATA.TbFotos>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registro de Fotos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDFoto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.foto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDFoto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.foto)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.IDFoto }, new { @class = "fas fa-edit text-reset", @title = "Editar Catalogo" }) |
+                @Html.ActionLink(" ", "Detail", new { id = item.IDFoto }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Catalogo" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.IDFoto }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Catalogo" })
+        </tr>
+    }
+
+</table>
+<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>

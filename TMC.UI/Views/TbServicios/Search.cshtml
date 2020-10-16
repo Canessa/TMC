@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TMC.DATA.TbServicios>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registro de Servicios</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.detalle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDCatalogo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDServicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.detalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDCatalogo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.IDServicio }, new { @class = "fas fa-edit text-reset", @title = "Editar Catalogo" }) |
+                @Html.ActionLink(" ", "Detail", new { id = item.IDServicio }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Catalogo" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.IDServicio }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Catalogo" })
+        </tr>
+    }
+
+</table>
+<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>

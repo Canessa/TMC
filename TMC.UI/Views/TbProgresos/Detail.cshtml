@@ -1,0 +1,35 @@
+﻿@model TMC.DATA.TbProgresos
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Información del Progreso</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDProgreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDProgreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.progreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.progreso)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(" Editar", "Edit", new { id = Model.IDProgreso }, new { @class = "fas fa-edit text-muted", @title = "Editar Permiso" }) |
+    @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+</p>
+<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>

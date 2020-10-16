@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TMC.DATA.TbProgresos>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registro de Progreso</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead class="thead-dark">
+        <
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDProgreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.progreso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDProgreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.progreso)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.IDProgreso }, new { @class = "fas fa-edit text-reset", @title = "Editar Catalogo" }) |
+                @Html.ActionLink(" ", "Detail", new { id = item.IDProgreso }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Catalogo" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.IDProgreso }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Catalogo" })
+        </tr>
+    }
+
+</table>
+<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+

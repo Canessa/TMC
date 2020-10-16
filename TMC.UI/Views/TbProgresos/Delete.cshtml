@@ -1,0 +1,41 @@
+﻿@model TMC.DATA.TbProgresos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Elimnar Foto</h2>
+
+<h3>Está seguro que desea eliminar esta foto?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDProgreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDProgreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.progreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.progreso)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-dark" /> |
+            @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+        </div>
+    }
+</div>
