@@ -8,37 +8,41 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
+
 <body>
-    <div class="container">
-        <h1><img src="~/Imgs/logo.png" style="height:5%; width:5%; margin-bottom:0.7%;" /> TU MAESTRO DE CEREMONIAS</h1>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">TMC</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Nosotros", "Nosotros", "Home", null, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Servicios", "Servicios", "Home", null, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
-        </nav>
-        <div class="card-body">
-            <br />
-            @RenderBody()
-            <hr />
-            <footer>
-                <div class="text-sm-center">
-                    <p class="bg-dark text-white">&copy; @DateTime.Now.Year - TU MAESTRO DE CEREMONIAS</p>
+    
+        <div class="container">
+            <h1><img src="~/Imgs/logo.png" style="height:5%; width:5%; margin-bottom:0.7%;" /> TU MAESTRO DE CEREMONIAS</h1>
+            <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">TMC</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Nosotros", "Nosotros", "Home", null, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Servicios", "Servicios", "Home", null, new { @class = "nav-link" })</li>
+                    </ul>
                 </div>
+            </nav>
+            <div class="card-body">
+                <br />
+                @RenderBody()
+                <hr />
+                <footer>
+                    <div class="text-sm-center">
+                        <p class="bg-dark text-white">&copy; @DateTime.Now.Year - TU MAESTRO DE CEREMONIAS</p>
+                    </div>
 
-            </footer>
+                </footer>
+            </div>
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
         </div>
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </div>
+    
 </body>
 </html>
