@@ -12,6 +12,16 @@ namespace TMC.UI.Controllers
         //Creacion de los metodos para las tablas de las FK
         IRolesBLL cRoles;
         IPermisosBLL cPermisos;
+
+        private void CargarListas()
+        {
+            //cargado en el View
+            var roles = cRoles.Mostrar();
+            ViewBag.ddlRoles = new SelectList(roles, "IDRol", "nombre");
+
+            var permisos = cPermisos.Mostrar();
+            ViewBag.ddlPermisos = new SelectList(permisos, "IDPermiso", "nombre");
+        }
         public TbRoles_TbPermisosController()
         {
             cRoles_Permisos = new MRoles_PermisosBLL();
@@ -31,13 +41,7 @@ namespace TMC.UI.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //cargado en el View
-            var roles = cRoles.Mostrar();
-            ViewBag.ddlRoles = new SelectList(roles, "IDRol","nombre");
-
-            var permisos = cPermisos.Mostrar();
-            ViewBag.ddlPermisos = new SelectList(permisos, "IDPermiso", "nombre");
-
+            CargarListas();
             return View();
         }
 
@@ -60,6 +64,7 @@ namespace TMC.UI.Controllers
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
+            CargarListas();
             return View();
         }
 
