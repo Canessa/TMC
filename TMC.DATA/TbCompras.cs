@@ -13,6 +13,6 @@ namespace TMC.DATA
         public int IDServicio { get; set; }
         public decimal precioFinal { get; set; }
         public DateTime fecha { get; set; }
-        public int estado { get; set; }
+        public bool estado { get; set; }
     }
 }

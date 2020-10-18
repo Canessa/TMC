@@ -13,6 +13,8 @@ namespace TMC.UI.Controllers
         IRolesBLL cRoles;
         IPermisosBLL cPermisos;
 
+
+        //Metodo de carga de los dropdown
         private void CargarListas()
         {
             //cargado en el View
@@ -56,7 +58,8 @@ namespace TMC.UI.Controllers
                 //Obtencion de datos de los DropDown
                 roles.IDRol = Convert.ToInt32(Request.Form["ddlRoles"]);
                 roles.IDPermiso = Convert.ToInt32(Request.Form["ddlPermisos"]);
-
+                
+                    
                 cRoles_Permisos.Insertar(roles);
                 ModelState.AddModelError(string.Empty, "Agregado");
             }

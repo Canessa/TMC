@@ -37,7 +37,7 @@ namespace TMC.DAL.Metodos
             try
             {
                 var busqueda= Buscar(idRolPermiso);
-                busqueda.estado = 0;
+                busqueda.estado = false;
                 Actualizar(busqueda);
             }
             catch { };

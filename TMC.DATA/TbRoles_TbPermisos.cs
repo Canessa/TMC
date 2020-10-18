@@ -11,6 +11,6 @@ namespace TMC.DATA
         public int IDRolPermiso { get; set; }
         public int IDRol { get; set; }
         public int IDPermiso { get; set; }
-        public int estado { get; set; }
+        public bool estado { get; set; }
     }
 }

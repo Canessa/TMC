@@ -16,6 +16,6 @@ namespace TMC.DATA
         public string correo { get; set; }
         public string contrasenna { get; set; }
         public int IDRol { get; set; }
-        public int estado { get; set; }
+        public bool estado { get; set; }
     }
 }

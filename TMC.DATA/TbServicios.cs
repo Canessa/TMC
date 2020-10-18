@@ -13,6 +13,6 @@ namespace TMC.DATA
         public string detalle { get; set; }
         public decimal precio { get; set; }
         public int IDCatalogo { get; set; }
-        public int estado { get; set; }
+        public bool estado { get; set; }
     }
 }
