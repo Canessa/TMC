@@ -1,10 +1,14 @@
-﻿@{
+﻿@model TMC.UI.Models.LoginViewModel
+@{
     ViewBag.Title = "Clientes";
 }
 
-    
-    <div class="wrapper"; style="color:black; background-color:#DD969C; opacity:0.8;border-radius:18px">
-        <!-- Sidebar -->
+
+<div class="wrapper" ; style="color:black; background-color:#DD969C; opacity:0.8;border-radius:18px">
+    <!-- Sidebar -->
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Acceso Clientes</h3>
@@ -13,33 +17,47 @@
             <ul class="list-unstyled components">
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"></a>
+
                     <div class="form-group">
-                        <label for="user" class="control-label col-md-2">Correo</label>
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            <input type="text" id="user" class="form-control">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="password" class="control-label col-md-2">Contraseña:</label>
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            <input type="text" id="password" class="form-control">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         </div>
                     </div>
-</li>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                            @*Cuando el sistema se publique se debe entrar https://www.google.com/recaptcha/admin/site/433645524
+                escoger el CAPTCHA TMC creado, copiar la clavede sitio y pegarla en data-sitekey, por ahora trabaja con local *@
+                            <div class="g-recaptcha" data-sitekey=6LfU59gZAAAAAOq5A7LXysm1oYzY_XbXoZWtpish></div>
+                        </div>
+
+                    </div>
+                </li>
                 <li>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Acceder" class="btn btn-outline-danger" />
 
                             @Html.ActionLink("Registrarse", "SignUp", "Usuario", null, new { @class = "btn btn-outline-danger" })
+                        <hr />
                         </div>
 
                     </div>
                 </li>
-
-
             </ul>
         </nav>
+    }
+</div>
 
-    </div>
-  
+

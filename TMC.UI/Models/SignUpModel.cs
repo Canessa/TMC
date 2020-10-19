@@ -24,5 +24,10 @@ namespace TMC.UI.Models
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = " Confirmar Contraseña")]
+        public string Conf_Password { get; set; }
     }
 }
