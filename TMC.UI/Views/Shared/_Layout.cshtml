@@ -1,12 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - TMC</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+  
 </head>
 
 
@@ -19,20 +20,19 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-
-                        <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Nosotros", "Nosotros", "Home", null, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Servicios", "Servicios", "Home", null, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Clientes", "Clientes", "Home", null, new { @class = "nav-link" })</li>
-                    </ul>
-                </div>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                                <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Nosotros", "Nosotros", "Home", null, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Servicios", "Servicios", "Home", null, new { @class = "nav-link" })</li>
+                                <li>@Html.ActionLink("Clientes", "Clientes", "Home", null, new { @class = "nav-link" })</li>
+                           </ul>         
+                </div>      
             </nav>
             <div class="card-body">
                 <br />
                 @RenderBody()
-                <hr />
+
                 <footer>
                     <div class="text-sm-center">
                         <p class="bg-dark text-white">&copy; @DateTime.Now.Year - TU MAESTRO DE CEREMONIAS</p>

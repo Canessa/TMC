@@ -1,0 +1,139 @@
+﻿
+.MainColor {
+    background-color: rgba(66, 64, 60,0.8);
+    position: relative;
+    top: -300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 20px;
+}
+
+
+
+@media all and (max-width: 2000px) {
+    .MainColor {
+        background-color: rgba(66, 64, 60,0.8);
+        position: relative;
+        top: -260px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        padding: 10px;
+        font-size-adjust: 0.58;
+    }
+}
+
+@media all and (max-width: 1700px) {
+    .MainColor {
+        background-color: rgba(66, 64, 60,0.8);
+        position: relative;
+        top: -220px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        padding: 10px;
+        font-size-adjust: 0.58;
+    }
+}
+
+@media all and (max-width: 900px) {
+    .MainColor {
+        background-color: rgba(66, 64, 60,0.8);
+        position: relative;
+        top: -180px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        padding: 10px;
+        font-size-adjust: 0.58;
+    }
+}
+
+
+@media all and (max-width: 550px) {
+    .MainColor {
+        background-color: rgba(66, 64, 60,0.8);
+        position: relative;
+        top: -100px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        padding: 10px;
+        font-size-adjust: 0.58;
+    }
+}
+
+
+@media all and (max-width: 260px) {
+    .MainColor {
+        background-color: rgba(66, 64, 60,0.8);
+        position: relative;
+        top: -10px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        padding: 10px;
+        font-size-adjust: 0.58;
+    }
+}
+
+
+
+.sidebar2 {
+    margin: 0;
+    padding: 0;
+    width: 35%;
+    background-color: #DD969C;
+    position: relative;
+    height: 100%;
+    overflow: auto;
+    border-radius: 18px;
+    float:left;
+}
+
+        .sidebar2 a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+            .sidebar2 a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            .sidebar2 a:hover:not(.active) {
+                background-color: #555;
+                color: white;
+            }
+
+    div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: 400px;
+    }
+
+    @media screen and (max-width: 700px) {
+        .sidebar2 {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+            .sidebar2 a {
+                float: left;
+            }
+
+        div.content {
+            margin-left: 0;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .sidebar2 a {
+            text-align: center;
+            float: none;
+        }
+    }
