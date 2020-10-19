@@ -511,6 +511,7 @@
     <Content Include="Views\TbServicios\Detail.cshtml" />
     <Content Include="Views\TbServicios\Edit.cshtml" />
     <Content Include="Views\TbServicios\Delete.cshtml" />
+    <Content Include="Views\Home\Clientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

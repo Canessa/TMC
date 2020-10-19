@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Clientes";
+}
+
+    
+    <div class="wrapper"; style="color:black; background-color:#DD969C; opacity:0.8;border-radius:18px">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Acceso Clientes</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"></a>
+                    <div class="form-group">
+                        <label for="user" class="control-label col-md-2">Correo</label>
+                        <div class="col-md-10">
+                            <input type="text" id="user" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label col-md-2">Contraseña:</label>
+                        <div class="col-md-10">
+                            <input type="text" id="password" class="form-control">
+                        </div>
+                    </div>
+</li>
+                <li>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Acceder" class="btn btn-outline-danger" />
+
+                            @Html.ActionLink("Registrarse", "SignUp", "Usuario", null, new { @class = "btn btn-outline-danger" })
+                        </div>
+
+                    </div>
+                </li>
+
+
+            </ul>
+        </nav>
+
+    </div>
+  

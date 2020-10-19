@@ -21,9 +21,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
+
                         <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Nosotros", "Nosotros", "Home", null, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Servicios", "Servicios", "Home", null, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Clientes", "Clientes", "Home", null, new { @class = "nav-link" })</li>
                     </ul>
                 </div>
             </nav>
@@ -43,6 +45,9 @@
             @Scripts.Render("~/bundles/bootstrap")
             @RenderSection("scripts", required: false)
         </div>
+
+
+
     
 </body>
 </html>
