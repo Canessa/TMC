@@ -68,7 +68,7 @@
     .MainColor {
         background-color: rgba(66, 64, 60,0.8);
         position: relative;
-        top: -10px;
+        top: -50px;
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
@@ -136,3 +136,24 @@
             float: none;
         }
     }
+
+
+
+.Userphoto {
+    margin: 0;
+    padding: 2%;
+    width: 30%;
+    position: relative;
+    background: #ff7b29;
+    border-radius: 50%;
+}
+
+
+.botonimagen {
+    background-image: url(../../Imgs/logo.png);
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 2%;
+    width: 30%;
+    background-position: center;
+}

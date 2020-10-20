@@ -57,5 +57,11 @@ namespace TMC.UI.Controllers
         }
 
 
+
+
+        public new ActionResult Profile()
+        {
+            return View();
+        }
     }
 }
