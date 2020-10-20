@@ -14,12 +14,15 @@ namespace TMC.BLL.Metodos
     {
         public void Actualizar(TbUsuarios usuario)
         {
+            usuario.contrasenna = Encriptar(usuario.contrasenna);
             vUsuarios.Actualizar(usuario);
         }
 
         public TbUsuarios Buscar(int idUsuario)
         {
-            return vUsuarios.Buscar(idUsuario);
+            TbUsuarios busqueda = vUsuarios.Buscar(idUsuario);
+            busqueda.contrasenna = Decriptar(busqueda.contrasenna);
+            return busqueda;
         }
 
         public int Desactivar(int idUsuario)
@@ -57,7 +60,8 @@ namespace TMC.BLL.Metodos
 
         public void Insertar(TbUsuarios usuario)
         {
-              vUsuarios.Insertar(usuario);
+            usuario.contrasenna = Encriptar(usuario.contrasenna);
+            vUsuarios.Insertar(usuario);
         }
 
         public List<TbUsuarios> Mostrar()
