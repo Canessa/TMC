@@ -14,7 +14,7 @@
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-group" style="display:none">
             @Html.LabelFor(model => model.IDCita, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.IDCita, new { htmlAttributes = new { @class = "form-control" } })
@@ -33,7 +33,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IDUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IDUsuario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.IDUsuario, (IEnumerable<SelectListItem>)ViewBag.ddlUsuarios, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IDUsuario, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IDProgreso, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IDProgreso, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.IDProgreso, (IEnumerable<SelectListItem>)ViewBag.ddlProgresos, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IDProgreso, "", new { @class = "text-danger" })
             </div>
         </div>
