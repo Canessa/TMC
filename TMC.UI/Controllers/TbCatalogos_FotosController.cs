@@ -1,5 +1,5 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using TMC.BLL.Interfaces;
 using TMC.BLL.Metodos;
@@ -10,10 +10,38 @@ namespace TMC.UI.Controllers
     public class TbCatalogos_FotosController : Controller
     {
         ICatalogos_FotosBLL cCatalogo_Fotos;
+        //Creacion de los metodos para las tablas de las FK
+        ICatalogosBLL cCatalogos;
+        IFotosBLL cFotos;
         public TbCatalogos_FotosController()
         {
             cCatalogo_Fotos = new MCatalogos_FotosBLL();
+            //Construccion de los metodos para las tablas de las FK
+            cCatalogos = new MCatalogosBLL();
+            cFotos = new MFotosBLL();
         }
+
+        //Metodo de carga de los dropdown
+        private void CargarListas()
+        {
+            //cargado en el View
+            List<TbCatalogos> catalogos = cCatalogos.Mostrar();
+            if (catalogos == null)
+            {
+                catalogos[0].IDCatalogo = 0;
+                catalogos[0].detalle = "No hay catálogos disponibles";
+            }
+            ViewBag.ddlCatalogos = new SelectList(catalogos, "IDCatalogo", "detalle");
+
+            List<TbFotos> fotos = cFotos.Mostrar();
+            if (fotos == null)
+            {
+                fotos[0].IDFoto = 0;
+                fotos[0].foto = "No hay fotos disponibles";
+            }
+            ViewBag.ddlFotos = new SelectList(fotos, "IDFoto", "foto");
+        }
+
         [HttpGet]
         public ActionResult Search()
         {
@@ -25,6 +53,7 @@ namespace TMC.UI.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            CargarListas();
             return View();
         }
 
@@ -34,6 +63,20 @@ namespace TMC.UI.Controllers
         {
             try
             {
+                if (catalogos_TbFotos.IDCatalogo == 0)
+                {
+                    ModelState.AddModelError(string.Empty, "Debe ingresar un catálogo primero");
+                    CargarListas();
+                    return View();
+                }
+
+                if (catalogos_TbFotos.IDFoto == 0)
+                {
+                    ModelState.AddModelError(string.Empty, "Debe ingresar una foto primero");
+                    CargarListas();
+                    return View();
+                }
+
                 cCatalogo_Fotos.Insertar(catalogos_TbFotos);
                 ModelState.AddModelError(string.Empty, "Catalogo de Fotos Agregado");
             }
@@ -41,6 +84,7 @@ namespace TMC.UI.Controllers
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
+            CargarListas();
             return View();
         }
 
@@ -55,12 +99,27 @@ namespace TMC.UI.Controllers
         public ActionResult Edit(int id)
         {
             var data = cCatalogo_Fotos.Buscar(id);
+            CargarListas();
             return View(data);
         }
 
         [HttpPost]
         public ActionResult Edit(TbCatalogos_TbFotos catalogos_TbFotos)
         {
+            if (catalogos_TbFotos.IDCatalogo == 0)
+            {
+                ModelState.AddModelError(string.Empty, "Debe ingresar un catálogo primero");
+                CargarListas();
+                return View();
+            }
+
+            if (catalogos_TbFotos.IDFoto == 0)
+            {
+                ModelState.AddModelError(string.Empty, "Debe ingresar una foto primero");
+                CargarListas();
+                return View();
+            }
+
             cCatalogo_Fotos.Actualizar(catalogos_TbFotos);
             return RedirectToAction("Search");
         }

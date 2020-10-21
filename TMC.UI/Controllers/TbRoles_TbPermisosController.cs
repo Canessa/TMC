@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using TMC.BLL.Interfaces;
 using TMC.BLL.Metodos;
@@ -18,10 +19,20 @@ namespace TMC.UI.Controllers
         private void CargarListas()
         {
             //cargado en el View
-            var roles = cRoles.Mostrar();
+            List<TbRoles> roles = cRoles.Mostrar();
+            if (roles == null)
+            {
+                roles[0].IDRol = 0;
+                roles[0].nombre = "No hay roles disponibles";
+            }
             ViewBag.ddlRoles = new SelectList(roles, "IDRol", "nombre");
 
-            var permisos = cPermisos.Mostrar();
+            List<TbPermisos> permisos = cPermisos.Mostrar();
+            if (permisos == null)
+            {
+                permisos[0].IDPermiso = 0;
+                permisos[0].nombre = "No hay permisos disponibles";
+            }
             ViewBag.ddlPermisos = new SelectList(permisos, "IDPermiso", "nombre");
         }
         public TbRoles_TbPermisosController()
@@ -55,11 +66,22 @@ namespace TMC.UI.Controllers
         {
             try
             {
-                //Obtencion de datos de los DropDown
-                roles.IDRol = Convert.ToInt32(Request.Form["ddlRoles"]);
-                roles.IDPermiso = Convert.ToInt32(Request.Form["ddlPermisos"]);
-                
-                    
+                //Obtencion de datos de los DropDown                
+                if (roles.IDRol == 0)
+                {
+                    ModelState.AddModelError(string.Empty, "Debe ingresar un rol primero");
+                    CargarListas();
+                    return View();
+                }
+                                
+                if (roles.IDPermiso == 0)
+                {
+                    ModelState.AddModelError(string.Empty, "Debe ingresar un permiso primero");
+                    CargarListas();
+                    return View();
+                }
+
+
                 cRoles_Permisos.Insertar(roles);
                 ModelState.AddModelError(string.Empty, "Agregado");
             }
@@ -82,12 +104,28 @@ namespace TMC.UI.Controllers
         public ActionResult Edit(int id)
         {
             var data = cRoles_Permisos.Buscar(id);
+            CargarListas();
             return View(data);
         }
 
         [HttpPost]
         public ActionResult Edit(TbRoles_TbPermisos roles)
         {
+            //Obtencion de datos de los DropDown            
+            if (roles.IDRol == 0)
+            {
+                ModelState.AddModelError(string.Empty, "Debe ingresar un rol primero");
+                CargarListas();
+                return View();
+            }
+
+            if (roles.IDPermiso == 0)
+            {
+                ModelState.AddModelError(string.Empty, "Debe ingresar un permiso primero");
+                CargarListas();
+                return View();
+            }
+
             cRoles_Permisos.Actualizar(roles);
             return RedirectToAction("Search");
         }
