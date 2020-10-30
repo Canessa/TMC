@@ -8,6 +8,7 @@ namespace TMC.DATA
 {
     public class TbCatalogos
     {
+
         [Display(Name = "Identificador del Catalogo")]
         public int IDCatalogo { get; set; }
         [Display(Name = "Identificador del Catalogo")]
