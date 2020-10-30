@@ -10,7 +10,7 @@ using FireSharp.Response;
 using Newtonsoft.Json;
 
 namespace TMC.DAL.Metodos
-{
+
     public class MComprasDAL : PrincipalBD, IComprasDAL
     {
         
