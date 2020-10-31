@@ -515,6 +515,7 @@
     <Content Include="Views\Home\Clientes.cshtml" />
     <Content Include="Imgs\User.jpg" />
     <Content Include="Views\Usuario\Profile.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

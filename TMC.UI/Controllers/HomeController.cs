@@ -29,5 +29,14 @@ namespace TMC.UI.Controllers
         {
             return View();
         }
+
+        public ActionResult Blog()
+        {
+
+            return View();
+
+        }
+
+
     }
 }
