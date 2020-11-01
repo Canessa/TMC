@@ -205,6 +205,7 @@
     <Compile Include="Interfaces\IRolesDAL.cs" />
     <Compile Include="Interfaces\IRoles_PermisosDAL.cs" />
     <Compile Include="Interfaces\IServiciosDAL.cs" />
+    <Compile Include="Interfaces\ITestimoniosDAL.cs" />
     <Compile Include="Interfaces\IUsuariosDAL.cs" />
     <Compile Include="Metodos\MCatalogosDAL.cs" />
     <Compile Include="Metodos\MCatalogos_FotosDAL.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="Metodos\MRolesDAL.cs" />
     <Compile Include="Metodos\MRoles_PermisosDAL.cs" />
     <Compile Include="Metodos\MServiciosDAL.cs" />
+    <Compile Include="Metodos\MTestimoniosDAL.cs" />
     <Compile Include="Metodos\MUsuariosDAL.cs" />
     <Compile Include="Metodos\PrincipalBD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

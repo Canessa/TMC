@@ -207,6 +207,7 @@
     <Compile Include="Interfaces\IRolesBLL.cs" />
     <Compile Include="Interfaces\IRoles_PermisosBLL.cs" />
     <Compile Include="Interfaces\IServiciosBLL.cs" />
+    <Compile Include="Interfaces\ITestimoniosBLL.cs" />
     <Compile Include="Interfaces\IUsuariosBLL.cs" />
     <Compile Include="Metodos\MBase.cs" />
     <Compile Include="Metodos\MCatalogosBLL.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Metodos\MRolesBLL.cs" />
     <Compile Include="Metodos\MRoles_PermisosBLL.cs" />
     <Compile Include="Metodos\MServiciosBLL.cs" />
+    <Compile Include="Metodos\MTestimoniosBLL.cs" />
     <Compile Include="Metodos\MUsuariosBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

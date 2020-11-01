@@ -24,6 +24,7 @@ namespace TMC.BLL.Metodos
         public TMC.DAL.Interfaces.IOcupacionesDAL vOcupaciones;
         public TMC.DAL.Interfaces.IEmpleadosDAL vEmpleados;
         public TMC.DAL.Interfaces.INotificacionesDAL vNotificaciones;
+        public TMC.DAL.Interfaces.ITestimoniosDAL vTestimonios;
 
         public static string Llave = "jskruwiqhendmsud";
 
@@ -45,6 +46,7 @@ namespace TMC.BLL.Metodos
             vOcupaciones = new TMC.DAL.Metodos.MOcupacionesDAL();
             vEmpleados = new TMC.DAL.Metodos.MEmpleadosDAL();
             vNotificaciones = new TMC.DAL.Metodos.MNotificacionesDAL();
+            vTestimonios = new TMC.DAL.Metodos.MTestimoniosDAL();
         }
 
         public static string Decriptar(string contra)

@@ -237,6 +237,7 @@
     <Compile Include="TbRoles.cs" />
     <Compile Include="TbRoles_TbPermisos.cs" />
     <Compile Include="TbServicios.cs" />
+    <Compile Include="TbTestimonios.cs" />
     <Compile Include="TbUsuarios.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -17,5 +17,6 @@ namespace TMC.DATA
         public string contrasenna { get; set; }
         public int IDRol { get; set; }
         public bool estado { get; set; }
+        public string foto { get; set; }
     }
 }
