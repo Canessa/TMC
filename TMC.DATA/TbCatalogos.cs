@@ -1,4 +1,4 @@
-﻿using ServiceStack.DataAnnotations;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +11,7 @@ namespace TMC.DATA
 
         [Display(Name = "Identificador del Catalogo")]
         public int IDCatalogo { get; set; }
-        [Display(Name = "Identificador del Catalogo")]
+        [Display(Name = "Detalles del Catalogo")]
         public string detalle { get; set; }
     }
 }
