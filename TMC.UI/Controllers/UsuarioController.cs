@@ -63,5 +63,12 @@ namespace TMC.UI.Controllers
         {
             return View();
         }
+
+        public ActionResult Admin_Users()
+        {
+
+            return View();
+
+        }
     }
 }
