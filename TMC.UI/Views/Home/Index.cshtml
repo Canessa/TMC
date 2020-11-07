@@ -1,28 +1,36 @@
 ﻿@{
     ViewBag.Title = "Inicio";
 }
+
 @*Imagen Principal*@
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Inicio</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
 <div class="form-horizontal">
-   
+
     <div class="form-group">
-        
-            <div style="text-align:center; position:relative; margin-top:-40px;">
 
-                <img src="~/Imgs/index_1.jpg" style="width:100%;" />
+        <div style="text-align:center; position:relative; margin-top:-15px;">
 
-                <div class="MainColor">
-                    
-                    <h3>TU MAESTRO DE CEREMONIAS</h3>
-                    <h6>Más que una boda, una experiencia de vida</h6>
+            <img src="~/Imgs/index_1.jpg" style="width:100%;" />
 
-                </div>
-           
+            <div class="MainColor">
+
+                <h3>TU MAESTRO DE CEREMONIAS</h3>
+                <h6>Más que una boda, una experiencia de vida</h6>
+
+            </div>
+
         </div>
     </div>
 </div>
 
-    @*Carousel de Servicios*@
+@*Carousel de Servicios*@
 <div class="container" style="margin-top:-80px">
     <div id="carouselServicios" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
