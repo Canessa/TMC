@@ -13,7 +13,7 @@
 
 <body>
     
-        <div class="container">
+
             <h1><img src="~/Imgs/logo.png" style="height:5%; width:5%; margin-bottom:0.7%;" /> TU MAESTRO DE CEREMONIAS</h1>
             <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">TMC</a>
@@ -22,12 +22,12 @@
                 </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
-                                <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("Nosotros", "Nosotros", "Home", null, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("Servicios", "Servicios", "Home", null, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("Clientes", "Clientes", "Home", null, new { @class = "nav-link" })</li>
-                                <li>@Html.ActionLink("Blog","Blog","Home",null,new { @class ="nav-link" })</li>
-                           </ul>         
+                            <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Nosotros", "Nosotros", "Home", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Servicios", "Servicios", "Home", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Blog", "Blog", "Home", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Iniciar Sesión", "Clientes", "Home", null, new { @class = "nav-link" })</li>
+                        </ul>         
                 </div>      
             </nav>
             <div class="card-body">
@@ -45,7 +45,7 @@
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap")
             @RenderSection("scripts", required: false)
-        </div>
+       
 
 
 

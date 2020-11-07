@@ -512,7 +512,9 @@
     <Content Include="Views\TbServicios\Detail.cshtml" />
     <Content Include="Views\TbServicios\Edit.cshtml" />
     <Content Include="Views\TbServicios\Delete.cshtml" />
-    <Content Include="Views\Home\Clientes.cshtml" />
+    <Content Include="Views\Home\Clientes.cshtml">
+      <BrowseToURL>~/Home/Clientes</BrowseToURL>
+    </Content>
     <Content Include="Imgs\User.jpg" />
     <Content Include="Views\Usuario\Profile.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
