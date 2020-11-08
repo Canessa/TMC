@@ -76,5 +76,13 @@ namespace TMC.UI.Controllers
             cRoles.Eliminar(id);
             return RedirectToAction("Search");
         }
+
+
+        public ActionResult Admin_Roles()
+        {
+
+            return View();
+
+        }
     }
 }

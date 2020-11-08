@@ -12,7 +12,7 @@ namespace TMC.DATA
         [Display(Name = "Nombre del Rol")]
         public string nombre { get; set; }
 
-        [Display(Name = "Detalles sobre el error")]
+        [Display(Name = "Detalles sobre el Rol")]
         public string detalle { get; set; }
     }
 }

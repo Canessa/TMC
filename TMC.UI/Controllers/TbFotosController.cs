@@ -75,5 +75,13 @@ namespace TMC.UI.Controllers
             cFotos.Eliminar(id);
             return RedirectToAction("Search");
         }
+
+
+        public ActionResult Admin_Fotos()
+        {
+
+            return View();
+
+        }
     }
 }

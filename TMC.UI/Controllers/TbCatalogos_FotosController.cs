@@ -130,5 +130,12 @@ namespace TMC.UI.Controllers
             cCatalogo_Fotos.Eliminar(id);
             return RedirectToAction("Search");
         }
+
+        public ActionResult Admin_Catalogos_Fotos()
+        {
+
+            return View();
+
+        }
     }
 }

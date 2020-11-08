@@ -522,6 +522,12 @@
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Usuario\Admin_Users.cshtml" />
     <Content Include="Views\TbServicios\Admin_Servicios.cshtml" />
+    <Content Include="Views\TbPermisos\Admin_Permisos.cshtml" />
+    <Content Include="Views\TbCatalogos\Admin_Catalogos.cshtml" />
+    <Content Include="Views\TbCatalogos_Fotos\Admin_Catalogos_Fotos.cshtml" />
+    <Content Include="Views\TbFotos\Admin_Fotos.cshtml" />
+    <Content Include="Views\TbRoles\Admin_Roles.cshtml" />
+    <Content Include="Views\TbRoles_TbPermisos\Admin_Roles_Permisos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

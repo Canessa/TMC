@@ -136,5 +136,12 @@ namespace TMC.UI.Controllers
             cRoles_Permisos.Desactivar(id);
             return RedirectToAction("Search");
         }
+
+        public ActionResult Admin_Roles_Permisos()
+        {
+
+            return View();
+
+        }
     }
 }

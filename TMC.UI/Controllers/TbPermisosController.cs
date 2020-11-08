@@ -76,5 +76,13 @@ namespace TMC.UI.Controllers
             cpermisos.Eliminar(id);
             return RedirectToAction("Search");
         }
+
+
+        public ActionResult Admin_Permisos()
+        {
+
+            return View();
+
+        }
     }
 }

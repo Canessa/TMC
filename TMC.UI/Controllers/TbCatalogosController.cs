@@ -74,5 +74,12 @@ namespace TMC.UI.Controllers
             cCatalogo.Eliminar(id);
             return RedirectToAction("Search");
         }
+
+        public ActionResult Admin_Catalogos()
+        {
+
+            return View();
+
+        }
     }
 }

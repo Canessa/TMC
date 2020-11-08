@@ -1,13 +1,13 @@
-﻿@model TMC.DATA.TbServicios
+﻿@model TMC.DATA.TbRoles_TbPermisos
 
 @{
-    ViewBag.Title = "Administrar Servicios";
+    ViewBag.Title = "Administrar Permisos de roles";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <head>
 
-    <title>Tabla Administrador de servicios </title>
+    <title>Tabla Administrador de permisos de roles </title>
 
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
@@ -23,10 +23,10 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-xs-5">
-                            <h2>Administrar <b>Servicios</b></h2>
+                            <h2>Administrar <b>Permisos de Roles</b></h2>
                         </div>
                         <div class="col-xs-7">
-                            <a href="~/Views/TbServicios/Create.cshtml" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Agregar Nuevo Servicio</span></a>
+                            <a href="~/Views/TbRoles_TbPermisos/Create.cshtml" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Agregar Nuevo permiso de rol</span></a>
                             <a href="#" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Exportar a excel</span></a>
                         </div>
                     </div>
@@ -35,36 +35,35 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>ID Catalogo</th>
+                            <th>ID Rol</th>
+                            <th>ID Permiso</th>
                             <th>Estado</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            @*<td>  @Html.LabelFor(model => model.IDServicio, htmlAttributes: new { @class = "control-label col-md-2" })</td>*@
-                            <td>  @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td>  @Html.LabelFor(model => model.precio, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td>  @Html.LabelFor(model => model.IDCatalogo, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                            @*<td>  @Html.LabelFor(model => model.IDRolPermiso, htmlAttributes: new { @class = "control-label col-md-2" })</td>*@
+                            <td>  @Html.LabelFor(model => model.IDRol, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                            <td>  @Html.LabelFor(model => model.IDPermiso, htmlAttributes: new { @class = "control-label col-md-2" })</td>
                             <td>  @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })</td>
                             <td>
-                                <a href="~/Views/TbServicios/Edit.cshtml" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
-                                <a href="~/Views/TbServicios/Delete.cshtml" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                <a href="~/Views/TbRoles_TbPermisos/Edit.cshtml" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
+                                <a href="~/Views/TbRoles_TbPermisos/Delete.cshtml" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                             </td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            @*<td>  @Html.LabelFor(model => model.IDServicio, htmlAttributes: new { @class = "control-label col-md-2" })</td>*@
-                            <td>  @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td>  @Html.LabelFor(model => model.precio, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td>  @Html.LabelFor(model => model.IDCatalogo, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                            @*<td>  @Html.LabelFor(model => model.IDRolPermiso, htmlAttributes: new { @class = "control-label col-md-2" })</td>*@
+                            <td>  @Html.LabelFor(model => model.IDRol, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                            <td>  @Html.LabelFor(model => model.IDPermiso, htmlAttributes: new { @class = "control-label col-md-2" })</td>
                             <td>  @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })</td>
                             <td>
-                                <a href="~/Views/TbServicios/Edit.cshtml" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
-                                <a href="~/Views/TbServicios/Delete.cshtml" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                <a href="~/Views/TbRoles_TbPermisos/Edit.cshtml" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
+                                <a href="~/Views/TbRoles_TbPermisos/Delete.cshtml" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                             </td>
+
                         </tr>
 
                     </tbody>
