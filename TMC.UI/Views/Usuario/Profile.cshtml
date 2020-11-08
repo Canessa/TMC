@@ -7,18 +7,14 @@
 }
 
 <head>
-
     <title>Perfil de usuario </title>
-
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
-
 </head>
 
 
 <div>
     <div class="container">
         <div class="main-body">
-
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb" class="main-breadcrumb">
                 <ol class="breadcrumb">
@@ -38,8 +34,7 @@
                                     <p class="text-secondary mb-1">Cliente</p>
                                     <p class="text-muted font-size-sm">Costa Rica, San Jose, DS</p>
                                     @*Botones clientes*@
-                                    <button class="btn btn-outline-btn">Información</button>
-                                    @* @Html.ActionLink("Información", "EditProfile", "Usuario", null, new { @class = "btn btn-outline-danger" })*@
+                                     @Html.ActionLink("Información", "EditProfile", "Usuario", null, new { @class = "btn btn-outline-btn" })
                                     <br>
                                     <button class="btn btn-outline-btn">Compras</button>
                                     <br>

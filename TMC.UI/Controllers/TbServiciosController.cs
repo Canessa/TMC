@@ -103,5 +103,13 @@ namespace TMC.UI.Controllers
             cServicios.Desactivar(id);
             return RedirectToAction("Search");
         }
+
+
+        public ActionResult Admin_Servicios()
+        {
+
+            return View();
+
+        }
     }
 }

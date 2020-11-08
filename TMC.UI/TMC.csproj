@@ -521,6 +521,7 @@
     <Content Include="Views\Usuario\Profile.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Usuario\Admin_Users.cshtml" />
+    <Content Include="Views\TbServicios\Admin_Servicios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
