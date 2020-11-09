@@ -9,16 +9,41 @@
     <title>Tabla Administrador de usuarios </title>
 
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
+
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });</script>
+
+
+
+
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">Administrar Usuarios</li>
+       
+
     </ol>
 </nav>
 <!-- /Breadcrumb -->
@@ -28,15 +53,56 @@
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-xs-5">
-                            <h2>Administrar <b>Usuario</b></h2>
+                        <div class="align-content-lg-start">
+
+
+                            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                                <i class="material-icons">arrow_drop_down</i>
+                                <span>Administrar Usuario</span>
+                                @* <h2 class="navbar-text">Administrar <b>Usuario</b></h2>*@
+                            </button>
+                            @* <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>*@
+
+
                         </div>
-                        <div class="col-xs-7">
+                        <div class="align-content-md-end">
+
                             <a href="~/Views/Usuario/SignUp.cshtml" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Agregar Nuevo Usuario</span></a>
                             <a href="" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Exportar a excel</span></a>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
+                <div class="wrapper">
+                    <!-- Sidebar -->
+                    <nav id="sidebar" class="position-absolute">
+                        @*<div class="sidebar-header">
+                    <h3>Bootstrap Sidebar</h3>
+                </div>*@
+
+                        <ul class="list-unstyled components">
+                            <li>
+                                
+                                @Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "dropdown-toggle" })
+
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                </div>
+
+
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -61,11 +127,11 @@
                             <td><a href="#"><img src="~/Imgs/logo.png" class="avatar" alt="Avatar"> Paula Wilson</a></td>
                             <td>Cliente</td>
                             @*<td><span class="status text-success">&bull;</span> Active</td>*@
-                        <td>
-                            
-                            <a href="#" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
-                            <a href="#" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                        </td>
+                            <td>
+
+                                <a href="#" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
+                                <a href="#" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            </td>
                         </tr>
 
                     </tbody>
