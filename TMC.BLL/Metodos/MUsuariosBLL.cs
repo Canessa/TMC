@@ -18,6 +18,11 @@ namespace TMC.BLL.Metodos
             vUsuarios.Actualizar(usuario);
         }
 
+        public int ObtenerId(string email)
+        {
+            return vUsuarios.ObtenerId(email);
+        }
+
         public TbUsuarios Buscar(int idUsuario)
         {
             TbUsuarios busqueda = vUsuarios.Buscar(idUsuario);

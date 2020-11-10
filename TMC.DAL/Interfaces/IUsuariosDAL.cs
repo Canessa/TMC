@@ -11,6 +11,8 @@ namespace TMC.DAL.Interfaces
     {
         //Insert del registro en la DB
         void Insertar(TbUsuarios usuario);
+        //Obtiene el rol del usuario 
+        int ObtenerId(string email);
         //Update registro en la DB
         void Actualizar(TbUsuarios usuario);
         //Desactivar usuario cambiando estado
@@ -19,6 +21,5 @@ namespace TMC.DAL.Interfaces
         List<TbUsuarios> Mostrar();
         //Busca un registro especifico
         TbUsuarios Buscar(int idUsuario);
-
     }
 }

@@ -30,6 +30,23 @@ namespace TMC.DAL.Metodos
             return valor;
         }
 
+        public int ObtenerId(string email)
+        {
+            var response = client.Get("TbUsuario");
+            int id = 0;
+            TbUsuarios[] tabla = { };
+            tabla = JsonConvert.DeserializeObject<TbUsuarios[]>(response.Body);
+            foreach (var usuario in tabla)
+            {
+                if (usuario != null && usuario.correo == email)
+                {
+                    id = usuario.IDRol;
+                    break;
+                }
+            }
+            return id;
+        }
+
 
         public  void Desactivar(int idUsuario)
         {

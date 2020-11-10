@@ -14,7 +14,7 @@ namespace TMC.UI
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
-                LogoutPath = new PathString("/Account/LogOff"),
+                LogoutPath = new PathString("/Usuario/LogOff"),
                 ExpireTimeSpan = TimeSpan.FromMinutes(30.0)
             });
         }
