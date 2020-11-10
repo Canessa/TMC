@@ -11,6 +11,7 @@ namespace TMC.DATA
         public int IDProgreso { get; set; }
 
         [Display(Name = "Progreso")]
+        [Required(ErrorMessage = "Descripción del progreso requerido")]
         public string progreso { get; set; }
     }
 }

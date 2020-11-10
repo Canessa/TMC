@@ -12,6 +12,7 @@ namespace TMC.DATA
         public int IDOcupacion { get; set; }
 
         [Display(Name = "Nombre de la ocupación")]
+        [Required(ErrorMessage = "Nombre de la ocupación requerida")]
         public string nombre { get; set; }
     }
 }

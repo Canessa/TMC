@@ -14,6 +14,7 @@ namespace TMC.DATA
         [Display(Name = "Selección del usuario")]
         public int IDUsuario { get; set; }
 
+        [Required(ErrorMessage = "Testimonio requerido")]
         [Display(Name = "Testimonio del usuario")]
         public string testimonio { get; set; }
     }

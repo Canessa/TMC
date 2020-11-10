@@ -9,12 +9,15 @@ namespace TMC.DATA
     {
         public int IDServicio { get; set; }
 
+        [Required(ErrorMessage = "Nombre del servicio requerido")]
         [Display(Name = "Nombre del servicio")]
         public string nombre { get; set; }
 
+        [Required(ErrorMessage = "Detalles del servicio requeridos")]
         [Display(Name = "Detalles sobre el servicio")]
         public string detalle { get; set; }
 
+        [Required(ErrorMessage = "Precio del servicio requerido")]
         [Display(Name = "Precio del serivicio")]
         public decimal precio { get; set; }
 
