@@ -12,9 +12,11 @@ namespace TMC.DATA
         public int IDEmpleado { get; set; }
 
         [Display(Name = "Nombre de empleado")]
+        [Required(ErrorMessage = "Nombre del empleado requerido")]
         public string nombre { get; set; }
 
         [Display(Name = "Foto del empleado")]
+        [Required(ErrorMessage = "Foto del empleado requerida")]
         public string foto { get; set; }
 
         [Display(Name = "Selección de ocupación")]
