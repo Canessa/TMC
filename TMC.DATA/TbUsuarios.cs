@@ -32,6 +32,7 @@ namespace TMC.DATA
         [Display(Name = "Correo de usuario")]
         [Required(ErrorMessage = "Correo electrónico requerido")]
         [StringLength(256, ErrorMessage = "Máximo 256 caracteres")]
+        [EmailAddress(ErrorMessage = "Correo no válido")]
         public string correo { get; set; }
 
         [Display(Name = "Contraseña del usuario")]

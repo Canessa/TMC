@@ -16,11 +16,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 
 
-
-
-    
-
-
 </head>
 
 <!-- Breadcrumb -->
@@ -35,30 +30,40 @@
 <body id="estiloAdmin">
     <div class="container">
         <div class="table-responsive">
-            <div class="pos-f-t">
-                <div class="collapse" id="navbarToggleExternalContent">
-                    <div style="border-radius:15px" class="bg-light p-1">
-                        @Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios")
-                        <hr />
-                        <a href="#">About</a>
-                       
-                    </div>
-                </div>
-                <nav class="navbar navbar-light bg-light">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="material-icons">
-                            arrow_upward
-                        </span>
-                    </button>
-                </nav>
-            </div>
+          
+
+
             <div class="table-wrapper">
 
                 <div class="table-title">
                     <div class="row">
 
+                        <div>
+                            <div class="collapse" id="navbarToggleExternalContent">
 
+                                <ul class="navbar-nav">
+                                    <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Fotos", "Admin_Fotos", "TbFotos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Catalogos Fotos", "Admin_Catalogos_Fotos", "TbCatalogos_Fotos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Permisos", "Admin_Permisos", "TbPermisos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Permisos de Roles", "Admin_Roles_Permisos", "TbRoles_TbPermisos", null, new { @class = "nav-link" })</li>
+                                    
+                                    <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
+                                </ul>
+                               
+                            </div>
+                            <nav>
 
+                                <button class="navbar-toggler, btn btn-primary" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="material-icons">
+                                        arrow_drop_down
+                                    </span>
+                                    <i style="font-size:15px"> Administrar Usuarios</i>
+                                </button>
+                            </nav>
+
+                        </div>
 
                         <div>
                             <a href="~/Views/Usuario/SignUp.cshtml" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Agregar Nuevo Usuario</span></a>

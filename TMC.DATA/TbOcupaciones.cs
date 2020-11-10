@@ -12,6 +12,8 @@ namespace TMC.DATA
         public int IDOcupacion { get; set; }
 
         [Display(Name = "Nombre de la ocupación")]
+        [Required(ErrorMessage = "Nombre de la ocupación requerida")]
+        [StringLength(50, ErrorMessage = "Máximo 50 caracteres")]
         public string nombre { get; set; }
     }
 }
