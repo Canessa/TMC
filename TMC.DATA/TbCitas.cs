@@ -1,5 +1,4 @@
-﻿using ServiceStack.DataAnnotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -18,12 +17,14 @@ namespace TMC.DATA
         public int IDUsuario { get; set; }
 
         [Display(Name = "Detalles de la cita")]
+        [StringLength(256, ErrorMessage = "Máximo 256 caracteres")]
         public string detalle { get; set; }
 
         [Display(Name = "Identificador del progreso")]
         public int IDProgreso { get; set; }
 
         [Display(Name = "Lugar donde se realizara el evento")]
+        [StringLength(50, ErrorMessage = "Máximo 50 caracteres")]
         public string lugar { get; set; }
     }
 }

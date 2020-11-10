@@ -16,6 +16,7 @@ namespace TMC.DATA
 
         [Required(ErrorMessage = "Testimonio requerido")]
         [Display(Name = "Testimonio del usuario")]
+        [StringLength(100, ErrorMessage = "Máximo 100 caracteres")]
         public string testimonio { get; set; }
     }
 }
