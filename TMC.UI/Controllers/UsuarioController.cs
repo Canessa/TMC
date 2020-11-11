@@ -87,7 +87,7 @@ namespace TMC.UI.Controllers
                         } else if (rol == 2)
                         {
                             this.SignInUser(user.Email, token, false);
-                            return this.RedirectToIndex("Index", "Home");
+                            return this.RedirectToIndex("Profile", "Usuario");
                         }
                         
                     }
