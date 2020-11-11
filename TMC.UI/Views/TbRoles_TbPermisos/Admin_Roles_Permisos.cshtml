@@ -24,14 +24,45 @@
     <div class="container">
         <div class="table-responsive">
             <div class="table-wrapper">
+
+
+
+
+
+
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-xs-5">
-                            <h2>Administrar <b>Permisos de Roles</b></h2>
+
+                        <div>
+                            <div class="collapse" id="navbarToggleExternalContent">
+
+                                <ul class="navbar-nav">
+                                    <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Fotos", "Admin_Fotos", "TbFotos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Catalogos Fotos", "Admin_Catalogos_Fotos", "TbCatalogos_Fotos", null, new { @class = "nav-link" })</li>
+                                    
+                                   <li>@Html.ActionLink("Administrar Permisos", "Admin_Permisos", "TbPermisos", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
+                                    <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "Usuario", null, new { @class = "nav-link" })</li>
+                                </ul>
+
+                            </div>
+                            <nav>
+
+                                <button class="navbar-toggler, btn btn-primary" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="material-icons">
+                                        arrow_drop_down
+                                    </span>
+                                    <i style="font-size:15px"> Administrador de Permisos de Roles</i>
+                                </button>
+                            </nav>
+
                         </div>
-                        <div class="col-xs-7">
-                            <a href="~/Views/TbRoles_TbPermisos/Create.cshtml" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Agregar Nuevo permiso de rol</span></a>
-                            <a href="#" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Exportar a excel</span></a>
+
+                        <div>
+                            <a href="~/Views/Usuario/SignUp.cshtml" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Agregar Nuevo Usuario</span></a>
+                            <a href="" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Exportar a excel</span></a>
                         </div>
                     </div>
                 </div>
@@ -42,6 +73,7 @@
                             <th>ID Rol</th>
                             <th>ID Permiso</th>
                             <th>Estado</th>
+                            <th>Accion</th>
 
                         </tr>
                     </thead>
@@ -88,6 +120,9 @@
         </div>
     </div>
 </body>
+
+
+
 
 
 
