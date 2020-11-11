@@ -32,7 +32,7 @@ namespace TMC.DAL.Metodos
 
         public int ObtenerId(string email)
         {
-            var response = client.Get("TbUsuario");
+            var response = client.Get("TbUsuarios/");
             int id = 0;
             TbUsuarios[] tabla = { };
             tabla = JsonConvert.DeserializeObject<TbUsuarios[]>(response.Body);
