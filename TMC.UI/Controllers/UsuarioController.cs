@@ -1,4 +1,5 @@
 ﻿using Firebase.Auth;
+using Jose;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
@@ -9,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using TMC.BLL.Interfaces;
 using TMC.BLL.Metodos;
+using TMC.DATA;
 using TMC.UI.Models;
 
 namespace TMC.UI.Controllers
@@ -18,6 +20,8 @@ namespace TMC.UI.Controllers
         private static string ApiKey = "AIzaSyCx5pPjzlIQa2Jef3wJcmsIpv35DLRGGJY";
         private static string Bucket = "bd-tmc.firebaseio.com";
         IUsuariosBLL cUsuarios = new MUsuariosBLL();
+        public static String password;
+        public static String UserGlobal;
 
         // GET: Usuario
 
@@ -33,7 +37,10 @@ namespace TMC.UI.Controllers
             {
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
                 var a = await auth.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password, model.Usuario, true);
-                return this.RedirectToIndex("Login", "Usuario");
+                password = model.Password;
+                UserGlobal = model.Email;
+
+                return this.RedirectToIndex("Create", "Usuario");
             }
             catch (Exception ex)
             {
@@ -51,6 +58,7 @@ namespace TMC.UI.Controllers
             {
                 if (this.Request.IsAuthenticated)
                 {
+
                   return this.RedirectToIndex(null, returnUrl);
                 }
             }
@@ -75,6 +83,8 @@ namespace TMC.UI.Controllers
                     var ab = await auth.SignInWithEmailAndPasswordAsync(model.Email, model.Password);
                     string token = ab.FirebaseToken;
                     var user = ab.User;
+                    password = model.Password;
+                    UserGlobal = model.Email;
                     if (token != "")
                     {
                         //admin cualquier vista crud
@@ -181,6 +191,38 @@ namespace TMC.UI.Controllers
 
             return View();
 
+        }
+        // TbUsuario creation Upon User Firebase Ath Meth
+        public UsuarioController()
+        {
+            cUsuario = new MUsuariosBLL();
+        }
+        IUsuariosBLL cUsuario;
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Create(TbUsuarios usuarios)
+        {
+            try
+            {
+                usuarios.correo = UserGlobal;
+                usuarios.contrasenna = password;
+                usuarios.IDRol = 2;
+                usuarios.estado = true;
+                usuarios.foto = null;
+                cUsuario.Insertar(usuarios);
+                ModelState.AddModelError(string.Empty, "Usuario Registrado");
+                return this.RedirectToIndex("Login", "Usuario");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+            return View();
         }
     }
 }
