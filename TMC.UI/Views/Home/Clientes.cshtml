@@ -10,10 +10,11 @@
 </nav>
 <!-- /Breadcrumb -->
 
-
-    <div class="wrapper" ; style="color:black; background-color:#DD969C; opacity:0.8;border-radius:18px">
-        <!-- Sidebar -->
-        @Html.AntiForgeryToken()
+<div class="wrapper" ; style="color:black; background-color:#DD969C; opacity:0.8;border-radius:18px">
+    <!-- Sidebar -->
+    @using (Html.BeginForm())
+    {
+        @*@Html.AntiForgeryToken()*@
 
 
 
@@ -23,7 +24,6 @@
             </div>
 
             <ul class="list-unstyled components">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <li>
 
                     <div class="form-group">
@@ -55,9 +55,9 @@
                 <li>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            @*<input type="submit" value="Acceder" class="btn btn-outline-danger" />
-                                @Html.ActionLink("Acceder", "Profile", "Usuario", null, new { @class = "btn btn-outline-danger" })*@
-                            <input type="submit" value="Iniciar Sesion" class="btn btn-success" />
+                            @*<input type="submit" value="Acceder" class="btn btn-outline-danger" />*@
+                            @Html.ActionLink("Acceder", "Profile", "Usuario", null, new { @class = "btn btn-outline-danger" })
+
                             @Html.ActionLink("Registrarse", "SignUp", "Usuario", null, new { @class = "btn btn-outline-danger" })
                             <hr />
                         </div>
@@ -68,9 +68,7 @@
 
         </div>
 
-
-    </div>
-
-
+    }
+</div>
 
 
