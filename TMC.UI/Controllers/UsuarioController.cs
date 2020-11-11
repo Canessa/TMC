@@ -83,11 +83,11 @@ namespace TMC.UI.Controllers
                         if (rol == 1)
                         {
                             this.SignInUser(user.Email, token, false);
-                            return this.RedirectToIndex("Create", "TbServicios");
+                            return this.RedirectToIndex("Admin_Users", "Usuario");
                         } else if (rol == 2)
                         {
                             this.SignInUser(user.Email, token, false);
-                            return this.RedirectToIndex("Index", "Home");
+                            return this.RedirectToIndex("Profile", "Usuario");
                         }
                         
                     }
