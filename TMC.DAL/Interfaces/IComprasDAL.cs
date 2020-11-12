@@ -19,5 +19,7 @@ namespace TMC.DAL.Interfaces
         List<TbCompras> Mostrar();
         //Busca un registro especifico
         TbCompras Buscar(int idCompra);
+        //Lista las compras de un usuario
+        List<TbCompras> ObtenerComprasId(int Id);
     }
 }

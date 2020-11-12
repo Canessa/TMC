@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TMC.DATA.TbCompras>
+
+@{
+    ViewBag.Title = "ComprasUsuario";
+}
+
+<h2>ComprasUsuario</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDServicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioFinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

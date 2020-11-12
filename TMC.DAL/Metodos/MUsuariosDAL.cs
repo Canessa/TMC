@@ -13,7 +13,7 @@ namespace TMC.DAL.Metodos
 {
     public class MUsuariosDAL : PrincipalBD, IUsuariosDAL
     {
-        
+
         public void Actualizar(TbUsuarios usuario)
         {
             try
@@ -29,6 +29,8 @@ namespace TMC.DAL.Metodos
             TbUsuarios valor = JsonConvert.DeserializeObject<TbUsuarios>(response.Body);
             return valor;
         }
+
+
 
         public int ObtenerId(string email)
         {
@@ -48,7 +50,7 @@ namespace TMC.DAL.Metodos
         }
 
 
-        public  void Desactivar(int idUsuario)
+        public void Desactivar(int idUsuario)
         {
             try
             {
@@ -59,7 +61,7 @@ namespace TMC.DAL.Metodos
             catch { };
         }
 
-        public  void Insertar(TbUsuarios usuario)
+        public void Insertar(TbUsuarios usuario)
         {
             try
             {
@@ -96,6 +98,13 @@ namespace TMC.DAL.Metodos
             }
 
             return lista;
+        }
+
+        public TbUsuarios FindEmail(string email)
+        {
+            var response = client.Get("TbUsuarios/" + email);
+            TbUsuarios valor = JsonConvert.DeserializeObject<TbUsuarios>(response.Body);
+            return valor;
         }
     }
 }

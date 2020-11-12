@@ -221,6 +221,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PasswordGenerator.NetStandard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PasswordGenerator.NetStandard.1.0.0\lib\netstandard1.0\PasswordGenerator.NetStandard.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
@@ -473,6 +476,7 @@
     <Compile Include="Controllers\TbRolesController.cs" />
     <Compile Include="Controllers\TbRoles_TbPermisosController.cs" />
     <Compile Include="Controllers\TbServiciosController.cs" />
+    <Compile Include="Controllers\TbUsuariosController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -497,6 +501,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imgs\CateringService.jpg" />
+    <Content Include="Imgs\Empty.png" />
     <Content Include="Imgs\Estilista.jpg" />
     <Content Include="Imgs\FotografoProfesional.jpg" />
     <Content Include="Imgs\index_1.jpg" />
@@ -701,6 +706,10 @@
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\TbCompras\ComprasUsuario.cshtml" />
+    <Content Include="Views\TbCompras\Empty.cshtml" />
+    <Content Include="Views\TbUsuarios\EditClient.cshtml" />
+    <Content Include="Views\TbUsuarios\DetailClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,5 +19,6 @@ namespace TMC.BLL.Interfaces
         List<TbCompras> Mostrar();
         //Busca un registro especifico
         TbCompras Buscar(int idCompra);
+        List<TbCompras> ObtenerComprasId(int Id);
     }
 }

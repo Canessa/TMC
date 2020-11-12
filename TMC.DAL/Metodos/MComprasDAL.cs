@@ -79,6 +79,23 @@ namespace TMC.DAL.Metodos
 
             return lista;
         }
-        
+
+        public List<TbCompras> ObtenerComprasId(int Id)
+        {
+            var response = client.Get("TbCompras/");
+            TbCompras[] tabla = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
+            if (tabla == null) { return null; }
+            var lista = new List<TbCompras>();
+            foreach (var item in tabla)
+            {
+                if (item != null && item.IDUsuario == Id)
+                {
+                    lista.Add(item);
+                }
+            }
+            return lista;
+        }
+
+
     }
 }

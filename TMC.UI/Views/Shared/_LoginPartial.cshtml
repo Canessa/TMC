@@ -7,7 +7,7 @@
 <div class="container">
     <ul class="nav navbar-nav" style=" margin-left: 73%;">
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+            @Html.ActionLink("Perfil", "Profile", "Usuario", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
         </li>
         <li>
             @Html.ActionLink("Cerrar Sesion", "LogOff", "Usuario", null, new { @class = "nav-link" })

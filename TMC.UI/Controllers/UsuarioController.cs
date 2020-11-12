@@ -20,6 +20,8 @@ namespace TMC.UI.Controllers
         private static string ApiKey = "AIzaSyCx5pPjzlIQa2Jef3wJcmsIpv35DLRGGJY";
         private static string Bucket = "bd-tmc.firebaseio.com";
         IUsuariosBLL cUsuarios = new MUsuariosBLL();
+        IRolesBLL cRoles = new MRolesBLL();
+
         public static String password;
         public static String UserGlobal;
 
@@ -181,9 +183,17 @@ namespace TMC.UI.Controllers
             return RedirectToAction("Login", "Usuario");
         }
 
+        [HttpGet]
         public new ActionResult Profile()
         {
-            return View();
+            var id = cUsuarios.ObtenerId(UserGlobal);
+            var Usuario = cUsuarios.Buscar(id);
+            var rol = Usuario.IDRol;
+            var rolobj = cRoles.Buscar(rol);
+           
+            ViewBag.Rol = rolobj.nombre;
+
+            return View(Usuario);
         }
 
         public ActionResult Admin_Users()

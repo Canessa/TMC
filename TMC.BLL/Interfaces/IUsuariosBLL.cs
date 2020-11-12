@@ -21,5 +21,8 @@ namespace TMC.BLL.Interfaces
         List<TbUsuarios> Mostrar();
         //Busca un registro especifico
         TbUsuarios Buscar(int idUsuario);
+        //Usuario correo
+        TbUsuarios FindEmail(String emails);
+
     }
 }
