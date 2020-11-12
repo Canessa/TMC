@@ -33,12 +33,49 @@
         <div class="table-responsive">
           
 
-            <a href = '@Url.Action("{​​​​action}​​​​", "{​​​​UsuarioController}​​​​")' > click me</a>
+            
 
             <div class="table-wrapper">
 
                 <div class="table-title">
                     <div class="row">
+                        <div class="navbar1">
+
+                            <div class="dropdown1">
+
+                                <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
+                                    
+
+                                    <span class="material-icons">
+                                        toc
+                                    </span>
+
+                                </button>
+
+                                <div class="dropdown1-content1">
+
+                                    <ul class="navbar1">
+                                        <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Fotos", "Admin_Fotos", "TbFotos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Catalogos Fotos", "Admin_Catalogos_Fotos", "TbCatalogos_Fotos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Permisos", "Admin_Permisos", "TbPermisos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Permisos de Roles", "Admin_Roles_Permisos", "TbRoles_TbPermisos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "Usuario", null, new { @class = "nav-link" })</li>
+
+                                        <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
+
+
+
+                                    </ul>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
 
                         <div class="col-xs-5">
                             <h2>Administrar <b>Usuarios</b></h2>
@@ -67,7 +104,7 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><a href="#"><img src="~/Imgs/logo.png" class="avatar" alt="Avatar"> Michael Holz</a></td>
+                            <td><a href="#"><img src="~/Imgs/logo.png" class="avatar" alt="Avatar"> Michael Holl</a></td>
                             <td>Administrador</td>
                             <td>
                                 <a href="#" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
