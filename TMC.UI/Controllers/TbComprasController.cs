@@ -132,5 +132,17 @@ namespace TMC.UI.Controllers
             cCompras.Eliminar(id);
             return RedirectToAction("Search");
         }
+
+        [HttpGet]
+        public ActionResult ComprasUsuario(int id)
+        {
+            var list = cCompras.ObtenerComprasId(id);
+            if (list == null) { return RedirectToAction("Empty"); };
+            return View(list);
+        }
+        public ActionResult Empty()
+        {
+            return View();
+        }
     }
 }

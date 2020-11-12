@@ -21,5 +21,8 @@ namespace TMC.DAL.Interfaces
         List<TbUsuarios> Mostrar();
         //Busca un registro especifico
         TbUsuarios Buscar(int idUsuario);
+        //Buscar por correo
+        TbUsuarios FindEmail(string email);
+        
     }
 }

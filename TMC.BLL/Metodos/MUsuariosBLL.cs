@@ -73,5 +73,11 @@ namespace TMC.BLL.Metodos
         {
             return vUsuarios.Mostrar();
         }
+
+        public TbUsuarios FindEmail (String email)
+        {
+            TbUsuarios busqueda = vUsuarios.FindEmail(email);
+            return busqueda;
+        }
     }
 }
