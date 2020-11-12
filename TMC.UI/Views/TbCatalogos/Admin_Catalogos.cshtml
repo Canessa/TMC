@@ -30,8 +30,12 @@
                             <h2>Administrar <b>Catalogos</b></h2>
                         </div>
                         <div class="col-xs-7">
-                            <a href="~/Views/TbCatalogos/Create.cshtml" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Agregar Nuevo Catalogo</span></a>
-                            <a href="#" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Exportar a excel</span></a>
+                            <a href="@Url.Action( "Create", "TbCatalogos")" class="btn btn-primary">
+                                <i class="material-icons">&#xE147;</i>
+                                <span>
+                                    Agregar Nuevo Catalogo
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
