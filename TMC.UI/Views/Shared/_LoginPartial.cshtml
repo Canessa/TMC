@@ -1,17 +1,62 @@
-﻿@using Microsoft.AspNet.Identity
+﻿
+<head>
+
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+</head>
+
+@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
     //using (Html.BeginForm("Login", "Usuario", FormMethod.Post, new { id = "logoutForm", @class = "nav-link" }))
     //{
     @*@Html.AntiForgeryToken()*@
 <div class="container">
+    
     <ul class="nav navbar-nav" style=" margin-left: 73%;">
         <li>
-            @Html.ActionLink("Perfil", "Profile", "Usuario", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+            <div class="navbar1">
+
+                <div class="dropdown1">
+
+                    <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
+                        <i class="fa fa-caret-down"></i>
+                        Administrar
+
+                    </button>
+
+                    <div class="dropdown1-content1">
+
+                        <ul class="navbar1">
+                            <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Administrar Fotos", "Admin_Fotos", "TbFotos", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Administrar Catalogos Fotos", "Admin_Catalogos_Fotos", "TbCatalogos_Fotos", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Administrar Permisos", "Admin_Permisos", "TbPermisos", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Administrar Permisos de Roles", "Admin_Roles_Permisos", "TbRoles_TbPermisos", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "Usuario", null, new { @class = "nav-link" })</li>
+
+                            <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
+
+                            <li>@Html.ActionLink("Cerrar Sesion", "LogOff", "Usuario", null, new { @class = "nav-link" })</li>
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
         </li>
-        <li>
-            @Html.ActionLink("Cerrar Sesion", "LogOff", "Usuario", null, new { @class = "nav-link" })
+
+        @* <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
         </li>
+
+        <li>@Html.ActionLink("Cerrar Sesion", "LogOff", "Usuario", null, new { @class = "nav-link" })</li>
+        *@
+
     </ul>
 </div>
     //}
