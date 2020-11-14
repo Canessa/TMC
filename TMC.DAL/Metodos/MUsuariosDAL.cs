@@ -19,6 +19,9 @@ namespace TMC.DAL.Metodos
             try
             {
                 client.UpdateAsync("TbUsuarios/" + usuario.IDUsuario, usuario);
+                //client.PushAsync("TbUsuarios/" + usuario.IDUsuario, usuario);
+               // client.Update("TbUsuarios/" + usuario.IDUsuario, usuario);
+                //client.Push("TbUsuarios/" + usuario.IDUsuario, usuario);
             }
             catch { };
         }

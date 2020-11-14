@@ -163,8 +163,8 @@
 
 
 
-
-                                <a href="@Url.Action( "Edit", "Usuario")" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
+                                @*@Html.ActionLink("Edit", "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) }, null)
+                                *@<a href="@Url.Action( "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
                                     <span class="material-icons">edit</span>
                                 </a>
 

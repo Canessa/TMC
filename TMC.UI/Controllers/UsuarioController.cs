@@ -252,7 +252,7 @@ namespace TMC.UI.Controllers
             return View(lista);
         }
 
-     
+
         //public ActionResult MuestraRoles()
         //{
         //    List<TbRoles> listaRoles = cRoles.Mostrar();
@@ -264,27 +264,31 @@ namespace TMC.UI.Controllers
 
 
         //METODO DE PRUEBA, AUN SE DEBE SDEFINIR SI FUNCIONA
-        public ActionResult Edit()
-    {
-        return View();
-    }
+
+        public ActionResult Edit(int id)
+        {
+            TbUsuarios usuario = cUsuarios.Buscar(id);
+            return View(usuario);
+        }
+
+
+
         [HttpPost]
         public ActionResult Edit(TbUsuarios usuarios)
         {
             //Obtencion de datos de los DropDown            
-            if (usuarios.IDRol == 0)
-            {
-                ModelState.AddModelError(string.Empty, "Debe ingresar un rol primero");
-                CargarListas();
-                return View();
-            }
-
+            //if (usuarios.IDRol == 0)
+            //{
+            //    ModelState.AddModelError(string.Empty, "Debe ingresar un rol primero");
+            //    CargarListas();
+            //    return View();
+            //}
 
 
             cUsuarios.Actualizar(usuarios);
 
-            
-            return RedirectToAction("Search");
+
+            return View();
         }
 
 
