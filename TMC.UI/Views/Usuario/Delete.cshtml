@@ -1,0 +1,57 @@
+﻿@model TMC.DATA.TbRoles_TbPermisos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Elimnar Permisos por Rol</h2>
+
+<h3>Está seguro que desea eliminar este permiso por rol?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDRolPermiso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDRolPermiso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDRol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDRol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPermiso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDPermiso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-dark" /> |
+            @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+        </div>
+    }
+</div>

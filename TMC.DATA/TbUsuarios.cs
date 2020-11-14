@@ -9,38 +9,38 @@ namespace TMC.DATA
     {
         public int IDUsuario { get; set; }
 
-        [Display(Name = "Cédula de identificación")]
+        [Display(Name = "Cédula")]
         [Required(ErrorMessage = "Cédula requerida")]
         [StringLength(20, ErrorMessage = "Máximo 20 caracteres")]
         public string cedula { get; set; }
 
-        [Display(Name = "Nombre de usuario")]
+        [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Nombre requerido")]
         [StringLength(256, ErrorMessage = "Máximo 256 caracteres")]
         public string nombre { get; set; }
 
-        [Display(Name = "Apellidos del usuario")]
+        [Display(Name = "Apellidos")]
         [Required(ErrorMessage = "Apellido requerido")]
         [StringLength(256, ErrorMessage = "Máximo 256 caracteres")]
         public string apellidos { get; set; }
 
-        [Display(Name = "Teléfono de contacto")]
+        [Display(Name = "Teléfono")]
         [Required(ErrorMessage = "Teléfono requerido")]
         [StringLength(15, ErrorMessage = "Máximo 15 caracteres")]
         public string telefono { get; set; }
 
-        [Display(Name = "Correo de usuario")]
+        [Display(Name = "Correo")]
         [Required(ErrorMessage = "Correo electrónico requerido")]
         [StringLength(256, ErrorMessage = "Máximo 256 caracteres")]
         [EmailAddress(ErrorMessage = "Correo no válido")]
         public string correo { get; set; }
 
-        [Display(Name = "Contraseña del usuario")]
+        [Display(Name = "Contraseña")]
         [Required(ErrorMessage = "Contraseña requerida")]
         [StringLength(25, ErrorMessage = "Máximo 25 caracteres")]
         public string contrasenna { get; set; }
 
-        [Display(Name = "Selección de rol")]
+        [Display(Name = "Rol")]
         public int IDRol { get; set; }
 
         [Display(Name = "Estado del usuario")]

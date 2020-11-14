@@ -710,6 +710,8 @@
     <Content Include="Views\TbCompras\Empty.cshtml" />
     <Content Include="Views\TbUsuarios\EditClient.cshtml" />
     <Content Include="Views\TbUsuarios\DetailClient.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\Usuario\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

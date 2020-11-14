@@ -25,10 +25,16 @@ namespace TMC.UI.Controllers
         public static String password;
         public static String UserGlobal;
 
+        
+
+
         // GET: Usuario
 
         public ActionResult SignUp()
         {
+            
+            
+
             return View();
         }
         [HttpPost]
@@ -198,8 +204,9 @@ namespace TMC.UI.Controllers
 
         public ActionResult Admin_Users()
         {
+            List<TbUsuarios> lista = cUsuarios.Mostrar();
 
-            return View();
+            return View(lista);
 
         }
         // TbUsuario creation Upon User Firebase Ath Meth
@@ -234,5 +241,66 @@ namespace TMC.UI.Controllers
             }
             return View();
         }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Mostar()
+        {
+            List<TbUsuarios> lista = cUsuarios.Mostrar();
+
+            return View(lista);
+        }
+
+     
+        //public ActionResult MuestraRoles()
+        //{
+        //    List<TbRoles> listaRoles = cRoles.Mostrar();
+
+        //    return View(listaRoles);
+        //}
+
+
+
+
+        //METODO DE PRUEBA, AUN SE DEBE SDEFINIR SI FUNCIONA
+        public ActionResult Edit()
+    {
+        return View();
     }
+        [HttpPost]
+        public ActionResult Edit(TbUsuarios usuarios)
+        {
+            //Obtencion de datos de los DropDown            
+            if (usuarios.IDRol == 0)
+            {
+                ModelState.AddModelError(string.Empty, "Debe ingresar un rol primero");
+                CargarListas();
+                return View();
+            }
+
+
+
+            cUsuarios.Actualizar(usuarios);
+
+            
+            return RedirectToAction("Search");
+        }
+
+
+        //Metodo de carga de los dropdown
+        private void CargarListas()
+        {
+            //cargado en el View
+            List<TbRoles> roles = cRoles.Mostrar();
+            if (roles == null)
+            {
+                roles[0].IDRol = 0;
+                roles[0].nombre = "No hay roles disponibles";
+            }
+            ViewBag.ddlRoles = new SelectList(roles, "IDRol", "nombre");
+        }
+
+    }
+
 }
