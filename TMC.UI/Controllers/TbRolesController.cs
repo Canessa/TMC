@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using TMC.BLL.Interfaces;
 using TMC.BLL.Metodos;
@@ -80,8 +81,11 @@ namespace TMC.UI.Controllers
 
         public ActionResult Admin_Roles()
         {
+            List<TbRoles> lista = cRoles.Mostrar();
 
-            return View();
+            return View(lista);
+
+            
 
         }
     }

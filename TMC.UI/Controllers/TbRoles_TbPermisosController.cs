@@ -139,8 +139,10 @@ namespace TMC.UI.Controllers
 
         public ActionResult Admin_Roles_Permisos()
         {
+            List<TbRoles_TbPermisos> lista = cRoles_Permisos.Mostrar();
 
-            return View();
+            return View(lista);
+           
 
         }
     }

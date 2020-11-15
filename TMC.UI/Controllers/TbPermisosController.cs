@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using TMC.BLL.Interfaces;
 using TMC.BLL.Metodos;
 using TMC.DATA;
+using System.Collections.Generic;
 using FireSharp;
 using FireSharp.Config;
 
@@ -80,8 +81,11 @@ namespace TMC.UI.Controllers
 
         public ActionResult Admin_Permisos()
         {
+            List<TbPermisos> lista = cpermisos.Mostrar();
 
-            return View();
+            return View(lista);
+
+         
 
         }
     }

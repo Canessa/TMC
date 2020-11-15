@@ -1,4 +1,4 @@
-﻿@model TMC.DATA.TbCatalogos_TbFotos
+﻿@model IEnumerable<TMC.DATA.TbCatalogos_TbFotos>
 
 @{
     ViewBag.Title = "Administrar Catalogos Fotos";
@@ -31,7 +31,7 @@
                             <div class="dropdown1">
 
                                 <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
-                                    
+
 
                                     <span class="material-icons">
                                         toc
@@ -48,7 +48,7 @@
                                         <li>@Html.ActionLink("Administrar Permisos", "Admin_Permisos", "TbPermisos", null, new { @class = "nav-link" })</li>
                                         <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
                                         <li>@Html.ActionLink("Administrar Permisos de Roles", "Admin_Roles_Permisos", "TbRoles_TbPermisos", null, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "Usuario", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "TbUsuarios", null, new { @class = "nav-link" })</li>
 
                                         <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
 
@@ -80,39 +80,57 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>IDCatalogo</th>
-                            <th>IDFoto</th>
-                            <th>Acción</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IDCatalogo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IDFoto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IDCatalogoFoto)
+                            </th>
+
+
+
+                            <th>Accion</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    @foreach (var item in Model)
+                    {
                         <tr>
-                            <td>1</td>
-                            @*<td>  @Html.LabelFor(model => model.IDCatalogoFoto, htmlAttributes: new { @class = "control-label col-md-2" })</td>*@
-                            <td>  @Html.LabelFor(model => model.IDCatalogo, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td>  @Html.LabelFor(model => model.IDFoto, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td> </td>
-                            <td></td>
                             <td>
-                                <a href="~/Views/TbCatalogos_Fotos/Edit.cshtml" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
-                                <a href="~/Views/TbCatalogos_Fotos/Delete.cshtml" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                @Html.DisplayFor(model => item.IDCatalogo)
                             </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            @*<td>  @Html.LabelFor(model => model.IDCatalogoFoto, htmlAttributes: new { @class = "control-label col-md-2" })</td>*@
-                            <td>  @Html.LabelFor(model => model.IDCatalogo, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td>  @Html.LabelFor(model => model.IDFoto, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td> </td>
-                            <td></td>
                             <td>
-                                <a href="~/Views/TbCatalogos_Fotos/Edit.cshtml" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
-                                <a href="~/Views/TbCatalogos_Fotos/Delete.cshtml" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                @Html.DisplayFor(modelItem => item.IDFoto)
                             </td>
-                        </tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IDCatalogoFoto)
+                            </th>
 
-                    </tbody>
+
+
+
+
+
+                            <td>
+
+
+
+
+                                @*@Html.ActionLink("Edit", "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) }, null)
+                                *@<a href="@Url.Action( "Edit", "TbCatalogos_Fotos", new { id = @Html.DisplayFor(model => item.IDCatalogoFoto) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
+                                    <span class="material-icons">edit</span>
+                                </a>
+
+
+                                <a href="@Url.Action( "Delete", "TbCatalogos_Fotos",new { id = @Html.DisplayFor(model => item.IDCatalogoFoto) })" class="delete" title="Borrar" data-toggle="tooltip">
+                                    <i class="material-icons">&#xE5C9;</i>
+                                </a>
+                            </td>
+
+                        </tr>
+                    }
                 </table>
                 <div class="clearfix">
 

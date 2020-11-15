@@ -1,4 +1,4 @@
-﻿@model TMC.DATA.TbCatalogos
+﻿@model IEnumerable<TMC.DATA.TbCatalogos>
 
 @{
     ViewBag.Title = "Administrar Catalogos";
@@ -26,47 +26,47 @@
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                       
-                            
-                                <div class="navbar1">
-
-                                    <div class="dropdown1">
-
-                                        <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
-                                          
-                                           
-                                            <span class="material-icons">
-                                                toc
-                                            </span>
-
-                                        </button>
-
-                                        <div class="dropdown1-content1">
-
-                                            <ul class="navbar1">
-                                                <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
-                                                <li>@Html.ActionLink("Administrar Fotos", "Admin_Fotos", "TbFotos", null, new { @class = "nav-link" })</li>
-                                                <li>@Html.ActionLink("Administrar Catalogos Fotos", "Admin_Catalogos_Fotos", "TbCatalogos_Fotos", null, new { @class = "nav-link" })</li>
-                                                <li>@Html.ActionLink("Administrar Permisos", "Admin_Permisos", "TbPermisos", null, new { @class = "nav-link" })</li>
-                                                <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
-                                                <li>@Html.ActionLink("Administrar Permisos de Roles", "Admin_Roles_Permisos", "TbRoles_TbPermisos", null, new { @class = "nav-link" })</li>
-                                                <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "Usuario", null, new { @class = "nav-link" })</li>
-
-                                                <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
 
 
+                        <div class="navbar1">
 
-                                            </ul>
+                            <div class="dropdown1">
 
-                                        </div>
+                                <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
 
 
-                                    </div>
+                                    <span class="material-icons">
+                                        toc
+                                    </span>
 
+                                </button>
+
+                                <div class="dropdown1-content1">
+
+                                    <ul class="navbar1">
+                                        <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Fotos", "Admin_Fotos", "TbFotos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Catalogos Fotos", "Admin_Catalogos_Fotos", "TbCatalogos_Fotos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Permisos", "Admin_Permisos", "TbPermisos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Permisos de Roles", "Admin_Roles_Permisos", "TbRoles_TbPermisos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "TbUsuarios", null, new { @class = "nav-link" })</li>
+
+                                        <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
+
+
+
+                                    </ul>
 
                                 </div>
-                            
-                      
+
+
+                            </div>
+
+
+                        </div>
+
+
                         <div class="col-xs-5">
 
                             <h2>Administrar <b>Catalogos</b></h2>
@@ -84,38 +84,53 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Detalle</th>
-                            <th>Acción</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IDCatalogo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.detalle)
+                            </th>
+
+
+
+
+                            <th>Accion</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    @foreach (var item in Model)
+                    {
                         <tr>
-                            <td>1</td>
-                            @*<td>  @Html.LabelFor(model => model.IDCatalogo, htmlAttributes: new { @class = "control-label col-md-2" })</td>*@
-                            <td>  @Html.LabelFor(model => model.detalle, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td> </td>
-                            <td> </td>
-                            <td></td>
                             <td>
-                                <a href="~/Views/TbServicios/Edit.cshtml" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
-                                <a href="~/Views/TbServicios/Delete.cshtml" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                @Html.DisplayFor(model => item.IDCatalogo)
                             </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            @*<td>  @Html.LabelFor(model => model.IDCatalogo, htmlAttributes: new { @class = "control-label col-md-2" })</td>*@
-                            <td>  @Html.LabelFor(model => model.detalle, htmlAttributes: new { @class = "control-label col-md-2" })</td>
-                            <td> </td>
-                            <td> </td>
-                            <td></td>
                             <td>
-                            <a href="~/Views/TbServicios/Edit.cshtml" class="settings" title="Editar" data-toggle="tooltip"><span class="material-icons">edit</span></a>
-                            <a href="~/Views/TbServicios/Delete.cshtml" class="delete" title="Borrar" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                @Html.DisplayFor(modelItem => item.detalle)
                             </td>
-                        </tr>
+                            
 
-                    </tbody>
+
+
+
+
+
+                            <td>
+
+
+
+
+                                @*@Html.ActionLink("Edit", "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) }, null)
+                                *@<a href="@Url.Action( "Edit", "TbCatalogos", new { id = @Html.DisplayFor(model => item.IDCatalogo) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
+                                    <span class="material-icons">edit</span>
+                                </a>
+
+
+                                <a href="@Url.Action( "Delete", "TbCatalogos",new { id = @Html.DisplayFor(model => item.IDCatalogo) })" class="delete" title="Borrar" data-toggle="tooltip">
+                                    <i class="material-icons">&#xE5C9;</i>
+                                </a>
+                            </td>
+
+                        </tr>
+                    }
                 </table>
                 <div class="clearfix">
 

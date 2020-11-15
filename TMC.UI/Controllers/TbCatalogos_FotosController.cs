@@ -133,8 +133,12 @@ namespace TMC.UI.Controllers
 
         public ActionResult Admin_Catalogos_Fotos()
         {
+            List<TbCatalogos_TbFotos> lista = cCatalogo_Fotos.Mostrar();
 
-            return View();
+            return View(lista);
+
+
+            
 
         }
     }

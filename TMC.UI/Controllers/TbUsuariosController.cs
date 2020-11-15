@@ -11,6 +11,8 @@ namespace TMC.UI.Controllers
 {
     public class TbUsuariosController : Controller
     {
+        
+        IRolesBLL cRoles = new MRolesBLL();
         public TbUsuariosController()
         {
             cUsuarios = new MUsuariosBLL();
@@ -45,5 +47,43 @@ namespace TMC.UI.Controllers
             var data = cUsuarios.Buscar(id);
             return View(data);
         }
+        public ActionResult Admin_Users()
+        {
+            List<TbUsuarios> lista = cUsuarios.Mostrar();
+
+            return View(lista);
+
+        }
+        //Metodo de carga de los dropdown
+        private void CargarListas()
+        {
+            //cargado en el View
+            List<TbRoles> roles = cRoles.Mostrar();
+            if (roles == null)
+            {
+                roles[0].IDRol = 0;
+                roles[0].nombre = "No hay roles disponibles";
+            }
+            ViewBag.ddlRoles = new SelectList(roles, "IDRol", "nombre");
+        }
+
+        [HttpPost]
+        public ActionResult Edit(TbUsuarios usuarios)
+        {
+            //Obtencion de datos de los DropDown            
+            //if (usuarios.IDRol == 0)
+            //{
+            //    ModelState.AddModelError(string.Empty, "Debe ingresar un rol primero");
+            //    CargarListas();
+            //    return View();
+            //}
+
+
+            cUsuarios.Actualizar(usuarios);
+
+
+            return View();
+        }
+
     }
 }

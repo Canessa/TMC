@@ -107,9 +107,13 @@ namespace TMC.UI.Controllers
 
         public ActionResult Admin_Servicios()
         {
+            List<TbServicios> lista = cServicios.Mostrar();
 
-            return View();
+            return View(lista);
+
+            
 
         }
+
     }
 }

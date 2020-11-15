@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using TMC.BLL.Interfaces;
 using TMC.BLL.Metodos;
 using TMC.DATA;
+using System.Collections.Generic;
 
 namespace TMC.UI.Controllers
 {
@@ -79,8 +80,11 @@ namespace TMC.UI.Controllers
 
         public ActionResult Admin_Fotos()
         {
+            List<TbFotos> lista = cFotos.Mostrar();
 
-            return View();
+            return View(lista);
+
+            
 
         }
     }

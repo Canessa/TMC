@@ -1,47 +1,51 @@
-﻿@model TMC.DATA.TbRoles_TbPermisos
+﻿@model TMC.DATA.TbUsuarios
 
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Elimnar Permisos por Rol</h2>
+<h2>Elimnar Usuario</h2>
 
-<h3>Está seguro que desea eliminar este permiso por rol?</h3>
+<h3>Está seguro que desea eliminar este Usuario?</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.IDRolPermiso)
+            @Html.DisplayNameFor(model => model.IDUsuario)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.IDRolPermiso)
+            @Html.DisplayFor(model => model.cedula)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IDRol)
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasenna)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.IDRol)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IDPermiso)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IDPermiso)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
-
         <dd>
             @Html.DisplayFor(model => model.estado)
         </dd>
+
 
     </dl>
 

@@ -25,16 +25,13 @@ namespace TMC.UI.Controllers
         public static String password;
         public static String UserGlobal;
 
-        
+
 
 
         // GET: Usuario
 
         public ActionResult SignUp()
         {
-            
-            
-
             return View();
         }
         [HttpPost]
@@ -67,7 +64,7 @@ namespace TMC.UI.Controllers
                 if (this.Request.IsAuthenticated)
                 {
 
-                  return this.RedirectToIndex(null, returnUrl);
+                    return this.RedirectToIndex(null, returnUrl);
                 }
             }
             catch (Exception ex)
@@ -101,13 +98,14 @@ namespace TMC.UI.Controllers
                         if (rol == 1)
                         {
                             this.SignInUser(user.Email, token, false);
-                            return this.RedirectToIndex("Admin_Users", "Usuario");
-                        } else if (rol == 2)
+                            return this.RedirectToIndex("Admin_Users", "TbUsuarios");
+                        }
+                        else if (rol == 2)
                         {
                             this.SignInUser(user.Email, token, false);
                             return this.RedirectToIndex("Profile", "Usuario");
                         }
-                        
+
                     }
                     else
                     {
@@ -117,7 +115,7 @@ namespace TMC.UI.Controllers
             }
             catch (FirebaseAuthException fae)
             {
-              ModelState.AddModelError(string.Empty, "Usuario o contraseña incorrectas");
+                ModelState.AddModelError(string.Empty, "Usuario o contraseña incorrectas");
             }
             return this.View(model);
         }
@@ -196,7 +194,7 @@ namespace TMC.UI.Controllers
             var Usuario = cUsuarios.Buscar(id);
             var rol = Usuario.IDRol;
             var rolobj = cRoles.Buscar(rol);
-           
+
             ViewBag.Rol = rolobj.nombre;
 
             return View(Usuario);
@@ -292,18 +290,7 @@ namespace TMC.UI.Controllers
         }
 
 
-        //Metodo de carga de los dropdown
-        private void CargarListas()
-        {
-            //cargado en el View
-            List<TbRoles> roles = cRoles.Mostrar();
-            if (roles == null)
-            {
-                roles[0].IDRol = 0;
-                roles[0].nombre = "No hay roles disponibles";
-            }
-            ViewBag.ddlRoles = new SelectList(roles, "IDRol", "nombre");
-        }
+
 
     }
 

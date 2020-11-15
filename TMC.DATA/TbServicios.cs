@@ -10,7 +10,7 @@ namespace TMC.DATA
         public int IDServicio { get; set; }
 
         [Required(ErrorMessage = "Nombre del servicio requerido")]
-        [Display(Name = "Nombre del servicio")]
+        [Display(Name = "Servicio")]
         [StringLength(100, ErrorMessage = "Máximo 100 caracteres")]
         public string nombre { get; set; }
 
@@ -20,7 +20,7 @@ namespace TMC.DATA
         public string detalle { get; set; }
 
         [Required(ErrorMessage = "Precio del servicio requerido")]
-        [Display(Name = "Precio del serivicio")]
+        [Display(Name = "Precio del servicio")]
         public decimal precio { get; set; }
 
         [Display(Name = "Selección del catálogo")]

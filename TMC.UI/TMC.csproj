@@ -695,7 +695,6 @@
     <Content Include="Imgs\User.jpg" />
     <Content Include="Views\Usuario\Profile.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
-    <Content Include="Views\Usuario\Admin_Users.cshtml" />
     <Content Include="Views\TbServicios\Admin_Servicios.cshtml" />
     <Content Include="Views\TbPermisos\Admin_Permisos.cshtml" />
     <Content Include="Views\TbCatalogos\Admin_Catalogos.cshtml" />
@@ -712,6 +711,7 @@
     <Content Include="Views\TbUsuarios\DetailClient.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
+    <Content Include="Views\TbUsuarios\Admin_Users.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
