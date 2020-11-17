@@ -4,58 +4,68 @@
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Elimnar Usuario</h2>
-
-<h3>Está seguro que desea eliminar este Usuario?</h3>
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDUsuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.cedula)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.apellidos)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.telefono)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.correo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.contrasenna)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IDRol)
-        </dd>
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
 
 
-    </dl>
+</head>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Eliminar Usuario</li>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-dark" /> |
-            @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
-        </div>
-    }
-</div>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
+
+
+
+  <div>
+
+      <div class="card-body">
+          <div class="card">
+              <div class="card-body">
+                 
+                      <div class="col-8">
+                          <h3 style="color:red;">Está seguro que desea desactivar este Usuario?</h3>
+
+                      </div>
+                      <br />
+                      <div class="col-8">
+                          @using (Html.BeginForm())
+                          {
+                              @* @Html.AntiForgeryToken()*@
+
+                          <div class="form-actions no-color">
+
+
+                              <input type="submit" value="Delete" class="btn btn-dark" /> |
+
+                              @Html.ActionLink(" Regresar", "Admin_users", "TbUsuarios", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+                          </div>
+                          }
+                      </div>
+                
+
+              </div>
+
+          </div>
+
+      </div>
+
+      <hr />
+
+
+
+     
+  </div>
+

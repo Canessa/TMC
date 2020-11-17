@@ -43,7 +43,7 @@ namespace TMC.DATA
         [Display(Name = "Rol")]
         public int IDRol { get; set; }
 
-        [Display(Name = "Estado del usuario")]
+        [Display(Name = "Estado")]
         public bool estado { get; set; }
 
         [Display(Name = "Foto de perfil")]

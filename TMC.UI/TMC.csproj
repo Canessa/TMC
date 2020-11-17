@@ -712,6 +712,9 @@
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
     <Content Include="Views\TbUsuarios\Admin_Users.cshtml" />
+    <Content Include="Views\Usuario\Create_Admin.cshtml" />
+    <Content Include="Views\TbUsuarios\Edit.cshtml" />
+    <Content Include="Views\TbUsuarios\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

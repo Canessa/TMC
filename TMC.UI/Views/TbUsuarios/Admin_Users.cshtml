@@ -69,12 +69,10 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-5">
-                            <h2>Administrar <b>Usuarios</b></h2>
-                        </div>
+
 
                         <div>
-                            <a href="@Url.Action( "Create", "Usuario")" class="btn btn-primary">
+                            <a href="@Url.Action( "Create_Admin", "Usuario")" class="btn btn-primary">
                                 <i class="material-icons">&#xE147;</i>
                                 <span>
                                     Agregar Nuevo Usuario
@@ -155,7 +153,7 @@
                             }
                             <td>
                                 @*@Html.DisplayFor(model => item.estado)*@
-                                @Html.EditorFor(model => item.estado)
+                                @Html.DisplayFor(model => item.estado)
 
 
                             </td>
@@ -165,31 +163,39 @@
 
 
                                 @*@Html.ActionLink("Edit", "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) }, null)
-                                *@<a href="@Url.Action( "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
+                                *@
+                                
+                                
+                                <a href="@Url.Action( "Edit", "TbUsuarios", new { id = @Html.DisplayFor(model => item.IDUsuario) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
                                     <span class="material-icons">edit</span>
                                 </a>
 
 
-                                  <a href="@Url.Action( "Delete", "Usuario",new { id = @Html.DisplayFor(model => item.IDUsuario) })" class="delete" title="Borrar" data-toggle="tooltip">
-                                      <i class="material-icons">&#xE5C9;</i>
-                                  </a>
+
+
+                                <a href="@Url.Action( "Delete", "Usuario",new { id = @Html.DisplayFor(model => item.IDUsuario) })" class="delete" title="Borrar" data-toggle="tooltip">
+                                    <i class="material-icons">&#xE5C9;</i>
+                                </a>
                             </td>
 
                         </tr>
                     }
                 </table>
-                <div class="clearfix">
 
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Anterior</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Siguiente</a></li>
-                    </ul>
-                </div>
+                @*
+        <div class="clearfix">
+
+            <ul class="pagination">
+                <li class="page-item disabled"><a href="#">Anterior</a></li>
+                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                <li class="page-item"><a href="#" class="page-link">Siguiente</a></li>
+            </ul>
+        </div>
+                *@
             </div>
         </div>
     </div>

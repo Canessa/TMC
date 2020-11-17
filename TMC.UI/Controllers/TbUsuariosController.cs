@@ -37,6 +37,7 @@ namespace TMC.UI.Controllers
             usuario.IDRol = TempUsuario.IDRol;
             usuario.estado = TempUsuario.estado;
             cUsuarios.Actualizar(usuario);
+
             return RedirectToAction("Profile","Usuario");
         }
 
@@ -67,6 +68,49 @@ namespace TMC.UI.Controllers
             ViewBag.ddlRoles = new SelectList(roles, "IDRol", "nombre");
         }
 
+
+        public ActionResult Edit()
+        {
+
+            List<TbUsuarios> lista = cUsuarios.Mostrar();
+
+            return View(lista);
+
+           
+        }
+
+        public ActionResult Search()
+        {
+
+            List<TbUsuarios> lista = cUsuarios.Mostrar();
+
+            return View(lista);
+
+
+        }
+
+
+
+
+        private void CargarListasUser()
+        {
+            //cargado en el View
+            List<TbUsuarios> usuarios = cUsuarios.Mostrar();
+            if (usuarios == null)
+            {
+                usuarios[0].IDUsuario = 0;
+                usuarios[0].nombre = "No hay catálogos disponibles";
+            }
+            ViewBag.ddlCatalogos = new SelectList(usuarios, "IDUsuario", "Nombre");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var data = cUsuarios.Buscar(id);
+            CargarListasUser();
+            return View(data);
+        }
         [HttpPost]
         public ActionResult Edit(TbUsuarios usuarios)
         {
@@ -84,6 +128,8 @@ namespace TMC.UI.Controllers
 
             return View();
         }
+       
+
 
     }
 }

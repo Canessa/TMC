@@ -20,6 +20,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 </head>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Administrar Catalogos</li>
+
+
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 <body id="estiloAdmin">
     <div class="container">
         <div class="table-responsive">
@@ -67,10 +76,7 @@
                         </div>
 
 
-                        <div class="col-xs-5">
-
-                            <h2>Administrar <b>Catalogos</b></h2>
-                        </div>
+                     
                         <div class="col-xs-7">
                             <a href="@Url.Action( "Create", "TbCatalogos")" class="btn btn-primary">
                                 <i class="material-icons">&#xE147;</i>
@@ -106,7 +112,7 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.detalle)
                             </td>
-                            
+
 
 
 

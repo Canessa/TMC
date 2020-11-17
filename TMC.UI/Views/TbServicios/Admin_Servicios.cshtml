@@ -22,6 +22,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 
 </head>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Administrar Servicios</li>
+
+
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 <body id="estiloAdmin">
     <div class="container">
         <div class="table-responsive">
@@ -66,9 +75,6 @@
 
                         </div>
 
-                        <div class="col-xs-5">
-                            <h2>Administrar <b>Servicios</b></h2>
-                        </div>
 
                         <div class="col-xs-7">
 
@@ -105,44 +111,44 @@
                     </thead>
                     @foreach (var item in Model)
                     {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(model => item.nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.precio)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IDCatalogo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.detalle)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.estado)
-                    </td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.precio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IDCatalogo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.detalle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.estado)
+                            </td>
 
 
 
 
 
-                    <td>
+                            <td>
 
 
 
 
-                        @*@Html.ActionLink("Edit", "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) }, null)
-                        *@<a href="@Url.Action( "Edit", "Tbservicios", new { id = @Html.DisplayFor(model => item.IDServicio) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
-                            <span class="material-icons">edit</span>
-                        </a>
+                                @*@Html.ActionLink("Edit", "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) }, null)
+                                *@<a href="@Url.Action( "Edit", "Tbservicios", new { id = @Html.DisplayFor(model => item.IDServicio) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
+                                    <span class="material-icons">edit</span>
+                                </a>
 
 
-                        <a href="@Url.Action( "Delete", "TbServicios",new { id = @Html.DisplayFor(model => item.IDServicio) })" class="delete" title="Borrar" data-toggle="tooltip">
-                            <i class="material-icons">&#xE5C9;</i>
-                        </a>
-                    </td>
+                                <a href="@Url.Action( "Delete", "TbServicios",new { id = @Html.DisplayFor(model => item.IDServicio) })" class="delete" title="Borrar" data-toggle="tooltip">
+                                    <i class="material-icons">&#xE5C9;</i>
+                                </a>
+                            </td>
 
-                </tr>
+                        </tr>
                     }
                 </table>
                 <div class="clearfix">

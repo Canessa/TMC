@@ -24,6 +24,7 @@ namespace TMC.UI.Controllers
 
         public static String password;
         public static String UserGlobal;
+        public static string UserActu;
 
 
 
@@ -44,17 +45,18 @@ namespace TMC.UI.Controllers
                 var a = await auth.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password, model.Usuario, true);
                 password = model.Password;
                 UserGlobal = model.Email;
-
                 return this.RedirectToIndex("Create", "Usuario");
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, "Ha ocurrido un error. Intente de nuevo");
             }
-
             return View();
         }
+        //fin de get usuario
 
+
+        //login
         [AllowAnonymous]
         [HttpGet]
         public ActionResult Login(string returnUrl)
@@ -73,7 +75,10 @@ namespace TMC.UI.Controllers
             }
             return this.View();
         }
+        //fin de login
 
+
+        //post de login
         [HttpPost]
         [AllowAnonymous]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
@@ -119,6 +124,7 @@ namespace TMC.UI.Controllers
             }
             return this.View(model);
         }
+        //fin de post login
 
         private void SignInUser(string email, string token, bool isPersistent)
         {
@@ -190,6 +196,7 @@ namespace TMC.UI.Controllers
         [HttpGet]
         public new ActionResult Profile()
         {
+         
             var id = cUsuarios.ObtenerId(UserGlobal);
             var Usuario = cUsuarios.Buscar(id);
             var rol = Usuario.IDRol;
@@ -199,6 +206,11 @@ namespace TMC.UI.Controllers
 
             return View(Usuario);
         }
+
+
+
+
+        
 
         public ActionResult Admin_Users()
         {
@@ -217,6 +229,7 @@ namespace TMC.UI.Controllers
         {
             return View();
         }
+      
 
         [HttpPost]
         [AllowAnonymous]
@@ -231,7 +244,7 @@ namespace TMC.UI.Controllers
                 usuarios.foto = null;
                 cUsuario.Insertar(usuarios);
                 ModelState.AddModelError(string.Empty, "Usuario Registrado");
-                return this.RedirectToIndex("Login", "Usuario");
+                return View();
             }
             catch (Exception ex)
             {
@@ -250,47 +263,83 @@ namespace TMC.UI.Controllers
             return View(lista);
         }
 
+        //Bloque que se genera al desactivar un Usuario
 
-        //public ActionResult MuestraRoles()
-        //{
-        //    List<TbRoles> listaRoles = cRoles.Mostrar();
+        public ActionResult Delete()
 
-        //    return View(listaRoles);
-        //}
+        {
+            return View();
 
+        }
+        //este inserta en la base de datos 
+        [HttpPost]
+        public ActionResult Delete(int id)
 
-
-
-        //METODO DE PRUEBA, AUN SE DEBE SDEFINIR SI FUNCIONA
-
-        public ActionResult Edit(int id)
         {
             TbUsuarios usuario = cUsuarios.Buscar(id);
+            cUsuarios.Desactivar(id);
             return View(usuario);
+
+
+
         }
 
 
+        //crear usuario parte de administrador 
+        public ActionResult Create_Admin()
+        {
+            return View();
+        }
+
 
         [HttpPost]
-        public ActionResult Edit(TbUsuarios usuarios)
+        [AllowAnonymous]
+        public ActionResult Create_Admin(TbUsuarios usuarios)
         {
-            //Obtencion de datos de los DropDown            
-            //if (usuarios.IDRol == 0)
-            //{
-            //    ModelState.AddModelError(string.Empty, "Debe ingresar un rol primero");
-            //    CargarListas();
-            //    return View();
-            //}
-
-
-            cUsuarios.Actualizar(usuarios);
-
-
+            try
+            {
+             
+                usuarios.correo = UserActu;
+                usuarios.contrasenna = password;
+                usuarios.IDRol = 2;
+                usuarios.estado = true;
+                usuarios.foto = null;
+                cUsuario.Insertar(usuarios);
+                ModelState.AddModelError(string.Empty, "Usuario Registrado");
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
             return View();
         }
 
 
 
+
+        public ActionResult Edit()
+        {
+
+            return View();
+        }
+      
+
+
+        private void CargarListas()
+        {
+            //cargado en el View
+            List<TbUsuarios> usuarios = cUsuarios.Mostrar();
+            if (usuarios == null)
+            {
+                usuarios[0].IDUsuario = 0;
+                usuarios[0].nombre = "Error";
+            }
+            ViewBag.ddlCatalogos = new SelectList(usuarios, "IDUsuario", "Nombre");
+        }
+
+
+    
 
     }
 
