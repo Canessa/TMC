@@ -1,74 +1,66 @@
 ﻿@model TMC.DATA.TbServicios
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Desactivar Servicio";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Elimnar Servicio</h2>
 
-<h3>Está seguro que desea eliminar este Servicio?</h3>
-<div>
-    <h4>TbServicios</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDServicio)
-        </dt>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <dd>
-            @Html.DisplayFor(model => model.IDServicio)
-        </dd>
+</head>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Desactivar Servicio</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.detalle)
-        </dt>
+<body id="estiloAdmin" style="text-align:left">
+    <div class="card-body">
+        <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
+            Borrar Servicio
+        </h5>
 
-        <dd>
-            @Html.DisplayFor(model => model.detalle)
-        </dd>
+        <div class="col-12">
+            <br />
+            <div class="col-8">
+                <h3 style="color:red;">Está seguro que desea desactivar este servicio?</h3>
+            </div>
+            <br />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.precio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.precio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IDCatalogo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IDCatalogo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-       @* @Html.AntiForgeryToken()*@
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-dark" /> |
-            @Html.ActionLink(" Regresar", "Admin_Users", null, new { @class = "fas fa-arrow-circle-left text-muted" })
         </div>
-    }
-</div>
+
+        <div class="col-8">
+            @using (Html.BeginForm())
+            {
+                @* @Html.AntiForgeryToken()*@
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn-outline-btn" /> |
+                    @Html.ActionLink("Regresar", "Admin_Servicios", "TbServicios", new { @class = "text-danger" })
+                </div>
+
+
+            }
+        </div>
+    </div>
+    <br />
+
+    <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+</body>
+
+

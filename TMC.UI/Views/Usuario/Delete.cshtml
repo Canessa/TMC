@@ -1,7 +1,7 @@
 ﻿@model TMC.DATA.TbUsuarios
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Desactivar Usuario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <head>
@@ -13,13 +13,14 @@
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">Eliminar Usuario</li>
+        <li class="breadcrumb-item active" aria-current="page">Desactivar Usuario</li>
 
 
     </ol>
@@ -27,45 +28,40 @@
 <!-- /Breadcrumb -->
 
 
+<body id="estiloAdmin" style="text-align:left">
+    <div class="card-body">
+        <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
+            Borrar Servicio
+        </h5>
+
+        <div class="col-12">
+            <br />
+            <div class="col-8">
+                <h3 style="color:red;">Está seguro que desea desactivar este Usuario?</h3>
+            </div>
+            <br />
+
+        </div>
+        <div class="col-8">
+            @using (Html.BeginForm())
+            {
+                @* @Html.AntiForgeryToken()*@
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn-outline-btn" /> |
+                    @Html.ActionLink(" Regresar", "Admin_users", "TbUsuarios", null, new { @class = "text-danger" })
+                </div>
+            }
+        </div>
 
 
-  <div>
+    </div>
 
-      <div class="card-body">
-          <div class="card">
-              <div class="card-body">
-                 
-                      <div class="col-8">
-                          <h3 style="color:red;">Está seguro que desea desactivar este Usuario?</h3>
-
-                      </div>
-                      <br />
-                      <div class="col-8">
-                          @using (Html.BeginForm())
-                          {
-                              @* @Html.AntiForgeryToken()*@
-
-                          <div class="form-actions no-color">
-
-
-                              <input type="submit" value="Delete" class="btn btn-dark" /> |
-
-                              @Html.ActionLink(" Regresar", "Admin_users", "TbUsuarios", null, new { @class = "fas fa-arrow-circle-left text-muted" })
-                          </div>
-                          }
-                      </div>
-                
-
-              </div>
-
-          </div>
-
-      </div>
-
-      <hr />
+        <hr />
 
 
 
-     
-  </div>
 
+    </div>
+    <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+</body>

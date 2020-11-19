@@ -94,14 +94,15 @@ namespace TMC.UI.Controllers
                 return View();
             }
             cServicios.Actualizar(servicios);
-            return RedirectToAction("Search");
+            return RedirectToAction("Edit");
         }
 
         [HttpGet]
         public ActionResult Delete(int id)
         {
+            TbServicios servicio = cServicios.Buscar(id);
             cServicios.Desactivar(id);
-            return RedirectToAction("Search");
+            return View(servicio);
         }
 
 

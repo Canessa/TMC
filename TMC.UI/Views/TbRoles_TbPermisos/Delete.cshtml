@@ -1,57 +1,94 @@
 ﻿@model TMC.DATA.TbRoles_TbPermisos
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Desactivar Permisos por Rol";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Elimnar Permisos por Rol</h2>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-<h3>Está seguro que desea eliminar este permiso por rol?</h3>
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDRolPermiso)
-        </dt>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Desactivar Permisos por Rol</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
-        <dd>
-            @Html.DisplayFor(model => model.IDRolPermiso)
-        </dd>
+<body id="estiloAdmin" style="text-align:left">
+    <div class="card-body">
+        <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
+            Borrar Permiso de Rol
+        </h5>
+        <br />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IDRol)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IDRol)
-        </dd>
+        <div class="col-12">
+            <br />
+            <div class="col-8">
+                <h3 style="color:red;">Está seguro que desea eliminar este permiso por rol?</h3>
+            </div>
+            <br />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IDPermiso)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IDPermiso)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-dark" /> |
-            @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
         </div>
-    }
-</div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IDRolPermiso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IDRolPermiso)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IDRol)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IDRol)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IDPermiso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IDPermiso)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
+
+        </dl>
+
+        <div class="col-8">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn-outline-btn" />
+                    @Html.ActionLink("Regresar", "Admin_Roles_Permisos", "TbRoles_TbPermisos", new { @class = "text-danger" })
+
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+</body>

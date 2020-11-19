@@ -127,14 +127,16 @@ namespace TMC.UI.Controllers
             }
 
             cRoles_Permisos.Actualizar(roles);
-            return RedirectToAction("Search");
+            return RedirectToAction("Edit");
         }
 
         [HttpGet]
         public ActionResult Delete(int id)
         {
+
+            TbRoles_TbPermisos rolpermiso = cRoles_Permisos.Buscar(id);
             cRoles_Permisos.Desactivar(id);
-            return RedirectToAction("Search");
+            return View(rolpermiso);
         }
 
         public ActionResult Admin_Roles_Permisos()
