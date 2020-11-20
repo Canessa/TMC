@@ -1,41 +1,68 @@
 ﻿@model TMC.DATA.TbProgresos
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Borrar Progreso";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Elimnar Foto</h2>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+</head>
 
-<h3>Está seguro que desea eliminar esta foto?</h3>
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDProgreso)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IDProgreso)
-        </dd>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Borrar Progreso</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.progreso)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.progreso)
-        </dd>
-
-    </dl>
-
+<body id="estiloAdmin" style="text-align:left">
     @using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
+        @*@Html.AntiForgeryToken() *@
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-dark" /> |
-            @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+        <div class="card-body">
+            <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
+                Confirmación dede borrado del progreso
+            </h5>
+            <br />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.IDProgreso)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IDProgreso)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.progreso)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.progreso)
+                </dd>
+
+            </dl>
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn-outline-btn" />
+                @*|@Html.ActionLink(" Regresar", "Admin_Progresos", "TbProgresos", null, new { @class = "text-danger" })*@
+
+            </div>
+            <br />
+
         </div>
     }
-</div>
+    <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+</body>

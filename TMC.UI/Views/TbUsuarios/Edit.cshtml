@@ -2,7 +2,7 @@
 
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Usuario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -85,13 +85,11 @@
                                 @Html.EditorFor(model => model.estado)
                                 @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
                                 <div class="col-md-10">
-                                    <input type="submit" value="Actualizar" class="btn-outline-btn" />
+                                    <input type="submit" value="Actualizar" class="btn-outline-btn" />|
                                     @Html.ActionLink(" Regresar", "Admin_users", "TbUsuarios", new { @class = "text-danger" })
 
                                 </div>
                             </div>
-
-
                         </div>
 
                     </div>
@@ -99,20 +97,10 @@
 
                     @* @Html.AntiForgeryToken()*@
 
-
-
-
-
-
                 </div>
-
             </div>
-        
-
     </div>
     }
-
-
     <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
 </body>
 

@@ -4,48 +4,72 @@
     ViewBag.Title = "Permisos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-<h2>Registro de Permisos</h2>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
 
-<p>
-    @Html.ActionLink(" Permiso", "Create", null, new { @class = "fas fa-plus-circle text-muted", @title="Agregar Permiso" })
-</p>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IDPermiso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.detalle)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    
+<body id="estiloAdmin">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDPermiso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.detalle)
-        </td>
-        <td>
-            @Html.ActionLink(" ", "Edit", new {  id=item.IDPermiso  }, new { @class = "fas fa-edit text-reset", @title = "Editar Permiso" }) |
-            @Html.ActionLink(" ", "Detail", new { id = item.IDPermiso }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Permiso" }) |
-            @Html.ActionLink(" ", "Delete", new { id = item.IDPermiso }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Permiso" })
-        </td>
-    </tr>
-}
+    <div class="card-body">
+        <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
+            Registro de Permisos
+        </h5>
+        <div class="card">
+            <br />
+            <p>
+                @Html.ActionLink(" Permiso", "Create", null, new { @class = "fas fa-plus-circle text-muted", @title = "Agregar Permiso" })
+            </p>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IDPermiso)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.detalle)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-</table>
-<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IDPermiso)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.detalle)
+                        </td>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", new { id = item.IDPermiso }, new { @class = "fas fa-edit text-reset", @title = "Editar Permiso" }) |
+                            @Html.ActionLink(" ", "Detail", new { id = item.IDPermiso }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Permiso" }) |
+                            @Html.ActionLink(" ", "Delete", new { id = item.IDPermiso }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Permiso" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+</body>

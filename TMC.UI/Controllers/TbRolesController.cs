@@ -65,7 +65,7 @@ namespace TMC.UI.Controllers
         public ActionResult Edit(TbRoles roles)
         {
             cRoles.Actualizar(roles);
-            return RedirectToAction("Search");
+            return View(roles);
         }
 
         [HttpGet]
@@ -74,8 +74,9 @@ namespace TMC.UI.Controllers
             /*  0 = Eliminado
 		        1 = TbRoles_TbPermisos lo esta usando
 		        2 = TbUsuarios lo esta usando*/
+            TbRoles rol = cRoles.Buscar(id);
             cRoles.Eliminar(id);
-            return RedirectToAction("Search");
+            return View(rol);
         }
 
 

@@ -64,7 +64,7 @@ namespace TMC.UI.Controllers
         public ActionResult Edit(TbProgresos progresos)
         {
             cProgresos.Actualizar(progresos);
-            return RedirectToAction("Search");
+            return View(progresos);
         }
 
         [HttpGet]
@@ -73,7 +73,7 @@ namespace TMC.UI.Controllers
             /*devuelve un int 0 = se eliminó con éxito
              * 1 = si ya esta asginado a una cita y no se puede eliminar*/
             cProgresos.Eliminar(id);
-            return RedirectToAction("Search");
+            return View(id);
         }
     }
 }
