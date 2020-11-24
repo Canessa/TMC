@@ -1,63 +1,86 @@
 ﻿@model IEnumerable<TMC.DATA.TbCompras>
 
 @{
-    ViewBag.Title = "ComprasUsuario";
+    ViewBag.Title = "Compras Usuario";
 }
 
-<h2>ComprasUsuario</h2>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IDCompra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IDUsuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IDServicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.precioFinal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th></th>
-    </tr>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Compras Usuario</li>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDCompra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDUsuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDServicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.precioFinal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
-</table>
+<body id="estiloAdmin">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precioFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDCompra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDServicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precioFinal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Detalles", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Borrar", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

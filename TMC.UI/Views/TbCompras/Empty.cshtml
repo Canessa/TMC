@@ -1,14 +1,23 @@
 ﻿
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+</head>
+
+<body id="estiloAdmin">
+    <div id="notfound">
+        <div style="text-align:center; position:relative;">
+            <img src="~/Imgs/Empty.png" class="img-thumbnail" />
+            <div class="MainColor" style="background-color: #D17580 !important">
+                @Html.ActionLink("Comprar ya!", "Servicios", "Home", null, new { @class = "btn btn-outline-btn" })
+            </div>
 
 
-<div id="notfound">
-    <div style="text-align:center; position:relative;">
-        <img src="~/Imgs/Empty.png" class="img-thumbnail" />
-        <div class="MainColor" style="background-color: #D17580 !important">
-            @Html.ActionLink("Comprar ya!", "Servicios", "Home", null, new { @class = "btn btn-outline-btn" })
         </div>
-        
 
     </div>
-    
-</div>
+    </body>

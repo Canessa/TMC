@@ -1,66 +1,96 @@
 ﻿@model TMC.DATA.TbCompras
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Borrar Compra";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+</head>
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Eliminar Compra</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
 <h2>Elimnar Compra</h2>
 
-<h3>Está seguro que desea eliminar esta compra?</h3>
-<div>
-    <h4>TbCompras</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDCompra)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IDCompra)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IDUsuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IDUsuario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IDServicio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IDServicio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.precioFinal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.precioFinal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fecha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fecha)
-        </dd>
-
-    </dl>
-
+<body id="estiloAdmin" style="text-align:left">
     @using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
+            <div class="card-body">
+                <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
+                    Está seguro que desea eliminar esta compra?
+                </h5>
+                <br />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IDCompra)
+                    </dt>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-dark" /> |
-            @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
-        </div>
-    }
-</div>
+                    <dd>
+                        @Html.DisplayFor(model => model.IDCompra)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IDUsuario)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IDUsuario)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IDServicio)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IDServicio)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.precioFinal)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.precioFinal)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.fecha)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.fecha)
+                    </dd>
+
+                </dl>
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn-outline-btn" />
+                    @*|@Html.ActionLink(" Regresar", "Admin_Progresos", "TbProgresos", null, new { @class = "text-danger" })*@
+
+                </div>
+                <br />
+
+            </div>
+
+
+            }
+    </body>
+
+
+

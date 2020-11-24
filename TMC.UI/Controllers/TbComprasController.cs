@@ -130,7 +130,7 @@ namespace TMC.UI.Controllers
         public ActionResult Delete(int id)
         {
             cCompras.Eliminar(id);
-            return RedirectToAction("Search");
+            return View();
         }
 
         [HttpGet]
