@@ -1,6 +1,10 @@
-﻿using System;
+using Firebase.Auth;
+using Firebase.Storage;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TMC.BLL.Interfaces;
@@ -11,7 +15,7 @@ namespace TMC.UI.Controllers
 {
     public class TbUsuariosController : Controller
     {
-        
+        string imagenURL;
         IRolesBLL cRoles = new MRolesBLL();
         public TbUsuariosController()
         {
@@ -29,16 +33,17 @@ namespace TMC.UI.Controllers
             return View(data);
         }
         [HttpPost]
-       public ActionResult EditClient(TbUsuarios usuario)
+       public async Task<ActionResult> EditClient(TbUsuarios usuario, HttpPostedFileBase foto)
         {
-            usuario.IDUsuario = TempUsuario.IDUsuario;
-            usuario.correo = TempUsuario.correo;
-            usuario.contrasenna = TempUsuario.contrasenna;
-            usuario.IDRol = TempUsuario.IDRol;
-            usuario.estado = TempUsuario.estado;
-            cUsuarios.Actualizar(usuario);
-
-            return RedirectToAction("Profile","Usuario");
+            FileStream stream;
+            if (foto.ContentLength > 0)
+            {
+                string path = Path.Combine(Server.MapPath("~/Content/images/"), foto.FileName);
+                foto.SaveAs(path);
+                stream = new FileStream(Path.Combine(path), FileMode.Open);
+                await Task.Run(() => actualizarDatos(stream, TempUsuario));
+            }
+            return RedirectToAction("DetailClient/" + usuario.IDUsuario, "TbUsuarios");
         }
 
         // GET: For client self edition
@@ -114,22 +119,41 @@ namespace TMC.UI.Controllers
         [HttpPost]
         public ActionResult Edit(TbUsuarios usuarios)
         {
-            //Obtencion de datos de los DropDown            
-            //if (usuarios.IDRol == 0)
-            //{
-            //    ModelState.AddModelError(string.Empty, "Debe ingresar un rol primero");
-            //    CargarListas();
-            //    return View();
-            //}
-
-
             cUsuarios.Actualizar(usuarios);
-
-
             return View();
         }
-       
 
+        public async void actualizarDatos(FileStream foto, TbUsuarios usuario)
+        {
+            string apikey = "AIzaSyCx5pPjzlIQa2Jef3wJcmsIpv35DLRGGJY";
+            string bucket = "bd-tmc.appspot.com";
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(apikey));
+            var a = await auth.SignInWithEmailAndPasswordAsync(usuario.correo, usuario.contrasenna);
+            var cancelar = new CancellationTokenSource();
 
+            var task = new FirebaseStorage(bucket, new FirebaseStorageOptions
+            {
+                AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
+                ThrowOnCancel = true
+            })
+            .Child("fotosDePerfil")
+            .Child("fotoPerfil-id" + usuario.IDUsuario)
+            .PutAsync(foto, cancelar.Token);
+
+            try
+            {
+                imagenURL = await task;
+                usuario.IDUsuario = TempUsuario.IDUsuario;
+                usuario.correo = TempUsuario.correo;
+                usuario.contrasenna = TempUsuario.contrasenna;
+                usuario.IDRol = TempUsuario.IDRol;
+                usuario.foto = imagenURL;
+                usuario.estado = TempUsuario.estado;
+                cUsuarios.Actualizar(usuario);
+            } catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
     }
 }
