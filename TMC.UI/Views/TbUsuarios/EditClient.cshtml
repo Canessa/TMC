@@ -1,4 +1,4 @@
-﻿@model TMC.DATA.TbUsuarios
+@model TMC.DATA.TbUsuarios
 
 @{
     ViewBag.Title = "EditClient";
@@ -15,7 +15,7 @@
 </nav>
 <!-- /Breadcrumb -->
 <div class="card-body">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("EditClient", "TbUsuarios", FormMethod.Post, new { enctype = "multipart/form-data"}))
     {
         @*@Html.AntiForgeryToken()*@
 
@@ -96,13 +96,13 @@
                     </div>
                 </div>*@
 
-            @*<div class="form-group">
+            <div class="form-group">
                     @Html.LabelFor(model => model.foto, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.foto, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.foto, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.foto, new { htmlAttributes = new { @class = "form-control-file", @type = "file", @id = "fotoPerfil" } })
+                    @Html.ValidationMessageFor(model => model.foto, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
