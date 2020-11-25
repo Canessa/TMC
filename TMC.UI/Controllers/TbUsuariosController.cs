@@ -16,6 +16,7 @@ namespace TMC.UI.Controllers
     public class TbUsuariosController : Controller
     {
         string imagenURL;
+
         IRolesBLL cRoles = new MRolesBLL();
         public TbUsuariosController()
         {
@@ -53,6 +54,8 @@ namespace TMC.UI.Controllers
             var data = cUsuarios.Buscar(id);
             return View(data);
         }
+        // GET: List of user for Admin
+        [HttpGet]
         public ActionResult Admin_Users()
         {
             List<TbUsuarios> lista = cUsuarios.Mostrar();
@@ -73,30 +76,6 @@ namespace TMC.UI.Controllers
             ViewBag.ddlRoles = new SelectList(roles, "IDRol", "nombre");
         }
 
-
-        public ActionResult Edit()
-        {
-
-            List<TbUsuarios> lista = cUsuarios.Mostrar();
-
-            return View(lista);
-
-           
-        }
-
-        public ActionResult Search()
-        {
-
-            List<TbUsuarios> lista = cUsuarios.Mostrar();
-
-            return View(lista);
-
-
-        }
-
-
-
-
         private void CargarListasUser()
         {
             //cargado en el View
@@ -113,14 +92,18 @@ namespace TMC.UI.Controllers
         public ActionResult Edit(int id)
         {
             var data = cUsuarios.Buscar(id);
-            CargarListasUser();
+            TempUsuario = data;
             return View(data);
         }
         [HttpPost]
-        public ActionResult Edit(TbUsuarios usuarios)
+        public ActionResult Edit(TbUsuarios usuario)
         {
-            cUsuarios.Actualizar(usuarios);
-            return View();
+
+            usuario.correo = TempUsuario.correo;
+            usuario.contrasenna = TempUsuario.contrasenna;
+            usuario.foto = TempUsuario.foto;
+            cUsuarios.Actualizar(usuario);
+            return RedirectToAction("Admin_Users");
         }
 
         public async void actualizarDatos(FileStream foto, TbUsuarios usuario)

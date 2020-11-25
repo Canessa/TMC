@@ -53,6 +53,9 @@
     <Reference Include="Firebase.Auth, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Firebase.Auth.1.0.0\lib\netstandard1.1\Firebase.Auth.dll</HintPath>
     </Reference>
+    <Reference Include="Firebase.Storage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FirebaseStorage.net.1.0.3\lib\netstandard1.1\Firebase.Storage.dll</HintPath>
+    </Reference>
     <Reference Include="FirebaseAdmin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=97c8d00c348326ed, processorArchitecture=MSIL">
       <HintPath>..\packages\FirebaseAdmin.2.0.0\lib\net461\FirebaseAdmin.dll</HintPath>
     </Reference>
@@ -711,13 +714,13 @@
     <Content Include="Views\TbUsuarios\DetailClient.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
-    <Content Include="Views\TbUsuarios\Admin_Users.cshtml" />
     <Content Include="Views\Usuario\Create_Admin.cshtml" />
+    <Content Include="Views\TbUsuarios\Admin_Users.cshtml" />
     <Content Include="Views\TbUsuarios\Edit.cshtml" />
-    <Content Include="Views\TbUsuarios\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
     <Folder Include="JavaScripts\" />
   </ItemGroup>
   <ItemGroup>
