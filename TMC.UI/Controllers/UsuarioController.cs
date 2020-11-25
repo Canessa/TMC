@@ -1,4 +1,4 @@
-﻿using Firebase.Auth;
+using Firebase.Auth;
 using Jose;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -241,7 +241,7 @@ namespace TMC.UI.Controllers
                 usuarios.contrasenna = password;
                 usuarios.IDRol = 2;
                 usuarios.estado = true;
-                usuarios.foto = null;
+                usuarios.foto = "https://images.app.goo.gl/eJqSchtF1RubTY4d8";
                 cUsuario.Insertar(usuarios);
                 ModelState.AddModelError(string.Empty, "Usuario Registrado");
                 return View();
@@ -337,10 +337,6 @@ namespace TMC.UI.Controllers
             }
             ViewBag.ddlCatalogos = new SelectList(usuarios, "IDUsuario", "Nombre");
         }
-
-
-    
-
     }
 
 }
