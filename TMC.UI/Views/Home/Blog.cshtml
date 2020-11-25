@@ -3,11 +3,18 @@
 }
 
 
+
 <head>
 
-
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 
 </head>
 
@@ -15,184 +22,185 @@
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 
-<div>
-    <div class="container">
-        <div class="main-body">
 
-            <!-- Breadcrumb -->
-            <nav aria-label="breadcrumb" class="main-breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Noticias</li>
-                </ol>
-            </nav>
-            <!-- /Breadcrumb -->
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb" class="main-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">Noticias</li>
+                    </ol>
+                </nav>
+                <!-- /Breadcrumb -->
+                <body id="estiloAdmin">
+                    <div>
+                        <div class="container">
+                            <div class="main-body">
+                                <div class="row gutters-sm">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex flex-column align-items-center text-center">
 
-            <div class="row gutters-sm">
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-column align-items-center text-center">
+                                                    <div class="mt-3">
+                                                        <div class="col-12">
+                                                            <p>Noticia 1</p>
+                                                            <a href="#"><img src="~/Imgs/index_1.jpg" class="img-thumbnail" style="border-radius:15px"></a>
 
-                                <div class="mt-3">
-                                    <div class="col-12">
-                                        <p>Noticia 1</p>
-                                        <a href="#"><img src="~/Imgs/index_1.jpg" class="img-thumbnail" style="border-radius:15px"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mt-3">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="d-flex flex-column align-items-center text-center">
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mt-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-column align-items-center text-center">
+                                                        <div class="mt-3">
+                                                            <div class="col-12">
+                                                                <p>Noticia 2</p>
+                                                                <a href="#"><img src="~/Imgs/index_1.jpg" class="img-thumbnail" style="border-radius:15px"></a>
 
-                                    <div class="mt-3">
-                                        <div class="col-12">
-                                            <p>Noticia 2</p>
-                                            <a href="#"><img src="~/Imgs/index_1.jpg" class="img-thumbnail" style="border-radius:15px"></a>
-
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-md-8">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Testimonios</i></h6>
-                            <div class="card h-100">
+                                    <div class="col-md-8">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Testimonios</h6>
+                                                <div class="card h-100">
 
-                                <div class="card-body">
+                                                    <div class="card-body">
 
-                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                        <div style="text-align:center" class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <h6>UserId</h6>
-                                                <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
+                                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                                            <div style="text-align:center" class="carousel-inner">
+                                                                <div class="carousel-item active">
+                                                                    <h6>UserId</h6>
+                                                                    <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
 
+                                                                    <br />
+                                                                    <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
+                                                                </div>
+                                                                <div class="carousel-item">
+                                                                    <h6>UserId</h6>
+                                                                    <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
+
+                                                                    <br />
+                                                                    <p>" dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
+                                                                </div>
+                                                                <div class="carousel-item">
+                                                                    <h6>UserId</h6>
+                                                                    <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
+
+                                                                    <br />
+                                                                    <p>"Neque porro  dolor sit amet, consectetur, adipisci velit..."</p>
+                                                                </div>
+                                                            </div>
+                                                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                                                <span style="background-color:burlywood; border-radius:15px" class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                                <span class="sr-only">Previous</span>
+                                                            </a>
+                                                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                                                <span style="background-color:burlywood; border-radius:15px" class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                                <span class="sr-only">Next</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <br />
-                                                <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <h6>UserId</h6>
-                                                <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
 
-                                                <br />
-                                                <p>" dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <h6>UserId</h6>
-                                                <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
 
-                                                <br />
-                                                <p>"Neque porro  dolor sit amet, consectetur, adipisci velit..."</p>
+
+
+
+
+
+
+
                                             </div>
                                         </div>
-                                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                            <span style="background-color:burlywood; border-radius:15px" class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                            <span style="background-color:burlywood; border-radius:15px" class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <br />
+                                        <div class="row gutters-sm">
+                                            <div class="col-sm-12 mb-3">
+                                                <div class="card h-100">
+                                                    <div class="card-body">
+                                                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"> </i>Informacion de eventos</h6>
+                                                        <div class="card">
 
 
+                                                            <h5 style="background-color:#8C8473" class="card-header"><ion-icon name="calendar-outline"> </ion-icon>  Evento</h5>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-4">
+                                                                        <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        <h6>Evento 1</h6>
+                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non laoreet nunctus c. Nullam dictum sem ut commodo vestibulum. Pellentesque habitant morbi tristique seneet netus et malesuada fames ac turpis egestas.</p>
 
 
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        <h6>Fecha</h6>
+                                                                        <p>dd/mm/yyyy</p>
+                                                                    </div>
+                                                                </div>
 
+                                                            </div>
 
+                                                        </div>
 
+                                                    </div>
 
-
-                        </div>
-                    </div>
-                    <div class="row gutters-sm">
-                        <div class="col-sm-12 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Informacion </i>de eventos</h6>
-                                    <div class="card">
-
-
-                                        <h5 style="background-color:#8C8473" class="card-header"><ion-icon name="calendar-outline"> </ion-icon>  Evento</h5>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6>Evento 1</h6>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non laoreet nunctus c. Nullam dictum sem ut commodo vestibulum. Pellentesque habitant morbi tristique seneet netus et malesuada fames ac turpis egestas.</p>
-
-
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6>Fecha</h6>
-                                                    <p>dd/mm/yyyy</p>
                                                 </div>
                                             </div>
 
                                         </div>
-
-                                    </div>
-
-                                </div>
-                       
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row gutters-sm">
-                        <div class="col-sm-12 mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Informacion </i>de eventos</h6>
-                                    <div class="card">
+                                        <div class="row gutters-sm">
+                                            <div class="col-sm-12 mb-3">
+                                                <div class="card h-100">
+                                                    <div class="card-body">
+                                                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"> </i>Informacion de eventos</h6>
+                                                        <div class="card">
 
 
-                                        <h5 style="background-color:#8C8473" class="card-header"><ion-icon name="calendar-outline"> </ion-icon>  Evento</h5>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6>Evento 2</h6>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non laoreet nunctus c. Nullam dictum sem ut commodo vestibulum. Pellentesque habitant morbi tristique seneet netus et malesuada fames ac turpis egestas.</p>
+                                                            <h5 style="background-color:#8C8473" class="card-header"><ion-icon name="calendar-outline"> </ion-icon>  Evento</h5>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-4">
+                                                                        <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        <h6>Evento 2</h6>
+                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non laoreet nunctus c. Nullam dictum sem ut commodo vestibulum. Pellentesque habitant morbi tristique seneet netus et malesuada fames ac turpis egestas.</p>
 
 
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6>Fecha</h6>
-                                                    <p>dd/mm/yyyy</p>
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        <h6>Fecha</h6>
+                                                                        <p>dd/mm/yyyy</p>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
                                                 </div>
                                             </div>
 
                                         </div>
-
                                     </div>
-
                                 </div>
-                               
                             </div>
                         </div>
 
+
+
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-</div>
+                </body>
