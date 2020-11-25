@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using TMC.BLL.Interfaces;
 using TMC.BLL.Metodos;
 using TMC.DATA;
@@ -98,12 +99,35 @@ namespace TMC.UI.Controllers
         [HttpPost]
         public ActionResult Edit(TbUsuarios usuario)
         {
+                usuario.IDUsuario = TempUsuario.IDUsuario;
+                usuario.correo = TempUsuario.correo;
+                usuario.contrasenna = TempUsuario.contrasenna;
+                usuario.foto = TempUsuario.foto;
+                cUsuarios.Actualizar(usuario);
+            return View(usuario);
+               
 
-            usuario.correo = TempUsuario.correo;
-            usuario.contrasenna = TempUsuario.contrasenna;
-            usuario.foto = TempUsuario.foto;
-            cUsuarios.Actualizar(usuario);
-            return RedirectToAction("Admin_Users");
+        }
+
+        //Bloque que se genera al desactivar un Usuario
+
+        public ActionResult Delete()
+
+        {
+            return View();
+
+        }
+        //este inserta en la base de datos 
+        [HttpPost]
+        public ActionResult Delete(int id)
+
+        {
+            TbUsuarios usuario = cUsuarios.Buscar(id);
+            cUsuarios.Desactivar(id);
+            return View(usuario);
+
+
+
         }
 
         public async void actualizarDatos(FileStream foto, TbUsuarios usuario)

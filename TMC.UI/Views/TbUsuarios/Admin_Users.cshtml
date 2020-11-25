@@ -1,68 +1,184 @@
 ﻿@model IEnumerable<TMC.DATA.TbUsuarios>
 
 @{
-    ViewBag.Title = "Admin_Users";
+    ViewBag.Title = "Administrador de usuarios";
 }
 
-<h2>Admin_Users</h2>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IDUsuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cedula)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.apellidos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IDRol)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th></th>
-    </tr>
+</head>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDUsuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cedula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellidos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDRol)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.IDUsuario }) |
-            @*@Html.ActionLink("Delete", "Delete", new { id = item.IDUsuario })*@
-        </td>
-    </tr>
-}
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Administrar Usuarios</li>
 
-</table>
+
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
+<body id="estiloAdmin">
+
+    <div class="container">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+
+                <div class="table-title">
+                    <div class="row">
+                        <div class="navbar1">
+
+                            <div class="dropdown1">
+
+                                <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
+
+
+                                    <span class="material-icons">
+                                        toc
+                                    </span>
+
+                                </button>
+
+                                <div class="dropdown1-content1">
+
+                                    <ul class="navbar1">
+                                        <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Fotos", "Admin_Fotos", "TbFotos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Catalogos Fotos", "Admin_Catalogos_Fotos", "TbCatalogos_Fotos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Permisos", "Admin_Permisos", "TbPermisos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Permisos de Roles", "Admin_Roles_Permisos", "TbRoles_TbPermisos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "TbUsuarios", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div>
+                            <a href="@Url.Action( "Create_Admin", "Usuario")" class="btn btn-primary">
+                                <i class="material-icons">&#xE147;</i>
+                                <span>
+                                    Agregar Nuevo Usuario
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IDUsuario)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cedula)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.apellidos)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.telefono)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IDRol)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.estado)
+                            </th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => item.IDUsuario)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.cedula)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.apellidos)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.telefono)
+                            </td>
+
+
+                            @if (item.IDRol == 1)
+                            {
+
+                                <td>Administrador</td>
+                            }
+                            else if (item.IDRol == 2)
+                            {
+
+                                <td>Cliente</td>
+
+                            }
+                            else
+                            {
+                                <td>Deshabilitado</td>
+                            }
+                            <td>
+                                @*@Html.DisplayFor(model => item.estado)*@
+                                @Html.DisplayFor(model => item.estado)
+
+
+                            </td>
+                            <td>
+
+                                <a href="@Url.Action( "Edit", "TbUsuarios", new { id = @Html.DisplayFor(model => item.IDUsuario) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
+                                    <span class="material-icons">edit</span>
+                                </a>
+                                @*<a href="@Url.Action( "Delete", "TbUsuarios",new { id = @Html.DisplayFor(model => item.IDUsuario) })" class="delete" title="Borrar" data-toggle="tooltip">
+            <i class="material-icons">&#xE5C9;</i>
+        </a>*@
+                            </td>
+
+                        </tr>
+                    }
+                </table>
+
+                @*
+                    <div class="clearfix">
+
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a href="#">Anterior</a></li>
+                            <li class="page-item"><a href="#" class="page-link">1</a></li>
+                            <li class="page-item"><a href="#" class="page-link">2</a></li>
+                            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                            <li class="page-item"><a href="#" class="page-link">4</a></li>
+                            <li class="page-item"><a href="#" class="page-link">5</a></li>
+                            <li class="page-item"><a href="#" class="page-link">Siguiente</a></li>
+                        </ul>
+                    </div>
+                *@
+            </div>
+        </div>
+    </div>
+
+
+</body>

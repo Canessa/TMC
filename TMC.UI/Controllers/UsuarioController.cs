@@ -209,9 +209,6 @@ namespace TMC.UI.Controllers
 
 
 
-
-        
-
         public ActionResult Admin_Users()
         {
             List<TbUsuarios> lista = cUsuarios.Mostrar();
@@ -263,26 +260,7 @@ namespace TMC.UI.Controllers
             return View(lista);
         }
 
-        //Bloque que se genera al desactivar un Usuario
 
-        public ActionResult Delete()
-
-        {
-            return View();
-
-        }
-        //este inserta en la base de datos 
-        [HttpPost]
-        public ActionResult Delete(int id)
-
-        {
-            TbUsuarios usuario = cUsuarios.Buscar(id);
-            cUsuarios.Desactivar(id);
-            return View(usuario);
-
-
-
-        }
 
 
         //crear usuario parte de administrador 
@@ -299,9 +277,6 @@ namespace TMC.UI.Controllers
             try
             {
              
-                usuarios.correo = UserActu;
-                usuarios.contrasenna = password;
-                usuarios.IDRol = 2;
                 usuarios.estado = true;
                 usuarios.foto = null;
                 cUsuario.Insertar(usuarios);

@@ -707,13 +707,11 @@
     <Content Include="Views\TbRoles_TbPermisos\Admin_Roles_Permisos.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\TbCompras\ComprasUsuario.cshtml" />
     <Content Include="Views\TbCompras\Empty.cshtml" />
     <Content Include="Views\TbUsuarios\EditClient.cshtml" />
     <Content Include="Views\TbUsuarios\DetailClient.cshtml" />
-    <Content Include="Views\Usuario\Edit.cshtml" />
-    <Content Include="Views\Usuario\Delete.cshtml" />
+    <Content Include="Views\TbUsuarios\Delete.cshtml" />
     <Content Include="Views\Usuario\Create_Admin.cshtml" />
     <Content Include="Views\TbUsuarios\Admin_Users.cshtml" />
     <Content Include="Views\TbUsuarios\Edit.cshtml" />

@@ -9,48 +9,49 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
-
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 </head>
 
 
-<body>
-    
+<body id="estiloAdmin">
 
-            <h1><img src="~/Imgs/logo.png" style="height:5%; width:5%; margin-bottom:0.7%;" /> TU MAESTRO DE CEREMONIAS</h1>
-            <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">TMC</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Nosotros", "Nosotros", "Home", null, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Servicios", "Servicios", "Home", null, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Blog", "Blog", "Home", null, new { @class = "nav-link" })</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>      
-            </nav>
-            <div class="card-body">
-                <br />
-                @RenderBody()
 
-                <footer>
-                    <div class="text-sm-center">
-                        <p class="bg-dark text-white">&copy; @DateTime.Now.Year - TU MAESTRO DE CEREMONIAS</p>
-                    </div>
+    @*<h1><img src="~/Imgs/logo.png" style="height:5%; width:5%; margin-bottom:0.7%;" /> TU MAESTRO DE CEREMONIAS</h1>*@
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark" style=" overflow: hidden; position: fixed; top: 0; width: 100%; z-index:1">
+        <a class="navbar-brand" href="#">TMC</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Nosotros", "Nosotros", "Home", null, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Servicios", "Servicios", "Home", null, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Blog", "Blog", "Home", null, new { @class = "nav-link" })</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+    <div class="card-body">
+        <br />
+        @RenderBody()
 
-                </footer>
+        <footer>
+            <div class="text-sm-center">
+                <p class="bg-dark text-white">&copy; @DateTime.Now.Year - TU MAESTRO DE CEREMONIAS</p>
             </div>
 
-            @Scripts.Render("~/bundles/jquery")
-            @Scripts.Render("~/bundles/bootstrap")
-            @RenderSection("scripts", required: false)
-       
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 
 
 
-    
+
+
 </body>
 </html>
