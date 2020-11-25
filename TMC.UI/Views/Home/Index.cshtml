@@ -2,6 +2,24 @@
     ViewBag.Title = "Inicio";
 }
 
+
+
+<head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+
+</head>
+
+
 @*Imagen Principal*@
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
@@ -11,83 +29,85 @@
 </nav>
 <!-- /Breadcrumb -->
 
-<div class="form-horizontal">
+<body id="estiloAdmin">
+    <div class="form-horizontal">
 
-    <div class="form-group">
+        <div class="form-group">
 
-        <div style="text-align:center; position:relative; margin-top:-15px;">
+            <div style="text-align:center; position:relative; margin-top:-15px;">
 
-            <img src="~/Imgs/index_1.jpg" style="width:100%;" />
+                <img src="~/Imgs/index_1.jpg" style="width:100%;" />
 
-            <div class="MainColor">
+                <div class="MainColor">
 
-                <h3>TU MAESTRO DE CEREMONIAS</h3>
-                <h6>Más que una boda, una experiencia de vida</h6>
+                    <h3>TU MAESTRO DE CEREMONIAS</h3>
+                    <h6>Más que una boda, una experiencia de vida</h6>
+
+                </div>
 
             </div>
-
         </div>
     </div>
-</div>
 
-@*Carousel de Servicios*@
-<div class="container" style="margin-top:-80px">
-    <div id="carouselServicios" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="row">
-                    <div class="col">
-                        <div class="py-4 text-center">
-                            <a href="#"><img src="~/Imgs/CateringService.jpg" class="img-thumbnail"></a>
-                            <br />
-                            <a href="#" class="text-muted">Catering Service</a>
+    @*Carousel de Servicios*@
+    <div class="container" style="margin-top:-80px">
+        <div id="carouselServicios" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col">
+                            <div class="py-4 text-center">
+                                <a href="#"><img src="~/Imgs/CateringService.jpg" class="img-thumbnail"></a>
+                                <br />
+                                <a href="#" class="text-muted">Catering Service</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="py-4 text-center">
+                                <a href="#"><img src="~/Imgs/Estilista.jpg" class="img-thumbnail"></a>
+                                <a href="#" class="text-muted">Estilista</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="py-4 text-center">
+                                <a href="#"><img src="~/Imgs/Maquillista.jpg" class="img-thumbnail"></a>
+                                <a href="#" class="text-muted">Maquillista</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="py-4 text-center">
-                            <a href="#"><img src="~/Imgs/Estilista.jpg" class="img-thumbnail"></a>
-                            <a href="#" class="text-muted">Estilista</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col">
+                            <div class="py-4 text-center">
+                                <a href="#"><img src="~/Imgs/Modista.jpg" class="img-thumbnail"></a>
+                                <a href="#" class="text-muted">Modista</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="py-4 text-center">
-                            <a href="#"><img src="~/Imgs/Maquillista.jpg" class="img-thumbnail"></a>
-                            <a href="#" class="text-muted">Maquillista</a>
+                        <div class="col">
+                            <div class="py-4 text-center">
+                                <a href="#"><img src="~/Imgs/Planificación.jpg" class="img-thumbnail"></a>
+                                <a href="#" class="text-muted">Planificación</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="py-4 text-center">
+                                <a href="#"><img src="~/Imgs/FotografoProfesional.jpg" class="img-thumbnail"></a>
+                                <a href="#" class=" text-muted">Fotografo Profesional</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col">
-                        <div class="py-4 text-center">
-                            <a href="#"><img src="~/Imgs/Modista.jpg" class="img-thumbnail"></a>
-                            <a href="#" class="text-muted">Modista</a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="py-4 text-center">
-                            <a href="#"><img src="~/Imgs/Planificación.jpg" class="img-thumbnail"></a>
-                            <a href="#" class="text-muted">Planificación</a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="py-4 text-center">
-                            <a href="#"><img src="~/Imgs/FotografoProfesional.jpg" class="img-thumbnail"></a>
-                            <a href="#" class=" text-muted">Fotografo Profesional</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a class="carousel-control-prev" href="#carouselServicios" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselServicios" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselServicios" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselServicios" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
     </div>
-</div>
 
+</body>
