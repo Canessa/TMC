@@ -92,8 +92,10 @@ namespace TMC.UI.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var data = cUsuarios.Buscar(id);
+            var data = cUsuarios.Buscar(id); 
+            
             TempUsuario = data;
+           CargarListas();
             return View(data);
         }
         [HttpPost]
@@ -103,8 +105,10 @@ namespace TMC.UI.Controllers
                 usuario.correo = TempUsuario.correo;
                 usuario.contrasenna = TempUsuario.contrasenna;
                 usuario.foto = TempUsuario.foto;
+                
                 cUsuarios.Actualizar(usuario);
-            return View(usuario);
+                CargarListas();
+                return View(usuario);
                
 
         }

@@ -266,6 +266,7 @@ namespace TMC.UI.Controllers
         //crear usuario parte de administrador 
         public ActionResult Create_Admin()
         {
+            CargarListas();
             return View();
         }
 
@@ -279,14 +280,17 @@ namespace TMC.UI.Controllers
              
                 usuarios.estado = true;
                 usuarios.foto = null;
+                
                 cUsuario.Insertar(usuarios);
                 ModelState.AddModelError(string.Empty, "Usuario Registrado");
+                CargarListas();
                 return View();
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
+            CargarListas();
             return View();
         }
 
@@ -311,6 +315,15 @@ namespace TMC.UI.Controllers
                 usuarios[0].nombre = "Error";
             }
             ViewBag.ddlCatalogos = new SelectList(usuarios, "IDUsuario", "Nombre");
+
+            //cargado en el View
+            List<TbRoles> roles = cRoles.Mostrar();
+            if (roles == null)
+            {
+                roles[0].IDRol = 0;
+                roles[0].nombre = "No hay roles disponibles";
+            }
+            ViewBag.ddlRoles = new SelectList(roles, "IDRol", "nombre");
         }
     }
 

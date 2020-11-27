@@ -71,10 +71,12 @@
                         </div>
                     </div>
 
+            
+
                     <div class="form-group">
                         @Html.LabelFor(model => model.IDRol, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.IDRol, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.DropDownListFor(model => model.IDRol, (IEnumerable<SelectListItem>)ViewBag.ddlRoles, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.IDRol, "", new { @class = "text-danger" })
                         </div>
                     </div>
