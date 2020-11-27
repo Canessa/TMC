@@ -30,7 +30,7 @@
 <body id="estiloAdmin">
     @using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
+        @*@Html.AntiForgeryToken()*@
         <div class="card-body">
             <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
                 Crear una Cita
@@ -45,18 +45,19 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.fechaCita, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.fechaCita, new { htmlAttributes = new { @class = "form-control" } })
+                            <input class="form-control" type="date" href=@Html.EditorFor(model => model.fechaCita, new { htmlAttributes = new { @class = "form-control" } })
+                            @*@Html.EditorFor(model => model.fechaCita, new { htmlAttributes = new { @class = "form-control" } })*@
                             @Html.ValidationMessageFor(model => model.fechaCita, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.IDUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.DropDownListFor(model => model.IDUsuario, (IEnumerable<SelectListItem>)ViewBag.ddlUsuarios, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.IDUsuario, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+            @Html.LabelFor(model => model.IDUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IDUsuario, (IEnumerable<SelectListItem>)ViewBag.ddlUsuarios, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDUsuario, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.detalle, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -66,13 +67,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.IDProgreso, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.DropDownListFor(model => model.IDProgreso, (IEnumerable<SelectListItem>)ViewBag.ddlProgresos, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.IDProgreso, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.IDProgreso, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IDProgreso, (IEnumerable<SelectListItem>)ViewBag.ddlProgresos, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDProgreso, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
