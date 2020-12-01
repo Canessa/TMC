@@ -45,7 +45,21 @@ namespace TMC.UI.Controllers
                 var a = await auth.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password, model.Usuario, true);
                 password = model.Password;
                 UserGlobal = model.Email;
-                return this.RedirectToIndex("Create", "Usuario");
+                TbUsuarios usuario = new TbUsuarios();
+                usuario.cedula = model.cedula;
+                usuario.nombre = model.nombre;
+                usuario.apellidos = model.apellidos;
+                usuario.correo = model.Email;
+                usuario.contrasenna = model.Password;
+                usuario.telefono = model.telefono;
+                usuario.IDRol = 2;
+                TbHistorial registro = new TbHistorial();
+                registro.detalle = "se registro un nuevo usuario: " + UserGlobal;
+                registro.fecha = DateTime.Now.ToString();
+                cUsuarios.Insertar(usuario);
+                cUsuarios.InsertarHistorial(registro);
+                
+                return this.RedirectToIndex("Create_Admin", "Usuario");
             }
             catch (Exception ex)
             {
@@ -97,17 +111,20 @@ namespace TMC.UI.Controllers
                     UserGlobal = model.Email;
                     if (token != "")
                     {
-                        //admin cualquier vista crud
-                        //user = profile
+                        TbHistorial registro = new TbHistorial();
+                        registro.detalle = "el usuario " + UserGlobal + " inicio sesion";
+                        registro.fecha = DateTime.Now.ToString();
                         int rol = cUsuarios.ObtenerId(model.Email);
                         if (rol == 1)
                         {
                             this.SignInUser(user.Email, token, false);
+                            cUsuarios.InsertarHistorial(registro);
                             return this.RedirectToIndex("Admin_Users", "TbUsuarios");
                         }
                         else if (rol == 2)
                         {
                             this.SignInUser(user.Email, token, false);
+                            cUsuarios.InsertarHistorial(registro);
                             return this.RedirectToIndex("Profile", "Usuario");
                         }
 

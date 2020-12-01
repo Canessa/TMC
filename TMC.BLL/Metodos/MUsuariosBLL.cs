@@ -69,6 +69,11 @@ namespace TMC.BLL.Metodos
             vUsuarios.Insertar(usuario);
         }
 
+        public void InsertarHistorial(TbHistorial registro)
+        {
+            vUsuarios.InsertarHistorial(registro);
+        }
+
         public List<TbUsuarios> Mostrar()
         {
             return vUsuarios.Mostrar();

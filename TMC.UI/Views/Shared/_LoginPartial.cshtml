@@ -3,36 +3,37 @@
 
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
 </head>
-
+ 
 @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    //using (Html.BeginForm("Login", "Usuario", FormMethod.Post, new { id = "logoutForm", @class = "nav-link" }))
-    //{
-    @*@Html.AntiForgeryToken()*@
-<div class="container">
-    
-    <ul class="nav navbar-nav" style=" margin-left: 73%;">
-        
+    <div class="container">
 
-      <li>
-            @Html.ActionLink("Perfil", "Profile", "Usuario", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
-        </li>
+        <ul class="nav navbar-nav" style=" margin-left: 73%;">
 
-        <li>@Html.ActionLink("Cerrar Sesion", "LogOff", "Usuario", null, new { @class = "nav-link" })</li>
-        
 
-    </ul>
-</div>
+            <li>
+                @Html.ActionLink("Perfil", "Profile", "Usuario", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+            </li>
+
+            <li>@Html.ActionLink("Cerrar Sesion", "LogOff", "Usuario", null, new { @class = "nav-link" })</li>
+        </ul>
+    </div>
     //}
 }
 else
 {
-<div class="container">
-    <ul class="nav navbar-nav" style=" margin-left: 73%;">
-        <li>@Html.ActionLink("Registrarse", "SignUp", "Usuario", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+    <div class="container">
+        <ul class="nav navbar-nav" style=" margin-left: 73%;">
+            <li>@Html.ActionLink("Registrarse", "SignUp", "Usuario", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
 
-        <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-    </ul>
-</div>
+            <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+
+            @if (ViewBag.Title != "Iniciar Sesión" && ViewBag.Title != "Registrarse"
+                && ViewBag.Title != "Blog" && ViewBag.Title != "Nosotros")
+            {
+                Response.Redirect(Url.Action("Login", "Usuario"));
+            }
+        </ul>
+    </div>
 }

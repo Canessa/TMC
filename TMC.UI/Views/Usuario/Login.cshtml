@@ -5,11 +5,6 @@
 }
 @using (Html.BeginForm())
 {
-    @*@Html.AntiForgeryToken()*@
-
-
-
-
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="main-breadcrumb">
         <ol class="breadcrumb">
@@ -20,53 +15,65 @@
     </nav>
     <!-- /Breadcrumb -->
 
-<div class="row">
-    <div class="col-4">
-        <div class="form-horizontal" style="color:black; background-color:#DD969C; opacity:0.8;border-radius:18px">
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                    @*Cuando el sistema se publique se debe entrar https://www.google.com/recaptcha/admin/site/433645524
-                escoger el CAPTCHA TMC creado, copiar la clavede sitio y pegarla en data-sitekey, por ahora trabaja con local *@
-                    <div class="g-recaptcha" data-sitekey=6LfU59gZAAAAAOq5A7LXysm1oYzY_XbXoZWtpish></div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-horizontal" style="color:black; background-color:#DD969C; opacity:0.8;border-radius:18px">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
                 </div>
 
-            </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-           
-            <div class="col-md-offset-2 col-md-8">
-                <input type="submit" value="Iniciar Sesion" class="btn-dark" />
-                <input type="button" value="Restablecer Contraseña" class="btn-dark" />
 
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                        @*Cuando el sistema se publique se debe entrar https://www.google.com/recaptcha/admin/site/433645524
+                            escoger el CAPTCHA TMC creado, copiar la clavede sitio y pegarla en data-sitekey, por ahora trabaja con local *@
+                        <div class="g-recaptcha" data-sitekey=6LfU59gZAAAAAOq5A7LXysm1oYzY_XbXoZWtpish></div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-offset-2 col-md-8">
+                    <input type="submit" value="Iniciar Sesion" class="btn-dark" id="login" />
+                    <input type="button" value="Restablecer Contraseña" class="btn-dark" />
+
+                    <br />
+                </div>
                 <br />
+
             </div>
-            <br />
-            
         </div>
     </div>
-</div>
+
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#login").click(function () {
+            var value = grecaptcha.getResponse();
+            if (value.length == 0) {
+                event.preventDefault();
+            }
+        });
+    });
+</script>

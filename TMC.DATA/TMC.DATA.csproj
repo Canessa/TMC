@@ -397,6 +397,7 @@
     <Compile Include="TbCompras.cs" />
     <Compile Include="TbEmpleados.cs" />
     <Compile Include="TbFotos.cs" />
+    <Compile Include="TbHistorial.cs" />
     <Compile Include="TbNotificaciones.cs" />
     <Compile Include="TbOcupaciones.cs" />
     <Compile Include="TbPermisos.cs" />

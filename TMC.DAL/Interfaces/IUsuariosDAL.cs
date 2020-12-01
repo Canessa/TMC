@@ -11,6 +11,8 @@ namespace TMC.DAL.Interfaces
     {
         //Insert del registro en la DB
         void Insertar(TbUsuarios usuario);
+        //Crear registro en el historial
+        void InsertarHistorial(TbHistorial registro);
         //Obtiene el rol del usuario 
         int ObtenerId(string email);
         //Update registro en la DB

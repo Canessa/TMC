@@ -68,10 +68,10 @@ namespace TMC.DAL.Metodos
         {
             try
             {
-                var lista = Mostrar();
-                if (lista != null)
+                var lista = Mostrar().Count;
+                if (lista > 0)
                 {
-                    usuario.IDUsuario = lista[lista.Count() - 1].IDUsuario + 1;
+                    usuario.IDUsuario = lista;
                 }
                 else
                 {
@@ -84,6 +84,50 @@ namespace TMC.DAL.Metodos
             {
 
             }
+        }
+
+        public void InsertarHistorial(TbHistorial registro)
+        {
+            try
+            {
+                int lista = cantidadRegistros();
+                if (lista > 0)
+                {
+                    registro.Id= lista + 1;
+                }
+                else
+                {
+                    registro.Id= 1;
+                };
+                client.SetAsync("TbHistorial/" + registro.Id, registro);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        //public List<TbHistorial> Mostrar()
+        //{
+
+        //}
+
+        public int cantidadRegistros()
+        {
+            int cantidad = 0;
+            var response = client.Get("TbHistorial");
+            TbHistorial[] tabla = JsonConvert.DeserializeObject<TbHistorial[]>(response.Body);
+            if (tabla == null) { return 0; }
+            var lista = new List<TbHistorial>();
+            foreach (var item in tabla)
+            {
+                if (item != null)
+                {
+                    cantidad++;
+                }
+            }
+
+            return cantidad;
         }
 
         public List<TbUsuarios> Mostrar()
