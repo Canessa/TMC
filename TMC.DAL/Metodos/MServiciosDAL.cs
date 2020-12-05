@@ -80,6 +80,50 @@ namespace TMC.DAL.Metodos
 
             return lista;
         }
-        
+
+        public List<TbServicios> obtenerServiciosCliente()
+        {
+            var response = client.Get("TbUsuarios_TbServicios");
+            TbServicios[] tabla = JsonConvert.DeserializeObject<TbServicios[]>(response.Body);
+            if (tabla == null) { return null; }
+            var lista = new List<TbServicios>();
+            foreach (var item in tabla)
+            {
+                if (item != null)
+                {
+                    lista.Add(item);
+                }
+            }
+
+            return lista;
+        }
+
+        public void Adquirir(int idUsuario, int idServicio)
+        {
+            TbUsuario_TbServicio usuarioServicio = new TbUsuario_TbServicio();
+            try
+            {
+                var lista = obtenerServiciosCliente();
+                if (lista != null)
+                {
+                    usuarioServicio.id = (lista.Count) + 1;
+                    usuarioServicio.idUsuario = idUsuario;
+                    usuarioServicio.idServicio = idServicio;
+                }
+                else
+                {
+                    usuarioServicio.id = 1;
+                    usuarioServicio.idUsuario = idUsuario;
+                    usuarioServicio.idServicio = idServicio;
+                };
+                client.SetAsync("TbUsuarios_TbServicios/" + usuarioServicio.id, usuarioServicio);
+
+            }
+            catch
+            {
+
+            }
+        }
+
     }
 }

@@ -45,6 +45,23 @@ namespace TMC.DAL.Metodos
             {
                 if (usuario != null && usuario.correo == email)
                 {
+                    id = usuario.IDUsuario;
+                    break;
+                }
+            }
+            return id;
+        }
+
+        public int ObtenerIdRol(string email)
+        {
+            var response = client.Get("TbUsuarios/");
+            int id = 0;
+            TbUsuarios[] tabla = { };
+            tabla = JsonConvert.DeserializeObject<TbUsuarios[]>(response.Body);
+            foreach (var usuario in tabla)
+            {
+                if (usuario != null && usuario.correo == email)
+                {
                     id = usuario.IDRol;
                     break;
                 }
@@ -152,6 +169,23 @@ namespace TMC.DAL.Metodos
             var response = client.Get("TbUsuarios/" + email);
             TbUsuarios valor = JsonConvert.DeserializeObject<TbUsuarios>(response.Body);
             return valor;
+        }
+
+        public List<TbServicios> getServiciosContratados(int usuarioID)
+        {
+            List<TbServicios> serviciosContratados = new List<TbServicios>();
+            var response = client.Get("TbUsuarios_TbServicios/");
+            int id = usuarioID;
+            TbUsuario_TbServicio[] servicios = { };
+            servicios = JsonConvert.DeserializeObject<TbUsuario_TbServicio[]>(response.Body);
+            foreach (var servicio in servicios)
+            {
+                if (servicio != null && servicio.idUsuario == id)
+                {
+                    serviciosContratados.Add(new MServiciosDAL().Buscar(servicio.idServicio));
+                }
+            }
+            return serviciosContratados;
         }
     }
 }

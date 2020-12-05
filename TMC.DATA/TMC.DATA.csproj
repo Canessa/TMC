@@ -407,6 +407,7 @@
     <Compile Include="TbServicios.cs" />
     <Compile Include="TbTestimonios.cs" />
     <Compile Include="TbUsuarios.cs" />
+    <Compile Include="TbUsuario_TbServicio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

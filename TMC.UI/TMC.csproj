@@ -715,6 +715,7 @@
     <Content Include="Views\Usuario\Create_Admin.cshtml" />
     <Content Include="Views\TbUsuarios\Admin_Users.cshtml" />
     <Content Include="Views\TbUsuarios\Edit.cshtml" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

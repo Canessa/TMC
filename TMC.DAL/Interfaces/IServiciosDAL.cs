@@ -19,5 +19,7 @@ namespace TMC.DAL.Interfaces
         List<TbServicios> Mostrar();
         //Busca un registro especifico
         TbServicios Buscar(int idServicio);
+        //Registrar un servicio a un usuario
+        void Adquirir(int idUsuario, int idServicio);
     }
 }

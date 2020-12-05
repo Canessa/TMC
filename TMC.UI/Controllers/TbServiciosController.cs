@@ -115,6 +115,13 @@ namespace TMC.UI.Controllers
             
 
         }
-
+        [HttpGet]
+        public ActionResult Adquirir(int id)
+        {
+            TbUsuarios usuarioActual = TbUsuarios.getUsuarioActual();
+            int idUsuario = usuarioActual.IDUsuario;
+            cServicios.Adquirir(idUsuario, id);
+            return RedirectToAction("Search");
+        }
     }
 }

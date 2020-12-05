@@ -1,6 +1,5 @@
 ﻿@model TMC.DATA.TbUsuarios
 
-
 @{
     ViewBag.Title = "Perfil";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -72,18 +71,15 @@
                 <div class="col-md-8">
                     <div class="card mb-3">
                         <div class="card-body">
-
-
-
                             <div class="row">
                                 <div class="container">
                                     <div class="card h-100">
                                         <div class="card-body">
                                             <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Progreso</i>del evento</h6>
-                                            <small>Progreso del evento</small>
-                                            <div class="progress mb-3" style="height: 5px;">
-                                                <div class="progress-bar bg-event" role="progressbar" style="width: 80%; " aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" ;></div>
-                                            </div>
+                                            @*<small>Progreso del evento</small>
+                                                <div class="progress mb-3" style="height: 5px;">
+                                                    <div class="progress-bar bg-event" role="progressbar" style="width: 80%; " aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" ;></div>
+                                                </div>*@
                                             <div class="row">
                                                 <div class="col-sm-3">
                                                     <h6 class="mb-0">Cantidad de invitados</h6>
@@ -99,7 +95,7 @@
                                                     <h6 class="mb-0">Fecha de evento</h6>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary">
-                                                    dd/mm/yy
+                                                    15/12/2020
                                                 </div>
                                             </div>
                                             <hr>
@@ -115,9 +111,48 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
+
+                            @foreach (var servicio in Model.serviciosContratados)
+                            {
+                                <div class="row" style="margin-left:0%; margin-top:10px">
+                                    <div class="container row">
+                                        <div class="card h-100 col-sm-8">
+                                            <div class="card-body">
+                                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">@servicio.nombre</i></h6>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h6>@servicio.detalle</h6>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Catalogo</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        #@servicio.IDCatalogo
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6 class="mb-0">Precio</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        &#8353;@servicio.precio
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card h-100 col-sm-4" style="padding: 20px;">
+                                            <img src="@servicio.foto" style="height: 200px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                             <br />
                             <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Informacion de</i>Usuario</h6>
 

@@ -28,5 +28,7 @@ namespace TMC.DATA
 
         [Display(Name = "Estado del servicio")]
         public bool estado { get; set; }
+
+        public string foto { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +13,7 @@ using TMC.BLL.Interfaces;
 using TMC.BLL.Metodos;
 using TMC.DATA;
 using TMC.UI.Models;
+using System.Threading;
 
 namespace TMC.UI.Controllers
 {
@@ -41,8 +43,18 @@ namespace TMC.UI.Controllers
         {
             try
             {
+                string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                char[] caracteres = chars.ToCharArray();
+                Random rnd = new Random();
+                StringBuilder sb = new StringBuilder();
+
+                for (int i = 0; i < 8; i++)
+                {
+                    int randomIndex = rnd.Next(chars.Length);
+                    sb.Append(caracteres.GetValue(randomIndex));
+                }
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-                var a = await auth.CreateUserWithEmailAndPasswordAsync(model.Email, model.Password, model.Usuario, true);
+                var a = await auth.CreateUserWithEmailAndPasswordAsync(model.Email, sb.ToString(), model.Usuario, true);
                 password = model.Password;
                 UserGlobal = model.Email;
                 TbUsuarios usuario = new TbUsuarios();
@@ -50,16 +62,18 @@ namespace TMC.UI.Controllers
                 usuario.nombre = model.nombre;
                 usuario.apellidos = model.apellidos;
                 usuario.correo = model.Email;
-                usuario.contrasenna = model.Password;
                 usuario.telefono = model.telefono;
                 usuario.IDRol = 2;
+                usuario.foto = "https://firebasestorage.googleapis.com/v0/b/bd-tmc.appspot.com/o/fotosDePerfil%2Fusuario_nuevo.png?alt=media&token=3cd50c1d-649e-4faf-898a-ed2c1f19019d";
                 TbHistorial registro = new TbHistorial();
                 registro.detalle = "se registro un nuevo usuario: " + UserGlobal;
                 registro.fecha = DateTime.Now.ToString();
                 cUsuarios.Insertar(usuario);
                 cUsuarios.InsertarHistorial(registro);
-                
-                return this.RedirectToIndex("Create_Admin", "Usuario");
+                await auth.SendPasswordResetEmailAsync(model.Email);
+                ViewBag.Message = "Bienvenido " + model.nombre + "! ";
+                ViewBag.Message = ViewBag.Message + "Para establecer su contraseña ingrese a su correo electrónico. " +
+                    "Por el momento, su contraseña temporal es: " + sb.ToString();
             }
             catch (Exception ex)
             {
@@ -114,17 +128,19 @@ namespace TMC.UI.Controllers
                         TbHistorial registro = new TbHistorial();
                         registro.detalle = "el usuario " + UserGlobal + " inicio sesion";
                         registro.fecha = DateTime.Now.ToString();
-                        int rol = cUsuarios.ObtenerId(model.Email);
+                        int rol = cUsuarios.ObtenerIdRol(model.Email);
                         if (rol == 1)
                         {
                             this.SignInUser(user.Email, token, false);
                             cUsuarios.InsertarHistorial(registro);
+                            TbUsuarios.setUsuarioActual(cUsuarios.Buscar(cUsuarios.ObtenerId(UserGlobal)));
                             return this.RedirectToIndex("Admin_Users", "TbUsuarios");
                         }
                         else if (rol == 2)
                         {
                             this.SignInUser(user.Email, token, false);
                             cUsuarios.InsertarHistorial(registro);
+                            TbUsuarios.setUsuarioActual(cUsuarios.Buscar(cUsuarios.ObtenerId(UserGlobal)));
                             return this.RedirectToIndex("Profile", "Usuario");
                         }
 
@@ -218,9 +234,8 @@ namespace TMC.UI.Controllers
             var Usuario = cUsuarios.Buscar(id);
             var rol = Usuario.IDRol;
             var rolobj = cRoles.Buscar(rol);
-
             ViewBag.Rol = rolobj.nombre;
-
+            Usuario.serviciosContratados = cUsuarios.getServiciosContratados(id);
             return View(Usuario);
         }
 

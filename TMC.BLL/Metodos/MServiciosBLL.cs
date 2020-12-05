@@ -35,5 +35,10 @@ namespace TMC.BLL.Metodos
         {
             return vServicios.Mostrar();
         }
+
+        public void Adquirir(int idUsuario, int idServicio)
+        {
+            vServicios.Adquirir(idUsuario, idServicio);
+        }
     }
 }

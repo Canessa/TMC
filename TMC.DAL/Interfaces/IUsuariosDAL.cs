@@ -13,8 +13,10 @@ namespace TMC.DAL.Interfaces
         void Insertar(TbUsuarios usuario);
         //Crear registro en el historial
         void InsertarHistorial(TbHistorial registro);
-        //Obtiene el rol del usuario 
+        //Obtiene el id del usuario 
         int ObtenerId(string email);
+        //Obtiene el rol del usuario
+        int ObtenerIdRol(string email);
         //Update registro en la DB
         void Actualizar(TbUsuarios usuario);
         //Desactivar usuario cambiando estado
@@ -25,6 +27,7 @@ namespace TMC.DAL.Interfaces
         TbUsuarios Buscar(int idUsuario);
         //Buscar por correo
         TbUsuarios FindEmail(string email);
-        
+        //Obtener servicios contratados
+        List<TbServicios> getServiciosContratados(int usuarioID);
     }
 }

@@ -7,6 +7,7 @@ namespace TMC.DATA
 {
     public class TbUsuarios
     {
+        static TbUsuarios usuarioActual = new TbUsuarios();
         public int IDUsuario { get; set; }
 
         [Display(Name = "Cédula")]
@@ -49,5 +50,31 @@ namespace TMC.DATA
         [Display(Name = "Foto de perfil")]
         [FileExtensions]
         public string foto { get; set; }
+        public List<TbServicios> serviciosContratados { get; set; }
+
+        public static void setUsuarioActual(TbUsuarios usuario)
+        {
+            usuarioActual.IDUsuario = usuario.IDUsuario;
+            usuarioActual.cedula = usuario.cedula;
+            usuarioActual.nombre = usuario.nombre;
+            usuarioActual.apellidos = usuario.apellidos;
+            usuarioActual.correo = usuario.correo;
+            usuarioActual.telefono = usuario.telefono;
+            usuarioActual.foto = usuario.foto;
+        }
+        public static TbUsuarios getUsuarioActual()
+        {
+            return usuarioActual;
+        }
+
+        public static void removeUsuarioActual()
+        {
+            usuarioActual.cedula = "";
+            usuarioActual.nombre = "";
+            usuarioActual.apellidos = "";
+            usuarioActual.correo = "";
+            usuarioActual.telefono = "";
+            usuarioActual.foto = "";
+        }
     }
 }

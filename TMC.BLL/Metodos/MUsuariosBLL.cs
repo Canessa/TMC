@@ -23,6 +23,11 @@ namespace TMC.BLL.Metodos
             return vUsuarios.ObtenerId(email);
         }
 
+        public int ObtenerIdRol(string email)
+        {
+            return vUsuarios.ObtenerIdRol(email);
+        }
+
         public TbUsuarios Buscar(int idUsuario)
         {
             TbUsuarios busqueda = vUsuarios.Buscar(idUsuario);
@@ -83,6 +88,10 @@ namespace TMC.BLL.Metodos
         {
             TbUsuarios busqueda = vUsuarios.FindEmail(email);
             return busqueda;
+        }
+        public List<TbServicios> getServiciosContratados(int usuarioID)
+        {
+            return vUsuarios.getServiciosContratados(usuarioID);
         }
     }
 }
