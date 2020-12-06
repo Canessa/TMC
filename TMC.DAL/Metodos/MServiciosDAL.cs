@@ -83,28 +83,14 @@ namespace TMC.DAL.Metodos
             return lista;
         }
 
-        public List<TbServicios> obtenerServiciosCliente(Nullable<int> id)
+        public List<TbServicios> obtenerServiciosCliente()
         {
             var lista = new List<TbServicios>();
-            if (id != null)
-            {
+            var listaComprados = new List<TbCompras>();
                 var response = client.Get("TbUsuarios_TbServicios");
                 TbServicios[] tabla = JsonConvert.DeserializeObject<TbServicios[]>(response.Body);
                 if (tabla == null) { return null; }
                 
-                foreach (var item in tabla)
-                {
-                    //if (item != null && item.)
-                    //{
-                    //    lista.Add(item);
-                    //}
-                }
-            }
-            else
-            {
-                var response = client.Get("TbUsuarios_TbServicios");
-                TbServicios[] tabla = JsonConvert.DeserializeObject<TbServicios[]>(response.Body);
-                if (tabla == null) { return null; }
                 foreach (var item in tabla)
                 {
                     if (item != null)
@@ -112,8 +98,24 @@ namespace TMC.DAL.Metodos
                         lista.Add(item);
                     }
                 }
-            }
             return lista;
+        }
+
+        public List<TbCompras> obtenerServiciosComprados(int id)
+        {
+            var listaComprados = new List<TbCompras>();
+            var response = client.Get("TbCompras");
+            TbCompras[] tabla = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
+            if (tabla == null) { return null; }
+
+            foreach (var item in tabla)
+            {
+                if (item != null && item.IDUsuario == id)
+                {
+                    listaComprados.Add(item);
+                }
+            }
+            return listaComprados;
         }
 
         public void Adquirir(int idUsuario, int idServicio)
@@ -121,7 +123,7 @@ namespace TMC.DAL.Metodos
             TbUsuario_TbServicio usuarioServicio = new TbUsuario_TbServicio();
             try
             {
-                var lista = obtenerServiciosCliente(null);
+                var lista = obtenerServiciosCliente();
                 if (lista != null)
                 {
                     usuarioServicio.id = (lista.Count) + 1;

@@ -44,13 +44,11 @@ namespace TMC.DAL.Metodos
         public void cancelarServicio(int idUsuario, int idServicio)
         {
             var id = 0;
-            var listaServicios = new MServiciosDAL().obtenerServiciosCliente(null);
+            var listaServicios = new MServiciosDAL().obtenerServiciosComprados(idUsuario);
             foreach (var servicio in listaServicios)
             {
-                //if (servicio.idUsuario == idUsuario)
-                //{
-
-                //}
+                //de listaServicios, averiguar quien tiene el mismo idUsuario, idServicio y obtener el idCompra.
+                //asignarle el idCompra a la variable id.
             }
             client.DeleteAsync("TbUsuarios_TbServicios/"  + id);
         }
