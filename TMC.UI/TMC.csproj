@@ -732,6 +732,7 @@
     <Content Include="Views\Shared\_Layout_Admin.cshtml" />
     <Content Include="Views\Shared\_LoginPartial_Admin.cshtml" />
     <Content Include="Views\Usuario\Reset_Password.cshtml" />
+    <Content Include="Views\TbServicios\Agendar_Servicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
