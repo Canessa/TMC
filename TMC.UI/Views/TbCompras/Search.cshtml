@@ -23,10 +23,13 @@
                 @Html.DisplayNameFor(model => model.IDServicio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.precioFinal)
+                @Html.DisplayNameFor(model => model.NombreServicio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.fecha)
+                @Html.DisplayNameFor(model => model.precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
             </th>
             <th></th>
         </tr>
@@ -35,27 +38,30 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IDCompra)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IDUsuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IDServicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precioFinal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fecha)
-            </td>
-            <td>
-                @Html.ActionLink(" ", "Edit", new { id = item.IDCompra }, new { @class = "fas fa-edit text-reset", @title = "Editar Catalogo" }) |
-                @Html.ActionLink(" ", "Detail", new { id = item.IDCompra }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Catalogo" }) |
-                @Html.ActionLink(" ", "Delete", new { id = item.IDCompra }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Catalogo" })
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.IDCompra)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IDUsuario)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IDServicio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NombreServicio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.estado)
+    </td>
+    <td>
+        @Html.ActionLink(" ", "Edit", new { id = item.IDCompra }, new { @class = "fas fa-edit text-reset", @title = "Editar Catalogo" }) |
+        @Html.ActionLink(" ", "Detail", new { id = item.IDCompra }, new { @class = "fas fa-info-circle text-reset", @title = "Detallar Catalogo" }) |
+        @Html.ActionLink(" ", "Delete", new { id = item.IDCompra }, new { @class = "fas fa-trash-alt text-reset", @title = "Eliminar Catalogo" })
+</tr>
     }
 
 </table>
