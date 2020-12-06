@@ -9,9 +9,10 @@ namespace TMC.DATA
     {
         public int IDProgreso { get; set; }
 
-        [Display(Name = "Progreso")]
-        [Required(ErrorMessage = "Descripción del progreso requerido")]
-        [StringLength(25, ErrorMessage = "Máximo 25 caracteres")]
-        public string progreso { get; set; }
+        [Display(Name = "ID del Usuario")]
+        public int IDUsuario { get; set; }
+
+        [Display(Name = "Porcentaje de progreso")]
+        public int porcentaje { get; set; }
     }
 }
