@@ -7,6 +7,7 @@ namespace TMC.DATA
 {
     public class TbProgresos
     {
+
         public int IDProgreso { get; set; }
 
         [Display(Name = "ID del Usuario")]
