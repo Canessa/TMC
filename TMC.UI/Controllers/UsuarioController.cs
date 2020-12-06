@@ -14,6 +14,15 @@ using TMC.BLL.Metodos;
 using TMC.DATA;
 using TMC.UI.Models;
 using System.Threading;
+using System.Net.Mail;
+using System.Configuration;
+using System.Web.Configuration;
+using System.Net.Configuration;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
+using Xceed.Wpf.Toolkit;
+using System.Net.Mime;
 
 namespace TMC.UI.Controllers
 {
@@ -64,6 +73,7 @@ namespace TMC.UI.Controllers
                 usuario.correo = model.Email;
                 usuario.telefono = model.telefono;
                 usuario.IDRol = 2;
+                usuario.contrasenna = sb.ToString();
                 usuario.foto = "https://firebasestorage.googleapis.com/v0/b/bd-tmc.appspot.com/o/fotosDePerfil%2Fusuario_nuevo.png?alt=media&token=3cd50c1d-649e-4faf-898a-ed2c1f19019d";
                 TbHistorial registro = new TbHistorial();
                 registro.detalle = "se registro un nuevo usuario: " + UserGlobal;
@@ -334,7 +344,138 @@ namespace TMC.UI.Controllers
 
             return View();
         }
-      
+
+        public ActionResult Reset_Password()
+        {
+            //var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
+            //auth.SendPasswordResetEmailAsync("jhenandez80517@ufide.ac.cr");
+            //auth.SendPasswordResetEmailAsync(model.Email);
+            //ViewBag.Message = "Se envió la contraseña al correo " + "jhenandez80517@ufide.ac.cr" + "! ";
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Reset_Password(string email)
+        {
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            char[] caracteres = chars.ToCharArray();
+            Random rnd = new Random();
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < 8; i++)
+            {
+                int randomIndex = rnd.Next(chars.Length);
+                sb.Append(caracteres.GetValue(randomIndex));
+            }
+
+            string nombre = email.Substring(0, email.IndexOf("@"));
+            System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
+            mmsg.To.Add(email);
+            mmsg.Subject = "Nueva Contraseña";
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+            mmsg.BodyEncoding = System.Text.Encoding.UTF8;
+            mmsg.IsBodyHtml = true;
+            mmsg.AlternateViews.Add(Mail_Body(nombre,sb.ToString()));
+            mmsg.From = new System.Net.Mail.MailAddress("tumaestrodeceremoniastmc@gmail.com");
+
+            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+            cliente.EnableSsl = true;
+            //cliente.UseDefaultCredentials = false;
+            cliente.Credentials = new System.Net.NetworkCredential("tumaestrodeceremoniastmc@gmail.com" , "Tumaestro2020");
+            cliente.Host = "smtp.gmail.com"; 
+            cliente.Port = 25;
+
+
+            try
+            {
+                cliente.Send(mmsg);
+                @ViewBag.Message = "La nueva contraseña ha sido enviada al correo " + email + "! ";
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Ha ocurrido un error. Intente de nuevo");
+            }
+       
+            //MailMessage correo = new MailMessage();
+            //correo.From = new MailAddress("tumaestrodeceremoniastmc@gmail.com", "Kyocode", System.Text.Encoding.UTF8);//Correo de salida
+            //correo.To.Add(email); //Correo destino?
+            //correo.Subject = "Correo de prueba"; //Asunto
+            //correo.Body = "Este es un correo de prueba desde c#"; //Mensaje del correo
+            //correo.IsBodyHtml = true;
+            //correo.Priority = MailPriority.Normal;
+            //SmtpClient smtp = new SmtpClient();
+            //smtp.UseDefaultCredentials = false;
+            //smtp.Host = "smtp.gmail.com"; //Host del servidor de correo
+            //smtp.Port = 25; //Puerto de salida
+            //smtp.Credentials = new System.Net.NetworkCredential("xxxxxx@gmail.com", "*******");//Cuenta de correo
+            //ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
+            ////smtp.EnableSsl = true;//True si el servidor de correo permite ssl
+            //smtp.Send(correo);
+
+            //try
+            //{
+            //    var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
+            //    auth.SendPasswordResetEmailAsync(email);
+            //    ViewBag.Message = "Se envió la contraseña al correo " + email + "! ";
+            //    return View();
+            //}
+            //catch (Exception ex)
+            //{
+            //    ViewBag.Message = "Error al enviar contraseña al correo " + email + "! ";
+            //    ModelState.AddModelError(string.Empty, ex.Message);
+            //}
+            return View();
+        }
+
+
+
+
+        private AlternateView Mail_Body(String nombre, String clave)
+        {
+
+
+            //img src = "~/Imgs/logo.png"
+            string path = Server.MapPath(@"~/Imgs/logo.png");
+            LinkedResource Img = new LinkedResource(path, MediaTypeNames.Image.Jpeg);
+            Img.ContentId = "MyImage";
+            string str = @"  
+            <table>  
+                 <tr>  
+                    <td>  
+                      <img src=cid:MyImage  id='img' alt='' width='50px' height='50px'/>   
+                    </td>  
+                </tr>
+                <tr>  
+                 
+                    <td> " + "<br/>" +
+                "Hola " + nombre +"<br/>"
+                + "<br/>" +
+                "Recientemente solicitaste un cambio de contraseña de la cuenta TMC. Por ello abajo podrás encontrar la nueva contraseña asignada: " +
+                "<br/>" + "<br/>" +
+               "<b>" + clave + "</b>" + "<br/>" +"<br/>"+
+                "Saludos," +
+                "<br/>" +
+                "Equipo TMC"+ @"
+
+                    </td>  
+                </tr>  
+               </table>  
+            ";
+            AlternateView AV =
+            AlternateView.CreateAlternateViewFromString(str, null, MediaTypeNames.Text.Html);
+            AV.LinkedResources.Add(Img);
+            return AV;
+        }
+
+
+
+
+
+
+
+
+
 
 
         private void CargarListas()
