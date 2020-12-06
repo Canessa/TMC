@@ -123,5 +123,12 @@ namespace TMC.UI.Controllers
             cServicios.Adquirir(idUsuario, id);
             return RedirectToAction("Search");
         }
+
+        public ActionResult Agendar_Servicio()
+        {
+            return View();
+        }
+
+
     }
 }

@@ -1,98 +1,109 @@
 ﻿@model TMC.DATA.TbUsuarios
 
 @{
-    ViewBag.Title = "DetailClient";
+    ViewBag.Title = "Editar Cliente";
 }
 
-<h2>DetailClient</h2>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div>
-    <h4>TbUsuarios</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.IDUsuario)
-        </dt>
+</head>
 
-        <dd>
-            @Html.DisplayFor(model => model.IDUsuario)
-        </dd>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cedula)
-        </dt>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Editar Información</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
-        <dd>
-            @Html.DisplayFor(model => model.cedula)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+<body id="estiloAdmin">
+    <div class="card-body">
+        <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
+            Información del Perfil
+        </h5>
+        <div class="card">
+            <div  class="col-8">
+                <dl class="dl-horizontal">
+                    <br />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.apellidos)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.cedula)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.apellidos)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.cedula)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.telefono)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.nombre)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.telefono)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.nombre)
+                    </dd>
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.correo)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.apellidos)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.correo)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.apellidos)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.contrasenna)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.telefono)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.contrasenna)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.telefono)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IDRol)
-        </dt>
+                    @*
 
-        <dd>
-            @Html.DisplayFor(model => model.IDRol)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.contrasenna)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.contrasenna)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>*@
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.foto)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.foto)
-        </dd>*@
+                    @*<dt>
+                @Html.DisplayNameFor(model => model.foto)
+            </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Editar", "EditClient", new { id = Model.IDUsuario }) |
-    @Html.ActionLink("Regresar", "Profile","Usuario")
-</p>
+            <dd>
+                @Html.DisplayFor(model => model.foto)
+            </dd>*@
+
+                </dl>
+
+                <p>
+                    @Html.ActionLink("Editar", "EditClient", new { id = Model.IDUsuario }) |
+                    @Html.ActionLink("Regresar", "Profile", "Usuario", null, new { @class = "text-danger" })
+                </p>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,42 +1,87 @@
 ﻿@model TMC.DATA.TbCatalogos
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Borrar Catalogo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        alert("@Html.Raw(@ViewBag.Message)");
+        window.location = "/TbCatalogos/Admin_Catalogos";
+    </script>
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 
-<h2>Elimnar Catalogo</h2>
+</head>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Eliminar Catalogo</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
-<h3>Está seguro que desea eliminar este catalogo de fotos?</h3>
-<div>
-    <h4>TbCatalogos</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDCatalogo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IDCatalogo)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.detalle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.detalle)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-dark" /> |
-            @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+<body id="estiloAdmin" style="text-align:left">
+    <div class="card-body">
+        <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
+            Borrar Servicio
+        </h5>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @ViewBag.mensaje
+        <div class="col-12">
+            <br />
+            <div class="col-8">
+                <h3 style="color:red;">Está seguro que desea eliminar este Catalogo?</h3>
+            </div>
+            <br />
         </div>
-    }
-</div>
+        <div class="col-8">
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.IDCatalogo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IDCatalogo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.detalle)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.detalle)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                <div class="form-actions no-color">
+                    <input type="submit" value="Borrar" class="btn-outline-btn btn-sm" /> |
+                    @Html.ActionLink("Regresar", "Admin_Catalogos", "TbCatalogos", null, new { @class = "text-danger" })
+                </div>
+            }
+        </div>
+    </div>
+    <br />
+    <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+</body>
+
+
+
+
+

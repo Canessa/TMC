@@ -37,24 +37,17 @@
                 <h3 style="color:red;">Está seguro que desea desactivar este Usuario?</h3>
             </div>
             <br />
-
         </div>
         <div class="col-8">
             @using (Html.BeginForm())
             {
-                @* @Html.AntiForgeryToken()*@
-
                 <div class="form-actions no-color">
-                    <input type="submit" value="Desactivar" class="btn-outline-btn" /> |
+                    <input type="submit" value="Desactivar" class="btn-outline-btn btn-sm" /> |
                     @Html.ActionLink(" Regresar", "Admin_users", "TbUsuarios", null, new { @class = "text-danger" })
                 </div>
             }
         </div>
-
-
     </div>
-
-        <hr />
-
+        <br />
     <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
 </body>

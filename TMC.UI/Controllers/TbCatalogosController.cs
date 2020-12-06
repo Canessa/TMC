@@ -16,14 +16,6 @@ namespace TMC.UI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Search()
-        {
-            var list = cCatalogo.Mostrar();
-            if (list == null) { return RedirectToAction("Create"); };
-            return View(list);
-        }
-
-        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -63,28 +55,39 @@ namespace TMC.UI.Controllers
         public ActionResult Edit(TbCatalogos catalogos)
         {
             cCatalogo.Actualizar(catalogos);
-            return RedirectToAction("Search");
+            return View();
         }
 
         [HttpGet]
         public ActionResult Delete(int id)
         {
+            try
+            {
+                cCatalogo.Eliminar(id);
+                ModelState.AddModelError(string.Empty, "Catalogo Borrado");
+                @ViewBag.Message = "Se ha borrado el Catalogo con éxito";
+                return RedirectToAction("Admin_Catalogos");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Ha ocurrido un error. Intente de nuevo");
+            }
+            return RedirectToAction("Admin_Catalogos");
+
+
             /*  0 = Eliminado
 		        1 = TbCatalogos_TbFotos lo esta usando
 		        2 = TbServicios lo esta usando*/
-            cCatalogo.Eliminar(id);
-            return RedirectToAction("Search");
+            //cCatalogo.Eliminar(id);
+            //return View();
         }
 
+        [HttpGet]
         public ActionResult Admin_Catalogos()
         {
             List<TbCatalogos> lista = cCatalogo.Mostrar();
-
+            if (lista == null) { return RedirectToAction("Create"); };
             return View(lista);
-
-
-          
-
         }
     }
 }

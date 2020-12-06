@@ -23,14 +23,11 @@
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">Administrar Usuarios</li>
-
-
     </ol>
 </nav>
 <!-- /Breadcrumb -->
 
 <body id="estiloAdmin">
-
     <div class="container">
         <div class="table-responsive">
             <div class="table-wrapper">
@@ -66,8 +63,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 
                         <div>
                             <a href="@Url.Action( "Create_Admin", "Usuario")" class="btn btn-primary">
@@ -143,7 +138,6 @@
                                 <td>Deshabilitado</td>
                             }
                             <td>
-                                @*@Html.DisplayFor(model => item.estado)*@
                                 @Html.DisplayFor(model => item.estado)
 
 
@@ -157,28 +151,10 @@
             <i class="material-icons">&#xE5C9;</i>
         </a>*@
                             </td>
-
                         </tr>
                     }
                 </table>
-
-                @*
-                    <div class="clearfix">
-
-                        <ul class="pagination">
-                            <li class="page-item disabled"><a href="#">Anterior</a></li>
-                            <li class="page-item"><a href="#" class="page-link">1</a></li>
-                            <li class="page-item"><a href="#" class="page-link">2</a></li>
-                            <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                            <li class="page-item"><a href="#" class="page-link">4</a></li>
-                            <li class="page-item"><a href="#" class="page-link">5</a></li>
-                            <li class="page-item"><a href="#" class="page-link">Siguiente</a></li>
-                        </ul>
-                    </div>
-                *@
             </div>
         </div>
     </div>
-
-
 </body>

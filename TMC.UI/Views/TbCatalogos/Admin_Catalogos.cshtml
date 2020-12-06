@@ -24,8 +24,6 @@
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">Administrar Catalogos</li>
-
-
     </ol>
 </nav>
 <!-- /Breadcrumb -->
@@ -35,23 +33,16 @@
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-
-
                         <div class="navbar1">
 
                             <div class="dropdown1">
-
                                 <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
-
-
                                     <span class="material-icons">
                                         toc
                                     </span>
-
                                 </button>
 
                                 <div class="dropdown1-content1">
-
                                     <ul class="navbar1">
                                         <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
                                         <li>@Html.ActionLink("Administrar Fotos", "Admin_Fotos", "TbFotos", null, new { @class = "nav-link" })</li>
@@ -60,23 +51,13 @@
                                         <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
                                         <li>@Html.ActionLink("Administrar Permisos de Roles", "Admin_Roles_Permisos", "TbRoles_TbPermisos", null, new { @class = "nav-link" })</li>
                                         <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "TbUsuarios", null, new { @class = "nav-link" })</li>
-
                                         <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
-
-
-
                                     </ul>
-
                                 </div>
-
-
                             </div>
-
-
                         </div>
 
-
-                     
+    
                         <div class="col-xs-7">
                             <a href="@Url.Action( "Create", "TbCatalogos")" class="btn btn-primary">
                                 <i class="material-icons">&#xE147;</i>
@@ -96,10 +77,6 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.detalle)
                             </th>
-
-
-
-
                             <th>Accion</th>
                         </tr>
                     </thead>
@@ -112,24 +89,10 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.detalle)
                             </td>
-
-
-
-
-
-
-
                             <td>
-
-
-
-
-                                @*@Html.ActionLink("Edit", "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) }, null)
-                                *@<a href="@Url.Action( "Edit", "TbCatalogos", new { id = @Html.DisplayFor(model => item.IDCatalogo) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
+                                <a href="@Url.Action( "Edit", "TbCatalogos", new { id = @Html.DisplayFor(model => item.IDCatalogo) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
                                     <span class="material-icons">edit</span>
                                 </a>
-
-
                                 <a href="@Url.Action( "Delete", "TbCatalogos",new { id = @Html.DisplayFor(model => item.IDCatalogo) })" class="delete" title="Borrar" data-toggle="tooltip">
                                     <i class="material-icons">&#xE5C9;</i>
                                 </a>
@@ -138,18 +101,6 @@
                         </tr>
                     }
                 </table>
-                <div class="clearfix">
-
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Anterior</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item "><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Siguiente</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>

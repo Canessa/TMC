@@ -14,6 +14,15 @@ using TMC.BLL.Metodos;
 using TMC.DATA;
 using TMC.UI.Models;
 using System.Threading;
+using System.Net.Mail;
+using System.Configuration;
+using System.Web.Configuration;
+using System.Net.Configuration;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
+using Xceed.Wpf.Toolkit;
+using System.Net.Mime;
 
 namespace TMC.UI.Controllers
 {
@@ -64,6 +73,7 @@ namespace TMC.UI.Controllers
                 usuario.correo = model.Email;
                 usuario.telefono = model.telefono;
                 usuario.IDRol = 2;
+                usuario.contrasenna = sb.ToString();
                 usuario.foto = "https://firebasestorage.googleapis.com/v0/b/bd-tmc.appspot.com/o/fotosDePerfil%2Fusuario_nuevo.png?alt=media&token=3cd50c1d-649e-4faf-898a-ed2c1f19019d";
                 TbHistorial registro = new TbHistorial();
                 registro.detalle = "se registro un nuevo usuario: " + UserGlobal;
@@ -73,7 +83,7 @@ namespace TMC.UI.Controllers
                 await auth.SendPasswordResetEmailAsync(model.Email);
                 ViewBag.Message = "Bienvenido " + model.nombre + "! ";
                 ViewBag.Message = ViewBag.Message + "Para establecer su contraseña ingrese a su correo electrónico. " +
-                    "Por el momento, su contraseña temporal es: " + sb.ToString();
+                    "Por el momento, su contraseña es: " + sb.ToString();
             }
             catch (Exception ex)
             {
@@ -126,7 +136,7 @@ namespace TMC.UI.Controllers
                     if (token != "")
                     {
                         TbHistorial registro = new TbHistorial();
-                        registro.detalle = "el usuario " + UserGlobal + " inicio sesion";
+                        registro.detalle = "el usuario " + UserGlobal + " inició sesión";
                         registro.fecha = DateTime.Now.ToString();
                         int rol = cUsuarios.ObtenerIdRol(model.Email);
                         if (rol == 1)
@@ -254,33 +264,33 @@ namespace TMC.UI.Controllers
             cUsuario = new MUsuariosBLL();
         }
         IUsuariosBLL cUsuario;
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
       
 
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult Create(TbUsuarios usuarios)
-        {
-            try
-            {
-                usuarios.correo = UserGlobal;
-                usuarios.contrasenna = password;
-                usuarios.IDRol = 2;
-                usuarios.estado = true;
-                usuarios.foto = "https://images.app.goo.gl/eJqSchtF1RubTY4d8";
-                cUsuario.Insertar(usuarios);
-                ModelState.AddModelError(string.Empty, "Usuario Registrado");
-                return View();
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError(string.Empty, ex.Message);
-            }
-            return View();
-        }
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public ActionResult Create(TbUsuarios usuarios)
+        //{
+        //    try
+        //    {
+        //        usuarios.correo = UserGlobal;
+        //        usuarios.contrasenna = password;
+        //        usuarios.IDRol = 2;
+        //        usuarios.estado = true;
+        //        usuarios.foto = "https://images.app.goo.gl/eJqSchtF1RubTY4d8";
+        //        cUsuario.Insertar(usuarios);
+        //        ModelState.AddModelError(string.Empty, "Usuario Registrado");
+        //        return View();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ModelState.AddModelError(string.Empty, ex.Message);
+        //    }
+        //    return View();
+        //}
 
 
         [HttpPost]
@@ -329,12 +339,111 @@ namespace TMC.UI.Controllers
 
 
 
-        public ActionResult Edit()
-        {
+        //public ActionResult Edit()
+        //{
 
+        //    return View();
+        //}
+
+        public ActionResult Reset_Password()
+        {
             return View();
         }
-      
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Reset_Password(string email)
+        {
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            char[] caracteres = chars.ToCharArray();
+            Random rnd = new Random();
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < 8; i++)
+            {
+                int randomIndex = rnd.Next(chars.Length);
+                sb.Append(caracteres.GetValue(randomIndex));
+            }
+
+            string nombre = email.Substring(0, email.IndexOf("@"));
+            System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
+            mmsg.To.Add(email);
+            mmsg.Subject = "Nueva Contraseña";
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+            mmsg.BodyEncoding = System.Text.Encoding.UTF8;
+            mmsg.IsBodyHtml = true;
+            mmsg.AlternateViews.Add(Mail_Body(nombre,sb.ToString()));
+            mmsg.From = new System.Net.Mail.MailAddress("tumaestrodeceremoniastmc@gmail.com");
+
+            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+            cliente.EnableSsl = true;
+            //cliente.UseDefaultCredentials = false;
+            cliente.Credentials = new System.Net.NetworkCredential("tumaestrodeceremoniastmc@gmail.com" , "Tumaestro2020");
+            cliente.Host = "smtp.gmail.com"; 
+            cliente.Port = 25;
+
+
+            try
+            {
+                cliente.Send(mmsg);
+                @ViewBag.Message = "La nueva contraseña ha sido enviada al correo " + email + "! ";
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Ha ocurrido un error. Intente de nuevo");
+            }
+       
+            return View();
+        }
+
+
+
+
+        private AlternateView Mail_Body(String nombre, String clave)
+        {
+
+
+            //img src = "~/Imgs/logo.png"
+            string path = Server.MapPath(@"~/Imgs/logo.png");
+            LinkedResource Img = new LinkedResource(path, MediaTypeNames.Image.Jpeg);
+            Img.ContentId = "MyImage";
+            string str = @"  
+            <table>  
+                 <tr>  
+                    <td>  
+                      <img src=cid:MyImage  id='img' alt='' width='50px' height='50px'/>   
+                    </td>  
+                </tr>
+                <tr>  
+                 
+                    <td> " + "<br/>" +
+                "Hola " + nombre +"<br/>"
+                + "<br/>" +
+                "Recientemente solicitaste un cambio de contraseña de la cuenta TMC. Por ello abajo podrás encontrar la nueva contraseña asignada: " +
+                "<br/>" + "<br/>" +
+               "<b>" + clave + "</b>" + "<br/>" +"<br/>"+
+                "Saludos," +
+                "<br/>" +
+                "Equipo TMC"+ @"
+
+                    </td>  
+                </tr>  
+               </table>  
+            ";
+            AlternateView AV =
+            AlternateView.CreateAlternateViewFromString(str, null, MediaTypeNames.Text.Html);
+            AV.LinkedResources.Add(Img);
+            return AV;
+        }
+
+
+
+
+
+
+
+
+
 
 
         private void CargarListas()

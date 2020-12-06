@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 
 <!-- Breadcrumb -->
@@ -71,8 +70,6 @@
                         </div>
                     </div>
 
-            
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.IDRol, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -94,7 +91,7 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Save" class="btn-outline-btn" /> |
+                            <input type="submit" value="Actualizar" class="btn-outline-btn btn-sm" /> |
                             @Html.ActionLink(" Regresar", "Admin_users", "TbUsuarios", new { @class = "text-danger" })
                         </div>
                     </div>
