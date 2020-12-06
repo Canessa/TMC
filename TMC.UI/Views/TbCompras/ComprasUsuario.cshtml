@@ -42,10 +42,10 @@
                 @Html.DisplayNameFor(model => model.IDServicio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.precioFinal)
+                @Html.DisplayNameFor(model => model.NombreServicio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.fecha)
+                @Html.DisplayNameFor(model => model.precio)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.estado)
@@ -55,31 +55,31 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IDCompra)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IDUsuario)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IDServicio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.precioFinal)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fecha)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.estado)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Detalles", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Borrar", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalles", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Borrar", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
         }
 
     </table>

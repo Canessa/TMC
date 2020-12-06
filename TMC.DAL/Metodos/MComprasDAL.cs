@@ -35,7 +35,7 @@ namespace TMC.DAL.Metodos
             try
             {
                 var busqueda = Buscar(idCompra);
-                busqueda.estado = false;
+                busqueda.estado = 0;
                 Actualizar(busqueda);
             }
             catch { };

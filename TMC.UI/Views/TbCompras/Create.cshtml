@@ -57,19 +57,28 @@
                         </div>
                     </div>
 
+
                     <div class="form-group">
-                        @Html.LabelFor(model => model.precioFinal, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.NombreServicio, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.precioFinal, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.precioFinal, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(model => model.NombreServicio, (IEnumerable<SelectListItem>)ViewBag.ddlServicios, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.NombreServicio, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.precio, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(model => model.precio, (IEnumerable<SelectListItem>)ViewBag.ddlServicios, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.precio, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.estado, (IEnumerable<SelectListItem>)ViewBag.ddlServicios, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
