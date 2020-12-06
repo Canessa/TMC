@@ -16,13 +16,13 @@ namespace TMC.DATA
         [Display(Name = "Selección del servicio")]
         public int IDServicio { get; set; }
 
-        [Display(Name = "Precio total ")]
-        public decimal precioFinal { get; set; }
+        [Display(Name = "Nombre servicio")]
+        public int NombreServicio { get; set; }
 
-        [Display(Name = "Fecha de la compra")]
-        public DateTime fecha { get; set; }
+        [Display(Name = "Precio")]
+        public decimal precio { get; set; }
 
         [Display(Name = "Estado de la compra")]
-        public bool estado { get; set; }
+        public  int estado { get; set; }
     }
 }
