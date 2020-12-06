@@ -16,5 +16,6 @@ namespace TMC.DATA
         [Required(ErrorMessage = "Detalles del catálogo requeridos")]
         [StringLength(256, ErrorMessage = "Máximo 256 caracteres")]
         public string detalle { get; set; }
+        public string nombre { get; set; }
     }
 }

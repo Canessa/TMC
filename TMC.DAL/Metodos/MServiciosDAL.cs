@@ -74,6 +74,8 @@ namespace TMC.DAL.Metodos
             {
                 if (item != null)
                 {
+                    TbCatalogos catalogo = new MCatalogosDAL().Buscar(item.IDCatalogo);
+                    item.NombreCatalogo = catalogo.nombre;
                     lista.Add(item);
                 }
             }
@@ -81,20 +83,36 @@ namespace TMC.DAL.Metodos
             return lista;
         }
 
-        public List<TbServicios> obtenerServiciosCliente()
+        public List<TbServicios> obtenerServiciosCliente(Nullable<int> id)
         {
-            var response = client.Get("TbUsuarios_TbServicios");
-            TbServicios[] tabla = JsonConvert.DeserializeObject<TbServicios[]>(response.Body);
-            if (tabla == null) { return null; }
             var lista = new List<TbServicios>();
-            foreach (var item in tabla)
+            if (id != null)
             {
-                if (item != null)
+                var response = client.Get("TbUsuarios_TbServicios");
+                TbServicios[] tabla = JsonConvert.DeserializeObject<TbServicios[]>(response.Body);
+                if (tabla == null) { return null; }
+                
+                foreach (var item in tabla)
                 {
-                    lista.Add(item);
+                    //if (item != null && item.)
+                    //{
+                    //    lista.Add(item);
+                    //}
                 }
             }
-
+            else
+            {
+                var response = client.Get("TbUsuarios_TbServicios");
+                TbServicios[] tabla = JsonConvert.DeserializeObject<TbServicios[]>(response.Body);
+                if (tabla == null) { return null; }
+                foreach (var item in tabla)
+                {
+                    if (item != null)
+                    {
+                        lista.Add(item);
+                    }
+                }
+            }
             return lista;
         }
 
@@ -103,7 +121,7 @@ namespace TMC.DAL.Metodos
             TbUsuario_TbServicio usuarioServicio = new TbUsuario_TbServicio();
             try
             {
-                var lista = obtenerServiciosCliente();
+                var lista = obtenerServiciosCliente(null);
                 if (lista != null)
                 {
                     usuarioServicio.id = (lista.Count) + 1;
@@ -124,6 +142,5 @@ namespace TMC.DAL.Metodos
 
             }
         }
-
     }
 }

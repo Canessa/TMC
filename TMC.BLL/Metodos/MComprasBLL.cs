@@ -37,7 +37,7 @@ namespace TMC.BLL.Metodos
             return vCompras.Mostrar();
         }
 
-        public List<TbCompras> ObtenerComprasId(int Id)
+        public List<TbServicios> ObtenerComprasId(int Id)
         {
             return vCompras.ObtenerComprasId(Id);
         }

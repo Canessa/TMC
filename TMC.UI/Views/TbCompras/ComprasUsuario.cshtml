@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TMC.DATA.TbCompras>
+﻿@model IEnumerable<TMC.DATA.TbServicios>
 
 @{
     ViewBag.Title = "Compras Usuario";
@@ -27,60 +27,55 @@
 <!-- /Breadcrumb -->
 
 <body id="estiloAdmin">
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IDCompra)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IDUsuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IDServicio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.precioFinal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.estado)
-            </th>
-            <th></th>
-        </tr>
+        <div class="col-md-8" style="margin-left: 20%;">
+            @foreach (var servicio in Model)
+            {
+                <div class="row" style="margin-left:0%; margin-top:10px">
+                    <div class="container row">
+                        <div class="card h-100 col-sm-8">
+                            <div class="card-body">
+                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">@servicio.nombre</i></h6>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h6>@servicio.detalle</h6>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Catalogo</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        #@servicio.IDCatalogo
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Precio</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        &#8353;@servicio.precio
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <button class="btn btn-success" style="width: 100%;height: 70px;">
+                                            <a href="@Url.Action( "Delete", "TbCompras",new { id = @Html.DisplayFor(model => servicio.IDServicio) })">
+                                                Cancelar
+                                            </a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IDCompra)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IDUsuario)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IDServicio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.precioFinal)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fecha)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.estado)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Detalles", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Borrar", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
-        }
-
-    </table>
+                        <div class="card h-100 col-sm-4" style="padding: 20px;">
+                            <img src="@servicio.foto" style="height: 230px;">
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
 </body>

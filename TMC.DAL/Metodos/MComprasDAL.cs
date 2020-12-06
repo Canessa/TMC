@@ -41,7 +41,22 @@ namespace TMC.DAL.Metodos
             catch { };
         }
 
-        public  void Insertar(TbCompras compra)
+        public void cancelarServicio(int idUsuario, int idServicio)
+        {
+            var id = 0;
+            var listaServicios = new MServiciosDAL().obtenerServiciosCliente(null);
+            foreach (var servicio in listaServicios)
+            {
+                //if (servicio.idUsuario == idUsuario)
+                //{
+
+                //}
+            }
+            client.DeleteAsync("TbUsuarios_TbServicios/"  + id);
+        }
+
+
+        public void Insertar(TbCompras compra)
         {
             try
             {
@@ -80,20 +95,20 @@ namespace TMC.DAL.Metodos
             return lista;
         }
 
-        public List<TbCompras> ObtenerComprasId(int Id)
+        public List<TbServicios> ObtenerComprasId(int Id)
         {
-            var response = client.Get("TbCompras/");
-            TbCompras[] tabla = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
-            if (tabla == null) { return null; }
-            var lista = new List<TbCompras>();
-            foreach (var item in tabla)
+            List<TbServicios> serviciosContratados = new List<TbServicios>();
+            var response = client.Get("TbUsuarios_TbServicios/");
+            TbUsuario_TbServicio[] servicios = { };
+            servicios = JsonConvert.DeserializeObject<TbUsuario_TbServicio[]>(response.Body);
+            foreach (var servicio in servicios)
             {
-                if (item != null && item.IDUsuario == Id)
+                if (servicio != null && servicio.idUsuario == Id)
                 {
-                    lista.Add(item);
+                    serviciosContratados.Add(new MServiciosDAL().Buscar(servicio.idServicio));
                 }
             }
-            return lista;
+            return serviciosContratados;
         }
 
 

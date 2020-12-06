@@ -30,5 +30,7 @@ namespace TMC.DATA
         public bool estado { get; set; }
 
         public string foto { get; set; }
+
+        public string NombreCatalogo { get; set; }
     }
 }
