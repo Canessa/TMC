@@ -83,7 +83,7 @@ namespace TMC.UI.Controllers
                 await auth.SendPasswordResetEmailAsync(model.Email);
                 ViewBag.Message = "Bienvenido " + model.nombre + "! ";
                 ViewBag.Message = ViewBag.Message + "Para establecer su contraseña ingrese a su correo electrónico. " +
-                    "Por el momento, su contraseña temporal es: " + sb.ToString();
+                    "Por el momento, su contraseña es: " + sb.ToString();
             }
             catch (Exception ex)
             {
@@ -136,7 +136,7 @@ namespace TMC.UI.Controllers
                     if (token != "")
                     {
                         TbHistorial registro = new TbHistorial();
-                        registro.detalle = "el usuario " + UserGlobal + " inicio sesion";
+                        registro.detalle = "el usuario " + UserGlobal + " inició sesión";
                         registro.fecha = DateTime.Now.ToString();
                         int rol = cUsuarios.ObtenerIdRol(model.Email);
                         if (rol == 1)
@@ -264,33 +264,33 @@ namespace TMC.UI.Controllers
             cUsuario = new MUsuariosBLL();
         }
         IUsuariosBLL cUsuario;
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
       
 
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult Create(TbUsuarios usuarios)
-        {
-            try
-            {
-                usuarios.correo = UserGlobal;
-                usuarios.contrasenna = password;
-                usuarios.IDRol = 2;
-                usuarios.estado = true;
-                usuarios.foto = "https://images.app.goo.gl/eJqSchtF1RubTY4d8";
-                cUsuario.Insertar(usuarios);
-                ModelState.AddModelError(string.Empty, "Usuario Registrado");
-                return View();
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError(string.Empty, ex.Message);
-            }
-            return View();
-        }
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public ActionResult Create(TbUsuarios usuarios)
+        //{
+        //    try
+        //    {
+        //        usuarios.correo = UserGlobal;
+        //        usuarios.contrasenna = password;
+        //        usuarios.IDRol = 2;
+        //        usuarios.estado = true;
+        //        usuarios.foto = "https://images.app.goo.gl/eJqSchtF1RubTY4d8";
+        //        cUsuario.Insertar(usuarios);
+        //        ModelState.AddModelError(string.Empty, "Usuario Registrado");
+        //        return View();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ModelState.AddModelError(string.Empty, ex.Message);
+        //    }
+        //    return View();
+        //}
 
 
         [HttpPost]
@@ -339,18 +339,14 @@ namespace TMC.UI.Controllers
 
 
 
-        public ActionResult Edit()
-        {
+        //public ActionResult Edit()
+        //{
 
-            return View();
-        }
+        //    return View();
+        //}
 
         public ActionResult Reset_Password()
         {
-            //var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-            //auth.SendPasswordResetEmailAsync("jhenandez80517@ufide.ac.cr");
-            //auth.SendPasswordResetEmailAsync(model.Email);
-            //ViewBag.Message = "Se envió la contraseña al correo " + "jhenandez80517@ufide.ac.cr" + "! ";
             return View();
         }
 
@@ -397,34 +393,6 @@ namespace TMC.UI.Controllers
                 ModelState.AddModelError(string.Empty, "Ha ocurrido un error. Intente de nuevo");
             }
        
-            //MailMessage correo = new MailMessage();
-            //correo.From = new MailAddress("tumaestrodeceremoniastmc@gmail.com", "Kyocode", System.Text.Encoding.UTF8);//Correo de salida
-            //correo.To.Add(email); //Correo destino?
-            //correo.Subject = "Correo de prueba"; //Asunto
-            //correo.Body = "Este es un correo de prueba desde c#"; //Mensaje del correo
-            //correo.IsBodyHtml = true;
-            //correo.Priority = MailPriority.Normal;
-            //SmtpClient smtp = new SmtpClient();
-            //smtp.UseDefaultCredentials = false;
-            //smtp.Host = "smtp.gmail.com"; //Host del servidor de correo
-            //smtp.Port = 25; //Puerto de salida
-            //smtp.Credentials = new System.Net.NetworkCredential("xxxxxx@gmail.com", "*******");//Cuenta de correo
-            //ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
-            ////smtp.EnableSsl = true;//True si el servidor de correo permite ssl
-            //smtp.Send(correo);
-
-            //try
-            //{
-            //    var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-            //    auth.SendPasswordResetEmailAsync(email);
-            //    ViewBag.Message = "Se envió la contraseña al correo " + email + "! ";
-            //    return View();
-            //}
-            //catch (Exception ex)
-            //{
-            //    ViewBag.Message = "Error al enviar contraseña al correo " + email + "! ";
-            //    ModelState.AddModelError(string.Empty, ex.Message);
-            //}
             return View();
         }
 

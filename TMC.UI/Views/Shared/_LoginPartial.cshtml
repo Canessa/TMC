@@ -30,7 +30,8 @@ else
             <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
 
             @if (ViewBag.Title != "Iniciar Sesión" && ViewBag.Title != "Registrarse"
-                && ViewBag.Title != "Blog" && ViewBag.Title != "Nosotros")
+                && ViewBag.Title != "Blog" && ViewBag.Title != "Nosotros" && ViewBag.Title != "Olvidé la contraseña"
+                && ViewBag.Title != "Inicio")
             {
                 Response.Redirect(Url.Action("Login", "Usuario"));
             }

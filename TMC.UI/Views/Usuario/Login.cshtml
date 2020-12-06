@@ -9,8 +9,6 @@
     <nav aria-label="breadcrumb" class="main-breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">Iniciar Sesion</li>
-
-
         </ol>
     </nav>
     <!-- /Breadcrumb -->
@@ -36,8 +34,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -45,20 +41,16 @@
                 escoger el CAPTCHA TMC creado, copiar la clavede sitio y pegarla en data-sitekey, por ahora trabaja con local *@
                         <div class="g-recaptcha" data-sitekey=6LfU59gZAAAAAOq5A7LXysm1oYzY_XbXoZWtpish></div>
                     </div>
-
                 </div>
-
 
                 <div class="btn-toolbar, col-md-offset-2 col-md-10">
                     <input type="submit" value="Iniciar Sesion" class="btn btn-dark btn-sm" id="login" />  
                     @Html.ActionLink("Restablecer Contraseña", "Reset_Password", "Usuario", new { @class = "btn btn-dark btn-sm" })
                 </div>
                 <br />
-
             </div>
         </div>
     </div>
-
 }
 
 @section Scripts {

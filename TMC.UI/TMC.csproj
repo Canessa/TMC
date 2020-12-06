@@ -667,7 +667,6 @@
     <Content Include="Views\TbCatalogos_Fotos\Detail.cshtml" />
     <Content Include="Views\TbCatalogos_Fotos\Edit.cshtml" />
     <Content Include="Views\TbCatalogos_Fotos\Delete.cshtml" />
-    <Content Include="Views\TbCatalogos\Search.cshtml" />
     <Content Include="Views\TbCatalogos\Create.cshtml" />
     <Content Include="Views\TbCatalogos\Detail.cshtml" />
     <Content Include="Views\TbCatalogos\Edit.cshtml" />

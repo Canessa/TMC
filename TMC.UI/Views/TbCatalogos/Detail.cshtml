@@ -1,35 +1,63 @@
 ﻿@model TMC.DATA.TbCatalogos
 
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = "Detalle del Catalogo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Información del Catalogo</h2>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IDCatalogo)
-        </dt>
+</head>
 
-        <dd>
-            @Html.DisplayFor(model => model.IDCatalogo)
-        </dd>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Información del Catalogo</li>
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.detalle)
-        </dt>
+<body id="estiloAdmin">
+    <div class="card-body">
+        <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
+            Información del Perfil
+        </h5>
+        <div class="card">
+            <br />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.IDCatalogo)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.detalle)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.IDCatalogo)
+                </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink(" Editar", "Edit", new { id = Model.IDCatalogo }, new { @class = "fas fa-edit text-muted", @title = "Editar Permiso" }) |
-    @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
-</p>
-<script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+                <dt>
+                    @Html.DisplayNameFor(model => model.detalle)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.detalle)
+                </dd>
+
+            </dl>
+        </div>
+
+        <p>
+            @Html.ActionLink(" Editar", "Edit", new { id = Model.IDCatalogo }, new { @class = "fas fa-edit text-muted", @title = "Editar Permiso" }) |
+            @Html.ActionLink("Regresar", "Admin_Catalogos", "TbCatalogos", null, new { @class = "text-danger" })
+        </p>
+        <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+    </div>
+</body>
