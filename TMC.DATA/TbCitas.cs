@@ -20,19 +20,13 @@ namespace TMC.DATA
         [StringLength(256, ErrorMessage = "Máximo 256 caracteres")]
         public string detalle { get; set; }
 
-        [Display(Name = "Identificador del progreso")]
-        public int IDProgreso { get; set; }
-
-        [Display(Name = "Lugar donde se realizara el evento")]
-        [StringLength(50, ErrorMessage = "Máximo 50 caracteres")]
-        public string lugar { get; set; }
-
         [Display(Name = "Nombre del servicio")]
         [StringLength(50, ErrorMessage = "Máximo 50 caracteres")]
         public string nombreServicio { get; set; }
-
-
-       
+        [Display(Name = "ID del Servicio")]
+        [StringLength(50, ErrorMessage = "Campo requerido")]
         public string IDServicio { get; set; }
+        [Display(Name = "Precio del servicio")]
+        public decimal precio { get; set; }
     }
 }

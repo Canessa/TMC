@@ -424,16 +424,6 @@ namespace TMC.UI.Controllers
             return AV;
         }
 
-
-
-
-
-
-
-
-
-
-
         private void CargarListas()
         {
             //cargado en el View

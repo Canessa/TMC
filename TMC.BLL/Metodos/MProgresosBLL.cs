@@ -25,19 +25,19 @@ namespace TMC.BLL.Metodos
         public int Eliminar(int idProgreso)
         {
             //Validacion de relaciones con TbCitas
-            ICitasBLL cCitas = new MCitasBLL();
-            List<TbCitas> listaCitas = cCitas.Mostrar();
-            if (listaCitas != null)
-            {
-                foreach (TbCitas i in listaCitas)
-                {
-                    if (i.IDProgreso == idProgreso)
-                    {
-                        return 1;
-                    }
-                }
-            }
-            vProgresos.Eliminar(idProgreso);
+            //ICitasBLL cCitas = new MCitasBLL();
+            //List<TbCitas> listaCitas = cCitas.Mostrar();
+            //if (listaCitas != null)
+            //{
+            //    foreach (TbCitas i in listaCitas)
+            //    {
+            //        if (i.IDProgreso == idProgreso)
+            //        {
+            //            return 1;
+            //        }
+            //    }
+            //}
+            //vProgresos.Eliminar(idProgreso);
             return 0;
         }
 

@@ -32,5 +32,9 @@ namespace TMC.DATA
         public string foto { get; set; }
 
         public string NombreCatalogo { get; set; }
+
+
+        //ignorar, es solo para construir el view de agendarCita
+        public string fecha { get; set; }
     }
 }

@@ -13,6 +13,13 @@ namespace TMC.UI.Controllers
         //Creacion de los metodos para las tablas de las FK
         IUsuariosBLL cUsuarios;
         IServiciosBLL cServicios;
+        public TbComprasController(int id)
+        {
+            cCompras = new MComprasBLL();
+            //Construccion de los metodos para las tablas de las FK
+            cUsuarios = new MUsuariosBLL();
+            cServicios = new MServiciosBLL();
+        }
         public TbComprasController()
         {
             cCompras = new MComprasBLL();
@@ -145,9 +152,10 @@ namespace TMC.UI.Controllers
             return View();
         }
 
-        public void cancelarServicio(int id) {
+        public ActionResult cancelarServicio(int id) {
             var idUsuario = TbUsuarios.getUsuarioActual().IDUsuario;
             cCompras.cancelarServicio(idUsuario, id);
+            return RedirectToAction("ComprasUsuario" + idUsuario, "TbCompras");
         }
     }
 }

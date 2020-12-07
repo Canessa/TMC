@@ -30,7 +30,7 @@ namespace TMC.UI
           "~/Scripts/jquery-ui-1.12.1.js"));
             
             bundles.Add(new StyleBundle("~/Content/cssjqryUi").Include(
-                   "~/Content/jquery-ui.css"));
+                   "~/TMC.DAL/Content/themes/base/jquery-ui.css"));
         }
     }
 }

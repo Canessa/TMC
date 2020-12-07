@@ -87,7 +87,7 @@ namespace TMC.DAL.Metodos
         {
             var lista = new List<TbServicios>();
             var listaComprados = new List<TbCompras>();
-                var response = client.Get("TbUsuarios_TbServicios");
+                var response = client.Get("TbCompras/");
                 TbServicios[] tabla = JsonConvert.DeserializeObject<TbServicios[]>(response.Body);
                 if (tabla == null) { return null; }
                 
@@ -105,7 +105,8 @@ namespace TMC.DAL.Metodos
         {
             var listaComprados = new List<TbCompras>();
             var response = client.Get("TbCompras");
-            TbCompras[] tabla = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
+            TbCompras[] tabla = { };
+            tabla = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
             if (tabla == null) { return null; }
 
             foreach (var item in tabla)
@@ -129,12 +130,20 @@ namespace TMC.DAL.Metodos
                     usuarioServicio.IDCompra = (lista.Count) + 1;
                     usuarioServicio.IDUsuario = idUsuario;
                     usuarioServicio.IDServicio = idServicio;
+                    usuarioServicio.NombreServicio = new MServiciosDAL().Buscar(idServicio).nombre;
+                    usuarioServicio.precio = new MServiciosDAL().Buscar(idServicio).precio;
+                    usuarioServicio.activo = new MServiciosDAL().Buscar(idServicio).estado;
+                    usuarioServicio.estado = "pendiente";
                 }
                 else
                 {
                     usuarioServicio.IDCompra= 1;
                     usuarioServicio.IDUsuario = idUsuario;
                     usuarioServicio.IDServicio = idServicio;
+                    usuarioServicio.NombreServicio = new MServiciosDAL().Buscar(idServicio).nombre;
+                    usuarioServicio.precio = new MServiciosDAL().Buscar(idServicio).precio;
+                    usuarioServicio.activo = new MServiciosDAL().Buscar(idServicio).estado;
+                    usuarioServicio.estado = "pendiente";
                 };
                 client.SetAsync("TbCompras/" + usuarioServicio.IDCompra, usuarioServicio);
 

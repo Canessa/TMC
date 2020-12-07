@@ -24,15 +24,15 @@ namespace TMC.BLL.Metodos
 
         public int Cancelar(int idCita)
         {
-            //Validacion de progreso de una cita   
-            ICitasBLL cCitas = new MCitasBLL();
-            TbCitas cita = cCitas.Buscar(idCita);
-            //Este progreso es provisional
-            if (cita.IDProgreso > 10)
-            {
-                return 1;
-            }           
-            vCitas.Cancelar(idCita);
+            ////Validacion de progreso de una cita   
+            //ICitasBLL cCitas = new MCitasBLL();
+            //TbCitas cita = cCitas.Buscar(idCita);
+            ////Este progreso es provisional
+            //if (cita.IDProgreso > 10)
+            //{
+            //    return 1;
+            //}           
+            //vCitas.Cancelar(idCita);
             return 0;
         }
 

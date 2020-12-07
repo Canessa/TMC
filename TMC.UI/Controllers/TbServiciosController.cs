@@ -124,17 +124,16 @@ namespace TMC.UI.Controllers
 
         }
         [HttpGet]
-        public ActionResult Adquirir(int id)
+        public ActionResult Agendar_Servicio(int id)
         {
-            TbUsuarios usuarioActual = TbUsuarios.getUsuarioActual();
-            int idUsuario = usuarioActual.IDUsuario;
-            cServicios.Adquirir(idUsuario, id);
-            return RedirectToAction("Search");
-        }
-
-        public ActionResult Agendar_Servicio()
-        {
-            return View();
+            TbCitas cita = new TbCitas();
+            var servicio = cServicios.Buscar(id);
+            cita.nombreServicio = servicio.nombre;
+            cita.IDServicio = servicio.IDServicio.ToString();
+            cita.detalle = servicio.detalle;
+            cita.precio = servicio.precio;
+            cita.fechaCita = DateTime.Today.AddDays(1);
+            return View(cita);
         }
 
 

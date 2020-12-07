@@ -41,18 +41,21 @@ namespace TMC.DAL.Metodos
 
         public void Insertar(TbCitas cita)
         {
+            TbCitas citaAgenda = new TbCitas();
             try
             {
                 var lista = Mostrar();
                 if (lista != null)
                 {
-                    cita.IDCita = lista[lista.Count() - 1].IDCita + 1;
+                    citaAgenda = cita;
+                    citaAgenda.IDCita = lista.Count + 1;
                 }
                 else
                 {
-                    cita.IDCita = 1;
+                    citaAgenda = cita;
+                    citaAgenda.IDCita = 1;
                 };
-                client.SetAsync("TbCitas/" + cita.IDCita, cita);
+                client.SetAsync("TbCitas/" + citaAgenda.IDCita, citaAgenda);
 
             }
             catch

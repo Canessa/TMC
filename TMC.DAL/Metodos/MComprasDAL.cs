@@ -8,6 +8,7 @@ using TMC.DAL.Interfaces;
 using FireSharp;
 using FireSharp.Response;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace TMC.DAL.Metodos
 { 
@@ -35,7 +36,7 @@ namespace TMC.DAL.Metodos
             try
             {
                 var busqueda = Buscar(idCompra);
-                busqueda.estado = 0;
+                busqueda.activo = false;
                 Actualizar(busqueda);
             }
             catch { };
@@ -50,6 +51,7 @@ namespace TMC.DAL.Metodos
                 if (servicio.IDUsuario == idUsuario && servicio.IDServicio == idServicio)
                 {
                     id = servicio.IDCompra;
+                    break;
                 }
             }
             if (id != 0)
@@ -101,9 +103,9 @@ namespace TMC.DAL.Metodos
         public List<TbServicios> ObtenerComprasId(int Id)
         {
             List<TbServicios> serviciosContratados = new List<TbServicios>();
-            var response = client.Get("TbCompras");
-            TbCompras[] servicios = { };
-            servicios = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
+            var response = client.Get("TbCompras/");
+            TbCompras[] servicios = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
+
             foreach (var servicio in servicios)
             {
                 if (servicio != null && servicio.IDUsuario == Id)
@@ -113,7 +115,5 @@ namespace TMC.DAL.Metodos
             }
             return serviciosContratados;
         }
-
-
-    }
+}
 }

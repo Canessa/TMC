@@ -13,13 +13,14 @@ namespace TMC.UI.Controllers
         //Creacion de los metodos para las tablas de las FK
         IUsuariosBLL cUsuarios;
         IProgresosBLL cProgresos;
+        IServiciosBLL cServicios;
         public TbCitasController()
         {
             cCitas = new MCitasBLL();
             //Construccion de los metodos para las tablas de las FK
             cUsuarios = new MUsuariosBLL();
             cProgresos = new MProgresosBLL();
-            
+            cServicios = new MServiciosBLL();
         }
 
         //Metodo de carga de los dropdown
@@ -74,12 +75,12 @@ namespace TMC.UI.Controllers
                     return View();
                 }
 
-                if (citas.IDProgreso == 0)
-                {
-                    ModelState.AddModelError(string.Empty, "Debe ingresar un progreso primero");
-                    CargarListas();
-                    return View();
-                }
+                //if (citas.IDProgreso == 0)
+                //{
+                //    ModelState.AddModelError(string.Empty, "Debe ingresar un progreso primero");
+                //    CargarListas();
+                //    return View();
+                //}
 
                 cCitas.Insertar(citas);
                 ModelState.AddModelError(string.Empty, "Cita Agregada");
@@ -117,12 +118,12 @@ namespace TMC.UI.Controllers
                 return View();
             }
 
-            if (citas.IDProgreso == 0)
-            {
-                ModelState.AddModelError(string.Empty, "Debe ingresar un progreso primero");
-                CargarListas();
-                return View();
-            }
+            //if (citas.IDProgreso == 0)
+            //{
+            //    ModelState.AddModelError(string.Empty, "Debe ingresar un progreso primero");
+            //    CargarListas();
+            //    return View();
+            //}
             cCitas.Actualizar(citas);
             return RedirectToAction("Search");
         }
@@ -158,8 +159,14 @@ namespace TMC.UI.Controllers
             ViewBag.ddlCitas = new SelectList(citas, "IDCita", "Nombre");
         }
 
-
-
-
+        public ActionResult registrarCita(TbCitas cita)
+        {
+            var idUsuario = TbUsuarios.getUsuarioActual().IDUsuario;
+            cita.IDUsuario = idUsuario;
+            cCitas.Insertar(cita);
+            cServicios.Adquirir(idUsuario, Int32.Parse(cita.IDServicio));
+            ViewBag.Message = "Su cita fue agendada, gracias.";
+            return RedirectToAction("Search", "TbServicios");
+        }
     }
 }
