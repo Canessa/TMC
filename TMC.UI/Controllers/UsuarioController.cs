@@ -23,6 +23,7 @@ namespace TMC.UI.Controllers
         private static string Bucket = "bd-tmc.firebaseio.com";
         IUsuariosBLL cUsuarios = new MUsuariosBLL();
         IRolesBLL cRoles = new MRolesBLL();
+        IServiciosBLL cServicios = new MServiciosBLL();
 
         public static String password;
         public static String UserGlobal;
@@ -236,6 +237,17 @@ namespace TMC.UI.Controllers
             var rol = Usuario.IDRol;
             var rolobj = cRoles.Buscar(rol);
             ViewBag.Rol = rolobj.nombre;
+            var listaComprados = cServicios.obtenerServiciosComprados(id);
+            var pagos = 0;
+            foreach (TbCompras compra in listaComprados)
+            {
+                if (compra.estado == "pagado")
+                {
+                    pagos++;
+                }
+            }
+            var resultado = (int)Math.Round((double)(100 * pagos) / listaComprados.Count);
+            ViewBag.porcentaje = resultado+"%";
             return View(Usuario);
         }
 

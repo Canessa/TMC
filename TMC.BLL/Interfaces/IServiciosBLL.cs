@@ -21,5 +21,6 @@ namespace TMC.BLL.Interfaces
         TbServicios Buscar(int idServicio);
         //Registrar un servicio a un usuario
         void Adquirir(int idUsuario, int idServicio);
+        List<TbCompras> obtenerServiciosComprados(int id);
     }
 }

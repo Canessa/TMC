@@ -36,11 +36,8 @@ namespace TMC.DAL.Metodos
             try
             {
                 var busqueda = Buscar(idCompra);
-<<<<<<< HEAD
                 busqueda.activo = false;
-=======
                 busqueda.estado = "Cancelada" ;
->>>>>>> 2a0ef69217a8d8a96bc15aedc353940d113bd0bc
                 Actualizar(busqueda);
             }
             catch { };

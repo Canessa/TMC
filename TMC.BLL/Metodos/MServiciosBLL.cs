@@ -40,5 +40,10 @@ namespace TMC.BLL.Metodos
         {
             vServicios.Adquirir(idUsuario, idServicio);
         }
+
+        public List<TbCompras> obtenerServiciosComprados(int id)
+        {
+           return vServicios.obtenerServiciosComprados(id);
+        }
     }
 }
