@@ -37,7 +37,7 @@ namespace TMC.UI.Controllers
             if (progresos == null)
             {
                 progresos[0].IDProgreso = 0;
-                progresos[0].progreso = "No hay progresos disponibles";
+                //progresos[0].progreso = "No hay progresos disponibles";
             }
             ViewBag.ddlFotos = new SelectList(progresos, "IDProgreso", "progreso");
         }

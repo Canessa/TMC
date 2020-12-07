@@ -3,10 +3,29 @@
 
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
 </head>
- 
+
 @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
+    @*if (Model.IDUsuario == 1)
+    {
+        <div class="container">
+
+            <ul class="nav navbar-nav" style=" margin-left: 73%;">
+
+
+                <li>
+                    @Html.ActionLink("Administrar", "Admin_Users", "TbUsuarios", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+                </li>
+
+                <li>@Html.ActionLink("Cerrar Sesion", "LogOff", "Usuario", null, new { @class = "nav-link" })</li>
+            </ul>
+        </div>
+        //}
+    }*@
+
+    //if (Model.IDUsuario == 1)
+    //{
     <div class="container">
 
         <ul class="nav navbar-nav" style=" margin-left: 73%;">
@@ -16,9 +35,18 @@
                 @Html.ActionLink("Perfil", "Profile", "Usuario", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
             </li>
 
-            <li>@Html.ActionLink("Cerrar Sesion", "LogOff", "Usuario", null, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Cerrar Sesión", "LogOff", "Usuario", null, new { @class = "nav-link" })</li>
+            @*@if(ViewBag.Title != "Editar Cliente" && ViewBag.Title != "Perfil" && ViewBag.Title != "Blog" && ViewBag.Title != "Nosotros"
+                    && ViewBag.Title != "Compras Usuario"
+                    && ViewBag.Title != "Inicio")
+                {
+                    Response.Redirect(Url.Action("Index", "Home"));
+                }*@
         </ul>
     </div>
+    //}
+
+
     //}
 }
 else
@@ -27,7 +55,7 @@ else
         <ul class="nav navbar-nav" style=" margin-left: 73%;">
             <li>@Html.ActionLink("Registrarse", "SignUp", "Usuario", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
 
-            <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Iniciar Sesión", "Login", "Usuario", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
 
             @if (ViewBag.Title != "Iniciar Sesión" && ViewBag.Title != "Registrarse"
                 && ViewBag.Title != "Blog" && ViewBag.Title != "Nosotros" && ViewBag.Title != "Olvidé la contraseña"

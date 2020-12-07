@@ -174,17 +174,17 @@ namespace TMC.DAL.Metodos
         public List<TbServicios> getServiciosContratados(int usuarioID)
         {
             List<TbServicios> serviciosContratados = new List<TbServicios>();
-            var response = client.Get("TbUsuarios_TbServicios/");
-            int id = usuarioID;
-            TbUsuario_TbServicio[] servicios = { };
-            servicios = JsonConvert.DeserializeObject<TbUsuario_TbServicio[]>(response.Body);
-            foreach (var servicio in servicios)
-            {
-                if (servicio != null && servicio.idUsuario == id)
-                {
-                    serviciosContratados.Add(new MServiciosDAL().Buscar(servicio.idServicio));
-                }
-            }
+            //var response = client.Get("TbUsuarios_TbServicios/");
+            //int id = usuarioID;
+            //TbUsuario_TbServicio[] servicios = { };
+            //servicios = JsonConvert.DeserializeObject<TbUsuario_TbServicio[]>(response.Body);
+            //foreach (var servicio in servicios)
+            //{
+            //    if (servicio != null && servicio.idUsuario == id)
+            //    {
+            //        serviciosContratados.Add(new MServiciosDAL().Buscar(servicio.idServicio));
+            //    }
+            //}
             return serviciosContratados;
         }
     }

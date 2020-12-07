@@ -24,5 +24,8 @@ namespace TMC.DATA
 
         [Display(Name = "Estado de la compra")]
         public  int estado { get; set; }
+
+        [Display(Name = "¿Está activo?")]
+        public bool activo { get; set; }
     }
 }
