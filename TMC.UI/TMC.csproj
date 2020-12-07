@@ -734,6 +734,7 @@
     <Content Include="Views\Usuario\Reset_Password.cshtml" />
     <Content Include="Views\TbServicios\Agendar_Servicio.cshtml" />
     <Content Include="Views\TbCitas\Admin_Citas.cshtml" />
+    <Content Include="Views\TbServicios\SearchNotLog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

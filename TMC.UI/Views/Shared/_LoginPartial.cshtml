@@ -52,7 +52,7 @@ else
 
             @if (ViewBag.Title != "Iniciar Sesión" && ViewBag.Title != "Registrarse"
                 && ViewBag.Title != "Blog" && ViewBag.Title != "Nosotros" && ViewBag.Title != "Olvidé la contraseña"
-                && ViewBag.Title != "Inicio")
+                && ViewBag.Title != "Inicio" && ViewBag.Title != "Servicios")
             {
                 Response.Redirect(Url.Action("Login", "Usuario"));
             }
