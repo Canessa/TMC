@@ -27,6 +27,12 @@
     </ol>
 </nav>
 <!-- /Breadcrumb -->
+
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 2)
+{
+
+    Response.Redirect(Url.Action("Index", "Home"));
+}
 <body id="estiloAdmin">
     <div class="container">
         <div class="table-responsive">
@@ -57,7 +63,7 @@
                             </div>
                         </div>
 
-    
+
                         <div class="col-xs-7">
                             <a href="@Url.Action( "Create", "TbCatalogos")" class="btn btn-primary">
                                 <i class="material-icons">&#xE147;</i>

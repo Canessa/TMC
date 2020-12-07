@@ -144,6 +144,7 @@ namespace TMC.UI.Controllers
                             this.SignInUser(user.Email, token, false);
                             cUsuarios.InsertarHistorial(registro);
                             TbUsuarios.setUsuarioActual(cUsuarios.Buscar(cUsuarios.ObtenerId(UserGlobal)));
+                            //TbUsuarios.
                             return this.RedirectToIndex("Admin_Users", "TbUsuarios");
                         }
                         else if (rol == 2)

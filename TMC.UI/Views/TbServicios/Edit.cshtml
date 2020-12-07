@@ -28,7 +28,11 @@
     </ol>
 </nav>
 <!-- /Breadcrumb -->
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 2)
+{
 
+    Response.Redirect(Url.Action("Index", "Home"));
+}
 <body id="estiloAdmin">
     @using (Html.BeginForm())
     {

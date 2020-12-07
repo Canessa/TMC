@@ -27,6 +27,11 @@
 </nav>
 <!-- /Breadcrumb -->
 
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 2)
+{
+
+    Response.Redirect(Url.Action("Index", "Home"));
+}
 <body id="estiloAdmin">
     <div class="container">
         <div class="table-responsive">
@@ -148,8 +153,8 @@
                                     <span class="material-icons">edit</span>
                                 </a>
                                 @*<a href="@Url.Action( "Delete", "TbUsuarios",new { id = @Html.DisplayFor(model => item.IDUsuario) })" class="delete" title="Borrar" data-toggle="tooltip">
-            <i class="material-icons">&#xE5C9;</i>
-        </a>*@
+                                        <i class="material-icons">&#xE5C9;</i>
+                                    </a>*@
                             </td>
                         </tr>
                     }
