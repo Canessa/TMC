@@ -180,9 +180,9 @@ namespace TMC.DAL.Metodos
             servicios = JsonConvert.DeserializeObject<TbUsuario_TbServicio[]>(response.Body);
             foreach (var servicio in servicios)
             {
-                if (servicio != null && servicio.idUsuario == id)
+                if (servicio != null && servicio.IDUsuario == id)
                 {
-                    serviciosContratados.Add(new MServiciosDAL().Buscar(servicio.idServicio));
+                    serviciosContratados.Add(new MServiciosDAL().Buscar(servicio.IDServicio));
                 }
             }
             return serviciosContratados;

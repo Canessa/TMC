@@ -126,17 +126,17 @@ namespace TMC.DAL.Metodos
                 var lista = obtenerServiciosCliente();
                 if (lista != null)
                 {
-                    usuarioServicio.id = (lista.Count) + 1;
-                    usuarioServicio.idUsuario = idUsuario;
-                    usuarioServicio.idServicio = idServicio;
+                    usuarioServicio.IDCompra = (lista.Count) + 1;
+                    usuarioServicio.IDUsuario = idUsuario;
+                    usuarioServicio.IDServicio = idServicio;
                 }
                 else
                 {
-                    usuarioServicio.id = 1;
-                    usuarioServicio.idUsuario = idUsuario;
-                    usuarioServicio.idServicio = idServicio;
+                    usuarioServicio.IDCompra = 1;
+                    usuarioServicio.IDUsuario = idUsuario;
+                    usuarioServicio.IDServicio = idServicio;
                 };
-                client.SetAsync("TbUsuarios_TbServicios/" + usuarioServicio.id, usuarioServicio);
+                client.SetAsync("TbUsuarios_TbServicios/" + usuarioServicio.IDCompra, usuarioServicio);
 
             }
             catch

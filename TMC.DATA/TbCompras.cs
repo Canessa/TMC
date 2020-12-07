@@ -27,5 +27,5 @@ namespace TMC.DATA
 
         [Display(Name = "¿Está activo?")]
         public bool activo { get; set; }
-    }
+}
 }

@@ -8,11 +8,13 @@ namespace TMC.DATA
 {
     public class TbUsuario_TbServicio
     {
-        public int id { get; set; }
+        public int IDCompra { get; set; }
 
-        public int idUsuario { get; set; }
+        public int IDServicio { get; set; }
 
-        public int idServicio { get; set; }
-
+        public int IDUsuario { get; set; }
+        public string NombreServicio { get; set; }
+        public bool estado { get; set; }
+        public decimal precio { get; set; }
     }
 }

@@ -1,9 +1,10 @@
 using Firebase.Auth;
-using Jose;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
+using System.Net.Mail;
+using System.Net.Mime;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,16 +14,6 @@ using TMC.BLL.Interfaces;
 using TMC.BLL.Metodos;
 using TMC.DATA;
 using TMC.UI.Models;
-using System.Threading;
-using System.Net.Mail;
-using System.Configuration;
-using System.Web.Configuration;
-using System.Net.Configuration;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-using System.Net.Security;
-using Xceed.Wpf.Toolkit;
-using System.Net.Mime;
 
 namespace TMC.UI.Controllers
 {
@@ -153,7 +144,6 @@ namespace TMC.UI.Controllers
                             TbUsuarios.setUsuarioActual(cUsuarios.Buscar(cUsuarios.ObtenerId(UserGlobal)));
                             return this.RedirectToIndex("Profile", "Usuario");
                         }
-
                     }
                     else
                     {
@@ -245,7 +235,6 @@ namespace TMC.UI.Controllers
             var rol = Usuario.IDRol;
             var rolobj = cRoles.Buscar(rol);
             ViewBag.Rol = rolobj.nombre;
-            Usuario.serviciosContratados = cUsuarios.getServiciosContratados(id);
             return View(Usuario);
         }
 
@@ -381,8 +370,6 @@ namespace TMC.UI.Controllers
             cliente.Credentials = new System.Net.NetworkCredential("tumaestrodeceremoniastmc@gmail.com" , "Tumaestro2020");
             cliente.Host = "smtp.gmail.com"; 
             cliente.Port = 25;
-
-
             try
             {
                 cliente.Send(mmsg);
