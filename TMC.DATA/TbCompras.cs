@@ -17,13 +17,13 @@ namespace TMC.DATA
         public int IDServicio { get; set; }
 
         [Display(Name = "Nombre servicio")]
-        public int NombreServicio { get; set; }
+        public string NombreServicio { get; set; }
 
         [Display(Name = "Precio")]
         public decimal precio { get; set; }
 
         [Display(Name = "Estado de la compra")]
-        public  int estado { get; set; }
+        public string estado { get; set; }
 
         [Display(Name = "¿Está activo?")]
         public bool activo { get; set; }
