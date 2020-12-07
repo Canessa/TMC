@@ -392,18 +392,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TbCatalogos.cs" />
-    <Compile Include="TbCatalogos_TbFotos.cs" />
     <Compile Include="TbCitas.cs" />
     <Compile Include="TbCompras.cs" />
-    <Compile Include="TbEmpleados.cs" />
-    <Compile Include="TbFotos.cs" />
     <Compile Include="TbHistorial.cs" />
-    <Compile Include="TbNotificaciones.cs" />
-    <Compile Include="TbOcupaciones.cs" />
-    <Compile Include="TbPermisos.cs" />
     <Compile Include="TbProgresos.cs" />
     <Compile Include="TbRoles.cs" />
-    <Compile Include="TbRoles_TbPermisos.cs" />
     <Compile Include="TbServicios.cs" />
     <Compile Include="TbTestimonios.cs" />
     <Compile Include="TbUsuarios.cs" />
