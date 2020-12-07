@@ -176,8 +176,8 @@ namespace TMC.DAL.Metodos
             List<TbServicios> serviciosContratados = new List<TbServicios>();
             var response = client.Get("TbCompras/");
             int id = usuarioID;
-            TbUsuario_TbServicio[] servicios;
-            servicios = JsonConvert.DeserializeObject<TbUsuario_TbServicio[]>(response.Body);
+            TbCompras[] servicios;
+            servicios = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
             foreach (var servicio in servicios)
             {
                 if (servicio != null && servicio.IDUsuario == id)
