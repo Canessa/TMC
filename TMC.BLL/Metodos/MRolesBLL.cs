@@ -24,19 +24,6 @@ namespace TMC.BLL.Metodos
 
         public int Eliminar(int idRol)
         {
-            //Validacion de relacion con TbRoles_TbPermisos
-            IRoles_PermisosBLL cRolesPermisos = new MRoles_PermisosBLL();
-            List<TbRoles_TbPermisos> listaRolesPermisos = cRolesPermisos.Mostrar();
-            if (listaRolesPermisos != null)
-            {
-                foreach (TbRoles_TbPermisos i in listaRolesPermisos)
-                {
-                    if (i.IDRol == idRol)
-                    {
-                        return 1;
-                    }
-                }
-            }
             //Validacion de relacion con TbUsuarios
             IUsuariosBLL cUsuarios = new MUsuariosBLL();
             List<TbUsuarios> listaUsuarios = cUsuarios.Mostrar();

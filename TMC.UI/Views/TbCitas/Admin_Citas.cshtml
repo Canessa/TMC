@@ -1,14 +1,20 @@
 ﻿@model IEnumerable<TMC.DATA.TbCitas>
 
 @{
-    ViewBag.Title = "Admin_Citas";
+    ViewBag.Title = "Admininistar Citas";
 }
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
- 
+
 </head>
 
 
@@ -22,12 +28,58 @@
     </ol>
 </nav>
 <!-- /Breadcrumb -->
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 2)
+{
 
-<section class="container-fluid">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <table class="table">
+    Response.Redirect(Url.Action("Index", "Home"));
+}
+<body id="estiloAdmin">
+    <div class="container">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="navbar1">
+
+                            <div class="dropdown1">
+
+                                <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
+
+
+                                    <span class="material-icons">
+                                        toc
+                                    </span>
+
+                                </button>
+
+                                <div class="dropdown1-content1">
+
+                                    <ul class="navbar1">
+                                        <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Citas", "Admin_Citas", "TbCitas", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "TbUsuarios", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
+                                    </ul>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <div>
+                            <a href="@Url.Action( "Create", "TbCitas")" class="btn btn-primary">
+                                <i class="material-icons">&#xE147;</i>
+                                <span>
+                                    Agregar Nueva Cita
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-hover">
 
                     <tr>
 
@@ -47,7 +99,7 @@
                             @Html.DisplayNameFor(model => model.nombreServicio)
                         </th>
 
-                        <th></th>
+                        <th>Acción</th>
                     </tr>
 
                     @foreach (var item in Model)
@@ -70,15 +122,19 @@
                                 @Html.DisplayFor(modelItem => item.nombreServicio)
                             </td>
                             <td>
-                                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+                                <a href="@Url.Action( "Edit", "TbCitas", new { id = @Html.DisplayFor(model => item.IDCita) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
+                                    <span class="material-icons">edit</span>
+                                </a>
+                                <a href="@Url.Action( "Delete", "TbCitas",new { id = @Html.DisplayFor(model => item.IDCita) })" class="delete" title="Borrar" data-toggle="tooltip">
+                                    <i class="material-icons">&#xE5C9;</i>
+                                </a>
                             </td>
                         </tr>
                     }
 
                 </table>
-                </div>
             </div>
         </div>
-</section>
+    </div>
+</body>

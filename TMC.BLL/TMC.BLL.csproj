@@ -374,33 +374,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICatalogosBLL.cs" />
-    <Compile Include="Interfaces\ICatalogos_FotosBLL.cs" />
     <Compile Include="Interfaces\ICitasBLL.cs" />
     <Compile Include="Interfaces\IComprasBLL.cs" />
-    <Compile Include="Interfaces\IEmpleadosBLL.cs" />
-    <Compile Include="Interfaces\IFotosBLL.cs" />
-    <Compile Include="Interfaces\INotificacionesBLL.cs" />
-    <Compile Include="Interfaces\IOcupacionesBLL.cs" />
-    <Compile Include="Interfaces\IPermisosBLL.cs" />
     <Compile Include="Interfaces\IProgresosBLL.cs" />
     <Compile Include="Interfaces\IRolesBLL.cs" />
-    <Compile Include="Interfaces\IRoles_PermisosBLL.cs" />
     <Compile Include="Interfaces\IServiciosBLL.cs" />
     <Compile Include="Interfaces\ITestimoniosBLL.cs" />
     <Compile Include="Interfaces\IUsuariosBLL.cs" />
     <Compile Include="Metodos\MBase.cs" />
     <Compile Include="Metodos\MCatalogosBLL.cs" />
-    <Compile Include="Metodos\MCatalogos_FotosBLL.cs" />
     <Compile Include="Metodos\MCitasBLL.cs" />
     <Compile Include="Metodos\MComprasBLL.cs" />
-    <Compile Include="Metodos\MEmpleadosBLL.cs" />
-    <Compile Include="Metodos\MFotosBLL.cs" />
-    <Compile Include="Metodos\MNotificacionesBLL.cs" />
-    <Compile Include="Metodos\MOcupacionesBLL.cs" />
-    <Compile Include="Metodos\MPermisosBLL.cs" />
     <Compile Include="Metodos\MProgresosBLL.cs" />
     <Compile Include="Metodos\MRolesBLL.cs" />
-    <Compile Include="Metodos\MRoles_PermisosBLL.cs" />
     <Compile Include="Metodos\MServiciosBLL.cs" />
     <Compile Include="Metodos\MTestimoniosBLL.cs" />
     <Compile Include="Metodos\MUsuariosBLL.cs" />
