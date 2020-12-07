@@ -47,10 +47,15 @@ namespace TMC.DAL.Metodos
             var listaServicios = new MServiciosDAL().obtenerServiciosComprados(idUsuario);
             foreach (var servicio in listaServicios)
             {
-                //de listaServicios, averiguar quien tiene el mismo idUsuario, idServicio y obtener el idCompra.
-                //asignarle el idCompra a la variable id.
+                if (servicio.IDUsuario == idUsuario && servicio.IDServicio == idServicio)
+                {
+                    id = servicio.IDCompra;
+                }
             }
-            client.DeleteAsync("TbUsuarios_TbServicios/"  + id);
+            if (id != 0)
+            {
+                client.DeleteAsync("TbCompras/" + id);
+            } 
         }
 
 
@@ -96,7 +101,7 @@ namespace TMC.DAL.Metodos
         public List<TbServicios> ObtenerComprasId(int Id)
         {
             List<TbServicios> serviciosContratados = new List<TbServicios>();
-            var response = client.Get("TbUsuarios_TbServicios/");
+            var response = client.Get("TbCompras/");
             TbUsuario_TbServicio[] servicios = { };
             servicios = JsonConvert.DeserializeObject<TbUsuario_TbServicio[]>(response.Body);
             foreach (var servicio in servicios)

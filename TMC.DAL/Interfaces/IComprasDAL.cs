@@ -21,5 +21,7 @@ namespace TMC.DAL.Interfaces
         TbCompras Buscar(int idCompra);
         //Lista las compras de un usuario
         List<TbServicios> ObtenerComprasId(int Id);
+
+        void cancelarServicio(int idUsuario, int idServicio);
     }
 }

@@ -41,5 +41,10 @@ namespace TMC.BLL.Metodos
         {
             return vCompras.ObtenerComprasId(Id);
         }
+
+        public void cancelarServicio(int idUsuario, int idServicio)
+        {
+            vCompras.cancelarServicio(idUsuario,idServicio);
+        }
     }
 }

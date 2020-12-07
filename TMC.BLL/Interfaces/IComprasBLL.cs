@@ -20,5 +20,7 @@ namespace TMC.BLL.Interfaces
         //Busca un registro especifico
         TbCompras Buscar(int idCompra);
         List<TbServicios> ObtenerComprasId(int Id);
+
+        void cancelarServicio(int idUsuario, int idServicio);
     }
 }

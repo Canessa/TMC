@@ -144,5 +144,10 @@ namespace TMC.UI.Controllers
         {
             return View();
         }
+
+        public void cancelarServicio(int id) {
+            var idUsuario = TbUsuarios.getUsuarioActual().IDUsuario;
+            cCompras.cancelarServicio(idUsuario, id);
+        }
     }
 }
