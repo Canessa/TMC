@@ -27,6 +27,11 @@
 </nav>
 <!-- /Breadcrumb -->
 
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 2)
+{
+
+    Response.Redirect(Url.Action("Index", "Home"));
+}
 <body id="estiloAdmin">
     @using (Html.BeginForm())
     {
@@ -83,7 +88,7 @@
             <div class="col-md-10">
                 <input type="submit" value="Actualizar" class="btn-outline-btn" />
                 @Html.ActionLink(" Regresar", "Admin_Servicios", "TbServicios", new { @class = "text-danger" })
-                
+
             </div>
             <br />
         </div>

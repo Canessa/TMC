@@ -40,6 +40,14 @@ namespace TMC.UI.Controllers
         }
 
         [HttpGet]
+        public ActionResult SearchNotLog()
+        {
+            var list = cServicios.Mostrar();
+            //if (list == null) { return RedirectToAction("Create"); };
+            return View(list);
+        }
+
+        [HttpGet]
         public ActionResult Create()
         {
             CargarListas();

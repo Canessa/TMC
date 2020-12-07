@@ -120,7 +120,7 @@ namespace TMC.DAL.Metodos
 
         public void Adquirir(int idUsuario, int idServicio)
         {
-            TbUsuario_TbServicio usuarioServicio = new TbUsuario_TbServicio();
+            TbCompras usuarioServicio = new TbCompras();
             try
             {
                 var lista = obtenerServiciosCliente();
@@ -132,11 +132,11 @@ namespace TMC.DAL.Metodos
                 }
                 else
                 {
-                    usuarioServicio.IDCompra = 1;
+                    usuarioServicio.IDCompra= 1;
                     usuarioServicio.IDUsuario = idUsuario;
                     usuarioServicio.IDServicio = idServicio;
                 };
-                client.SetAsync("TbUsuarios_TbServicios/" + usuarioServicio.IDCompra, usuarioServicio);
+                client.SetAsync("TbCompras/" + usuarioServicio.IDCompra, usuarioServicio);
 
             }
             catch

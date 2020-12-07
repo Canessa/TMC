@@ -24,7 +24,11 @@
 </nav>
 <!-- /Breadcrumb -->
 
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 2)
+{
 
+    Response.Redirect(Url.Action("Index", "Home"));
+}
 <body id="estiloAdmin" style="text-align:left">
     <div class="card-body">
         <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
@@ -48,6 +52,6 @@
             }
         </div>
     </div>
-        <br />
+    <br />
     <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
 </body>

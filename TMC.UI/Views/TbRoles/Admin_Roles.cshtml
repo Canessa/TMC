@@ -24,11 +24,15 @@
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">Administrar Roles</li>
-
-
     </ol>
 </nav>
 <!-- /Breadcrumb -->
+
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 2)
+{
+
+    Response.Redirect(Url.Action("Index", "Home"));
+}
 <body id="estiloAdmin">
     <div class="container">
         <div class="table-responsive">
@@ -38,10 +42,7 @@
                         <div class="navbar1">
 
                             <div class="dropdown1">
-
                                 <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
-
-
                                     <span class="material-icons">
                                         toc
                                     </span>
@@ -52,29 +53,15 @@
 
                                     <ul class="navbar1">
                                         <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Administrar Fotos", "Admin_Fotos", "TbFotos", null, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Administrar Catalogos Fotos", "Admin_Catalogos_Fotos", "TbCatalogos_Fotos", null, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Administrar Permisos", "Admin_Permisos", "TbPermisos", null, new { @class = "nav-link" })</li>
+                                        <li>@Html.ActionLink("Administrar Citas", "Admin_Citas", "TbCitas", null, new { @class = "nav-link" })</li>
                                         <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Administrar Permisos de Roles", "Admin_Roles_Permisos", "TbRoles_TbPermisos", null, new { @class = "nav-link" })</li>
                                         <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "TbUsuarios", null, new { @class = "nav-link" })</li>
-
                                         <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
-
-
-
                                     </ul>
-
                                 </div>
-
-
                             </div>
-
-
                         </div>
 
-
-                   
 
                         <div>
                             <a href="@Url.Action( "Create", "TbRoles")" class="btn btn-primary">
@@ -100,7 +87,7 @@
                             </th>
 
 
-                            <th>Accion</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     @foreach (var item in Model)
@@ -116,22 +103,11 @@
                                 @Html.DisplayFor(modelItem => item.detalle)
                             </td>
 
-
-
-
-
-
                             <td>
 
-
-
-
-                                @*@Html.ActionLink("Edit", "Edit", "Usuario", new { id = @Html.DisplayFor(model => item.IDUsuario) }, null)
-                                *@<a href="@Url.Action( "Edit", "TbRoles", new { id = @Html.DisplayFor(model => item.IDRol) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
+                                <a href="@Url.Action( "Edit", "TbRoles", new { id = @Html.DisplayFor(model => item.IDRol) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
                                     <span class="material-icons">edit</span>
                                 </a>
-
-
                                 <a href="@Url.Action( "Delete", "TbRoles",new { id = @Html.DisplayFor(model => item.IDRol) })" class="delete" title="Borrar" data-toggle="tooltip">
                                     <i class="material-icons">&#xE5C9;</i>
                                 </a>

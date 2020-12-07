@@ -485,14 +485,10 @@
     <Compile Include="App_Start\StartUp.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TbCatalogosController.cs" />
-    <Compile Include="Controllers\TbCatalogos_FotosController.cs" />
     <Compile Include="Controllers\TbCitasController.cs" />
     <Compile Include="Controllers\TbComprasController.cs" />
-    <Compile Include="Controllers\TbFotosController.cs" />
-    <Compile Include="Controllers\TbPermisosController.cs" />
     <Compile Include="Controllers\TbProgresosController.cs" />
     <Compile Include="Controllers\TbRolesController.cs" />
-    <Compile Include="Controllers\TbRoles_TbPermisosController.cs" />
     <Compile Include="Controllers\TbServiciosController.cs" />
     <Compile Include="Controllers\TbUsuariosController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -699,17 +695,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\TbPermisos\Create.cshtml" />
-    <Content Include="Views\TbPermisos\Search.cshtml" />
-    <Content Include="Views\TbPermisos\Detail.cshtml" />
-    <Content Include="Views\TbPermisos\Edit.cshtml" />
-    <Content Include="Views\TbPermisos\Delete.cshtml" />
     <Content Include="Views\Usuario\SignUp.cshtml" />
-    <Content Include="Views\TbCatalogos_Fotos\Search.cshtml" />
-    <Content Include="Views\TbCatalogos_Fotos\Create.cshtml" />
-    <Content Include="Views\TbCatalogos_Fotos\Detail.cshtml" />
-    <Content Include="Views\TbCatalogos_Fotos\Edit.cshtml" />
-    <Content Include="Views\TbCatalogos_Fotos\Delete.cshtml" />
     <Content Include="Views\TbCatalogos\Create.cshtml" />
     <Content Include="Views\TbCatalogos\Detail.cshtml" />
     <Content Include="Views\TbCatalogos\Edit.cshtml" />
@@ -724,21 +710,11 @@
     <Content Include="Views\TbCompras\Detail.cshtml" />
     <Content Include="Views\TbCompras\Edit.cshtml" />
     <Content Include="Views\TbCompras\Delete.cshtml" />
-    <Content Include="Views\TbFotos\Search.cshtml" />
-    <Content Include="Views\TbFotos\Create.cshtml" />
-    <Content Include="Views\TbFotos\Detail.cshtml" />
-    <Content Include="Views\TbFotos\Edit.cshtml" />
-    <Content Include="Views\TbFotos\Delete.cshtml" />
     <Content Include="Views\TbProgresos\Search.cshtml" />
     <Content Include="Views\TbProgresos\Create.cshtml" />
     <Content Include="Views\TbProgresos\Detail.cshtml" />
     <Content Include="Views\TbProgresos\Edit.cshtml" />
     <Content Include="Views\TbProgresos\Delete.cshtml" />
-    <Content Include="Views\TbRoles_TbPermisos\Search.cshtml" />
-    <Content Include="Views\TbRoles_TbPermisos\Create.cshtml" />
-    <Content Include="Views\TbRoles_TbPermisos\Detail.cshtml" />
-    <Content Include="Views\TbRoles_TbPermisos\Edit.cshtml" />
-    <Content Include="Views\TbRoles_TbPermisos\Delete.cshtml" />
     <Content Include="Views\TbRoles\Search.cshtml" />
     <Content Include="Views\TbRoles\Create.cshtml" />
     <Content Include="Views\TbRoles\Detail.cshtml" />
@@ -749,19 +725,12 @@
     <Content Include="Views\TbServicios\Detail.cshtml" />
     <Content Include="Views\TbServicios\Edit.cshtml" />
     <Content Include="Views\TbServicios\Delete.cshtml" />
-    <Content Include="Views\Home\Clientes.cshtml">
-      <BrowseToURL>~/Home/Clientes</BrowseToURL>
-    </Content>
     <Content Include="Imgs\User.jpg" />
     <Content Include="Views\Usuario\Profile.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\TbServicios\Admin_Servicios.cshtml" />
-    <Content Include="Views\TbPermisos\Admin_Permisos.cshtml" />
     <Content Include="Views\TbCatalogos\Admin_Catalogos.cshtml" />
-    <Content Include="Views\TbCatalogos_Fotos\Admin_Catalogos_Fotos.cshtml" />
-    <Content Include="Views\TbFotos\Admin_Fotos.cshtml" />
     <Content Include="Views\TbRoles\Admin_Roles.cshtml" />
-    <Content Include="Views\TbRoles_TbPermisos\Admin_Roles_Permisos.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\TbCompras\ComprasUsuario.cshtml" />
@@ -772,11 +741,10 @@
     <Content Include="Views\Usuario\Create_Admin.cshtml" />
     <Content Include="Views\TbUsuarios\Admin_Users.cshtml" />
     <Content Include="Views\TbUsuarios\Edit.cshtml" />
-    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial_Admin.cshtml" />
     <Content Include="Views\Usuario\Reset_Password.cshtml" />
     <Content Include="Views\TbServicios\Agendar_Servicio.cshtml" />
     <Content Include="Views\TbCitas\Admin_Citas.cshtml" />
+    <Content Include="Views\TbServicios\SearchNotLog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

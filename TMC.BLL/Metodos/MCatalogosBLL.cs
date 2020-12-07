@@ -24,19 +24,6 @@ namespace TMC.BLL.Metodos
 
         public int Eliminar(int idCatalogo)
         {
-            //Validacion de relaciones con TbCatalogos_TbFotos
-            ICatalogos_FotosBLL cCatalogosFotos = new MCatalogos_FotosBLL();
-            List<TbCatalogos_TbFotos> listaCatalogosFotos = cCatalogosFotos.Mostrar();
-            if (listaCatalogosFotos != null)
-            {
-                foreach (TbCatalogos_TbFotos i in listaCatalogosFotos)
-                {
-                    if (i.IDCatalogo == idCatalogo)
-                    {
-                        return 1;
-                    }
-                }
-            }
             //Validacion de relaciones con TbServicios
             IServiciosBLL cServicios = new MServiciosBLL();
             List<TbServicios> listaServicios = cServicios.Mostrar();

@@ -25,21 +25,12 @@ namespace TMC.UI.Controllers
             return View();
         }
 
-        public ActionResult Clientes()
-        {
-            return View();
-        }
-
         public ActionResult Blog()
         {
 
             return View();
 
         }
-
-  
-
-
 
     }
 }

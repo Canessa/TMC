@@ -372,32 +372,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICatalogosDAL.cs" />
-    <Compile Include="Interfaces\ICatalogos_FotosDAL.cs" />
     <Compile Include="Interfaces\ICitasDAL.cs" />
     <Compile Include="Interfaces\IComprasDAL.cs" />
-    <Compile Include="Interfaces\IEmpleadosDAL.cs" />
-    <Compile Include="Interfaces\IFotosDAL.cs" />
-    <Compile Include="Interfaces\INotificacionesDAL.cs" />
-    <Compile Include="Interfaces\IOcupacionesDAL.cs" />
-    <Compile Include="Interfaces\IPermisosDAL.cs" />
     <Compile Include="Interfaces\IProgresosDAL.cs" />
     <Compile Include="Interfaces\IRolesDAL.cs" />
-    <Compile Include="Interfaces\IRoles_PermisosDAL.cs" />
     <Compile Include="Interfaces\IServiciosDAL.cs" />
     <Compile Include="Interfaces\ITestimoniosDAL.cs" />
     <Compile Include="Interfaces\IUsuariosDAL.cs" />
     <Compile Include="Metodos\MCatalogosDAL.cs" />
-    <Compile Include="Metodos\MCatalogos_FotosDAL.cs" />
     <Compile Include="Metodos\MCitasDAL.cs" />
     <Compile Include="Metodos\MComprasDAL.cs" />
-    <Compile Include="Metodos\MEmpleadosDAL.cs" />
-    <Compile Include="Metodos\MFotosDAL.cs" />
-    <Compile Include="Metodos\MNotificacionesDAL.cs" />
-    <Compile Include="Metodos\MOcupacionesDAL.cs" />
-    <Compile Include="Metodos\MPermisosDAL.cs" />
     <Compile Include="Metodos\MProgresosDAL.cs" />
     <Compile Include="Metodos\MRolesDAL.cs" />
-    <Compile Include="Metodos\MRoles_PermisosDAL.cs" />
     <Compile Include="Metodos\MServiciosDAL.cs" />
     <Compile Include="Metodos\MTestimoniosDAL.cs" />
     <Compile Include="Metodos\MUsuariosDAL.cs" />

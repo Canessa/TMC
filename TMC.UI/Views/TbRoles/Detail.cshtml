@@ -7,6 +7,11 @@
 
 <h2>Información del Rol</h2>
 
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 2)
+{
+
+    Response.Redirect(Url.Action("Index", "Home"));
+}
 <div>
     <hr />
     <dl class="dl-horizontal">

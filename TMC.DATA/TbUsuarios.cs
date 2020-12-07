@@ -7,7 +7,8 @@ namespace TMC.DATA
 {
     public class TbUsuarios
     {
-        static TbUsuarios usuarioActual = new TbUsuarios();
+        public static int IDRolUsuarioActual { get; set; }
+        public static TbUsuarios usuarioActual = new TbUsuarios();
         public int IDUsuario { get; set; }
 
         [Display(Name = "Cédula")]
@@ -61,6 +62,7 @@ namespace TMC.DATA
             usuarioActual.correo = usuario.correo;
             usuarioActual.telefono = usuario.telefono;
             usuarioActual.foto = usuario.foto;
+            IDRolUsuarioActual = usuario.IDRol;
         }
         public static TbUsuarios getUsuarioActual()
         {

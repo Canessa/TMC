@@ -25,9 +25,13 @@
     </ol>
 </nav>
 <!-- /Breadcrumb -->
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 1)
+{
 
+    Response.Redirect(Url.Action("Index", "Home"));
+}
 <body id="estiloAdmin">
-    <div class="col-md-8" style="margin-left: 28%;">
+    <div class="col-md-8" style="margin-left: 20%;">
         @foreach (var servicio in Model)
         {
             <div class="row" style="margin-left:0%; margin-top:10px">
@@ -46,7 +50,7 @@
                                     <h6 class="mb-0">Catalogo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    @servicio.NombreCatalogo
+                                    #@servicio.IDCatalogo
                                 </div>
                             </div>
                             <hr>
@@ -61,8 +65,8 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <button class="btn btn-danger" style="width: 60%;height: 50px;">
-                                        <a href="@Url.Action( "cancelarServicio", "TbCompras",new { id = @Html.DisplayFor(model => servicio.IDServicio) })">
+                                    <button class="btn btn-success" style="width: 100%;height: 70px;">
+                                        <a href="@Url.Action( "Delete", "TbCompras",new { id = @Html.DisplayFor(model => servicio.IDServicio) })">
                                             Cancelar
                                         </a>
                                     </button>
