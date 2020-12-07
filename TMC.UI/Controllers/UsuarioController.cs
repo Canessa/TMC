@@ -250,7 +250,7 @@ namespace TMC.UI.Controllers
         }
 
 
-
+        //[Authorize(Roles="Administrador")]
         public ActionResult Admin_Users()
         {
             List<TbUsuarios> lista = cUsuarios.Mostrar();

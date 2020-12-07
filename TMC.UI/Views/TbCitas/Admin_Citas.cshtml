@@ -1,0 +1,84 @@
+﻿@model IEnumerable<TMC.DATA.TbCitas>
+
+@{
+    ViewBag.Title = "Admin_Citas";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+ 
+</head>
+
+
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Administrar Citas</li>
+
+
+    </ol>
+</nav>
+<!-- /Breadcrumb -->
+
+<section class="container-fluid">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <table class="table">
+
+                    <tr>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.fechaCita)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IDCita)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IDServicio)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IDUsuario)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.nombreServicio)
+                        </th>
+
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fechaCita)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IDCita)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IDServicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IDUsuario)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombreServicio)
+                            </td>
+                            <td>
+                                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                </div>
+            </div>
+        </div>
+</section>

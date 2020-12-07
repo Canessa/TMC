@@ -10,7 +10,7 @@ namespace TMC.DATA
         
         public int IDCita { get; set; }
 
-        [Display(Name = "Fecha de la cita")]
+        [Display(Name = "Fecha")]
         public DateTime fechaCita { get; set; }
 
         [Display(Name = "Selección del usuario")]
@@ -26,5 +26,13 @@ namespace TMC.DATA
         [Display(Name = "Lugar donde se realizara el evento")]
         [StringLength(50, ErrorMessage = "Máximo 50 caracteres")]
         public string lugar { get; set; }
+
+        [Display(Name = "Nombre del servicio")]
+        [StringLength(50, ErrorMessage = "Máximo 50 caracteres")]
+        public string nombreServicio { get; set; }
+
+
+       
+        public string IDServicio { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace TMC.UI.Controllers
             //Construccion de los metodos para las tablas de las FK
             cUsuarios = new MUsuariosBLL();
             cProgresos = new MProgresosBLL();
+            
         }
 
         //Metodo de carga de los dropdown
@@ -134,5 +135,31 @@ namespace TMC.UI.Controllers
             cCitas.Cancelar(id);
             return RedirectToAction("Search");
         }
+
+
+        public ActionResult Admin_Citas()
+        {
+            List<TbCitas> lista = cCitas.Mostrar();
+
+            return View(lista);
+            
+        }
+
+
+        private void CargarListaAdminCita()
+        {
+            
+            List<TbCitas> citas = cCitas.Mostrar();
+            if (citas == null)
+            {
+                citas[0].IDCita = 0;
+                citas[0].nombreServicio = "No hay catálogos disponibles";
+            }
+            ViewBag.ddlCitas = new SelectList(citas, "IDCita", "Nombre");
+        }
+
+
+
+
     }
 }

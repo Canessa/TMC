@@ -58,7 +58,7 @@ namespace TMC.BLL.Metodos
             {
                 foreach (TbCompras i in listaCompras)
                 {
-                    if (i.IDUsuario == idUsuario)
+                    if (i.IDUsuario == idUsuario && i.activo == true)
                     {
                         return 2;
                     }

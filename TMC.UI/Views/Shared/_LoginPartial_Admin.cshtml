@@ -1,12 +1,13 @@
-﻿
+﻿@model TMC.DATA.TbUsuarios
 <head>
 
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
 </head>
- 
+
 @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
+    //if (Model.IDUsuario == 1) { 
     <div class="container">
 
         <ul class="nav navbar-nav" style=" margin-left: 73%;">
@@ -19,6 +20,7 @@
             <li>@Html.ActionLink("Cerrar Sesion", "LogOff", "Usuario", null, new { @class = "nav-link" })</li>
         </ul>
     </div>
+    //}
     //}
 }
 else
