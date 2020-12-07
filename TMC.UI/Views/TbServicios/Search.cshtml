@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     @model IEnumerable<TMC.DATA.TbServicios>
 }
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 0)
+{
+
+    Response.Redirect(Url.Action("SearchNotLog", "TbServicios"));
+}
 <style>
     .img-card-view {
         width: 100%
@@ -15,6 +20,7 @@
     }
     }
 </style>
+
 <h2>Servicios</h2>
 <div class="card-columns" style="margin-left: 19%; margin-top: 3%;">
     @foreach (var item in Model)
@@ -30,11 +36,11 @@
                     <p class="card-text" style="font-weight: 800;font-size: 20px;">&#8353;@item.precio</p>
                 </div>
                 <div class="card-footer" style="padding: 0;">
-                   <button class="btn btn-success" style="width: 100%;height: 70px;">
-            <a href="@Url.Action( "Agendar_Servicio", "TbServicios",new { id = @Html.DisplayFor(model => item.IDServicio) })">
-                Agendar
-            </a>
-        </button>
+                    <button class="btn btn-success" style="width: 100%;height: 70px;">
+                        <a href="@Url.Action( "Agendar_Servicio", "TbServicios",new { id = @Html.DisplayFor(model => item.IDServicio) })">
+                            Agendar
+                        </a>
+                    </button>
 
 
 
@@ -43,4 +49,4 @@
             </div>
         }
     }
-        <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>

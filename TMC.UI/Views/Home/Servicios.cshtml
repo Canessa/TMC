@@ -17,17 +17,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 
 </head>
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item active" aria-current="page">Servicios</li>
     </ol>
 </nav>
-@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 0)
-{
 
-    Response.Redirect(Url.Action("SearchNotLog", "TbServicios"));
-}
 <body id="estiloAdmin">
     <!-- /Breadcrumb -->
     <div style="margin-top:-15px">
