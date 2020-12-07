@@ -36,7 +36,11 @@ namespace TMC.DAL.Metodos
             try
             {
                 var busqueda = Buscar(idCompra);
+<<<<<<< HEAD
                 busqueda.activo = false;
+=======
+                busqueda.estado = "Cancelada" ;
+>>>>>>> 2a0ef69217a8d8a96bc15aedc353940d113bd0bc
                 Actualizar(busqueda);
             }
             catch { };
@@ -103,16 +107,22 @@ namespace TMC.DAL.Metodos
         public List<TbServicios> ObtenerComprasId(int Id)
         {
             List<TbServicios> serviciosContratados = new List<TbServicios>();
-            var response = client.Get("TbCompras/");
+            var response = client.Get("TbCompras");
             TbCompras[] servicios = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
-
-            foreach (var servicio in servicios)
-            {
-                if (servicio != null && servicio.IDUsuario == Id)
+            if (servicios != null){
+                foreach (var item in servicios)
                 {
-                    serviciosContratados.Add(new MServiciosDAL().Buscar(servicio.IDServicio));
+                    if (item != null && item.IDUsuario == Id && item.estado != "Cancelada")
+                    {
+                        serviciosContratados.Add(new MServiciosDAL().Buscar(item.IDServicio));
+                    }
                 }
             }
+            else
+            {
+               serviciosContratados = null;
+            }
+            
             return serviciosContratados;
         }
 }

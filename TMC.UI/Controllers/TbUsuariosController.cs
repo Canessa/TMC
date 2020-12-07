@@ -38,12 +38,22 @@ namespace TMC.UI.Controllers
        public async Task<ActionResult> EditClient(TbUsuarios usuario, HttpPostedFileBase foto)
         {
             FileStream stream;
-            if (foto.ContentLength > 0)
+            usuario.IDRol = TempUsuario.IDRol;
+            usuario.IDUsuario = TempUsuario.IDUsuario;
+            usuario.correo = TempUsuario.correo;
+            usuario.contrasenna = TempUsuario.contrasenna;
+            usuario.estado = TempUsuario.estado;
+            if (foto == null)
+            {
+                usuario.foto = TempUsuario.foto;
+                await Task.Run(() => cUsuarios.Actualizar(usuario));
+            }
+            else
             {
                 string path = Path.Combine(Server.MapPath("~/Content/images/"), foto.FileName);
                 foto.SaveAs(path);
                 stream = new FileStream(Path.Combine(path), FileMode.Open);
-                await Task.Run(() => actualizarDatos(stream, TempUsuario));
+                await Task.Run(() => actualizarDatos(stream, usuario));
             }
             return RedirectToAction("DetailClient/" + usuario.IDUsuario, "TbUsuarios");
         }
