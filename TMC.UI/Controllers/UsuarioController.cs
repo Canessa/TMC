@@ -37,9 +37,6 @@ namespace TMC.UI.Controllers
         public static String UserGlobal;
         public static string UserActu;
 
-
-
-
         // GET: Usuario
 
         public ActionResult SignUp()
@@ -84,6 +81,24 @@ namespace TMC.UI.Controllers
                 ViewBag.Message = "Bienvenido " + model.nombre + "! ";
                 ViewBag.Message = ViewBag.Message + "Para establecer su contraseña ingrese a su correo electrónico. " +
                     "Por el momento, su contraseña es: " + sb.ToString();
+                //Seding Password to email
+                string nombre = usuario.nombre;
+                System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
+                mmsg.To.Add(usuario.correo);
+                mmsg.Subject = "Establecer tu contraseña de Sistema TMC";
+                mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+                mmsg.BodyEncoding = System.Text.Encoding.UTF8;
+                mmsg.IsBodyHtml = true;
+                mmsg.AlternateViews.Add(NewPasswordEmail(nombre, sb.ToString()));
+                mmsg.From = new System.Net.Mail.MailAddress("tumaestrodeceremoniastmc@gmail.com");
+
+                System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+                cliente.EnableSsl = true;
+                //cliente.UseDefaultCredentials = false;
+                cliente.Credentials = new System.Net.NetworkCredential("tumaestrodeceremoniastmc@gmail.com", "Tumaestro2020");
+                cliente.Host = "smtp.gmail.com";
+                cliente.Port = 25;
+                cliente.Send(mmsg);
             }
             catch (Exception ex)
             {
@@ -240,7 +255,10 @@ namespace TMC.UI.Controllers
         [HttpGet]
         public new ActionResult Profile()
         {
-         
+            if (TempData.ContainsKey("shortMessage"))
+            {
+                ViewBag.Message = TempData["shortMessage"].ToString();
+            }
             var id = cUsuarios.ObtenerId(UserGlobal);
             var Usuario = cUsuarios.Buscar(id);
             var rol = Usuario.IDRol;
@@ -355,39 +373,12 @@ namespace TMC.UI.Controllers
         [AllowAnonymous]
         public ActionResult Reset_Password(string email)
         {
-            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            char[] caracteres = chars.ToCharArray();
-            Random rnd = new Random();
-            StringBuilder sb = new StringBuilder();
-
-            for (int i = 0; i < 8; i++)
-            {
-                int randomIndex = rnd.Next(chars.Length);
-                sb.Append(caracteres.GetValue(randomIndex));
-            }
-
-            string nombre = email.Substring(0, email.IndexOf("@"));
-            System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
-            mmsg.To.Add(email);
-            mmsg.Subject = "Nueva Contraseña";
-            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
-            mmsg.BodyEncoding = System.Text.Encoding.UTF8;
-            mmsg.IsBodyHtml = true;
-            mmsg.AlternateViews.Add(Mail_Body(nombre,sb.ToString()));
-            mmsg.From = new System.Net.Mail.MailAddress("tumaestrodeceremoniastmc@gmail.com");
-
-            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
-            cliente.EnableSsl = true;
-            //cliente.UseDefaultCredentials = false;
-            cliente.Credentials = new System.Net.NetworkCredential("tumaestrodeceremoniastmc@gmail.com" , "Tumaestro2020");
-            cliente.Host = "smtp.gmail.com"; 
-            cliente.Port = 25;
-
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
+            auth.SendPasswordResetEmailAsync(email);
 
             try
             {
-                cliente.Send(mmsg);
-                @ViewBag.Message = "La nueva contraseña ha sido enviada al correo " + email + "! ";
+                @ViewBag.Message = "La solicitud para restablecer su contraseña ha sido enviada al correo " + email + "! ";
             }
             catch (Exception ex)
             {
@@ -396,6 +387,16 @@ namespace TMC.UI.Controllers
        
             return View();
         }
+
+       
+        public ActionResult Reset_Password_CurrentUser()
+        {
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
+            auth.SendPasswordResetEmailAsync(UserGlobal);
+            TempData["shortMessage"] = "La solicitud para restablecer su contraseña ha sido enviada al correo " + UserGlobal + "! ";
+            return RedirectToAction("Profile", "Usuario");
+        }
+
 
 
 
@@ -426,6 +427,46 @@ namespace TMC.UI.Controllers
                 "Saludos," +
                 "<br/>" +
                 "Equipo TMC"+ @"
+
+                    </td>  
+                </tr>  
+               </table>  
+            ";
+            AlternateView AV =
+            AlternateView.CreateAlternateViewFromString(str, null, MediaTypeNames.Text.Html);
+            AV.LinkedResources.Add(Img);
+            return AV;
+        }
+
+        private AlternateView NewPasswordEmail(String nombre, String clave)
+        {
+
+
+            //img src = "~/Imgs/logo.png"
+            string path = Server.MapPath(@"~/Imgs/logo.png");
+            LinkedResource Img = new LinkedResource(path, MediaTypeNames.Image.Jpeg);
+            Img.ContentId = "MyImage";
+            string str = @"  
+            <table>  
+                 <tr>  
+                    <td>  
+                      <img src=cid:MyImage  id='img' alt='' width='50px' height='50px'/>   
+                    </td>  
+                </tr>
+                <tr>  
+                 
+                    <td> " + "<br/>" +
+                "Hola " + nombre + "<br/>"
+                + "<br/>" +
+                "Recientemente creaste un usuario en el sistema TMC. Por ello abajo podrás encontrar la contraseña temporal asignada: " +
+                "<br/>" + "<br/>" +
+               "<b>" + clave + "</b>" + "<br/>" + "<br/>"
+                +"<br/>" +
+                "Para cambiar la contraseña, ingrese a nuestro sistema y realiza la solicitud" +
+                "<br/>" + "<br/>" +
+                "Saludos," +
+                "<br/>" +
+                "Equipo TMC" + @"
 
                     </td>  
                 </tr>  
