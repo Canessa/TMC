@@ -5,10 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 @if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 1)
 {
 
     Response.Redirect(Url.Action("Admin_Users", "TbUsuarios"));
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        alert("@Html.Raw(@ViewBag.Message)");
+        window.location = "/Usuario/Profile";
+    </script>
 }
 
 <head>
@@ -43,6 +52,8 @@
                                     @Html.ActionLink("Compras", "ComprasUsuario", "TbCompras", new { id = Model.IDUsuario }, new { @class = "btn btn-outline-btn" })
                                     <br>
                                     @Html.ActionLink("Cuenta", "DetailClient", "TbUsuarios", new { id = Model.IDUsuario }, new { @class = "btn btn-outline-btn" })
+                                    <br>
+                                    @Html.ActionLink("Restablecer Contraseña", "Reset_Password_CurrentUser", "Usuario", new { @class = "btn btn-outline-btn" })
                                 </div>
                             </div>
                         </div>
