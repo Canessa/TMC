@@ -91,7 +91,7 @@
                                 @Html.DisplayNameFor(model => model.estado)
                             </th>
 
-                            <th>Accion</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     @foreach (var item in Model)
@@ -116,9 +116,6 @@
                             <td>
                                 <a href="@Url.Action( "Edit", "Tbservicios", new { id = @Html.DisplayFor(model => item.IDServicio) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
                                     <span class="material-icons">edit</span>
-                                </a>
-                                <a href="@Url.Action( "Delete", "TbServicios",new { id = @Html.DisplayFor(model => item.IDServicio) })" class="delete" title="Borrar" data-toggle="tooltip">
-                                    <i class="material-icons">&#xE5C9;</i>
                                 </a>
                             </td>
 

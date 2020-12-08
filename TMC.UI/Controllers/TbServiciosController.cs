@@ -67,7 +67,7 @@ namespace TMC.UI.Controllers
                 }
 
                 cServicios.Insertar(servicios);
-                ModelState.AddModelError(string.Empty, "Cita Agregada");
+                ModelState.AddModelError(string.Empty, "Servicio Agregado");
             }
             catch (Exception ex)
             {
@@ -101,7 +101,9 @@ namespace TMC.UI.Controllers
                 CargarListas();
                 return View();
             }
-            cServicios.Actualizar(servicios);
+
+            cServicios.Actualizar(servicios); 
+            CargarListas();
             return RedirectToAction("Edit");
         }
 
@@ -110,7 +112,7 @@ namespace TMC.UI.Controllers
         {
             TbServicios servicio = cServicios.Buscar(id);
             cServicios.Desactivar(id);
-            return View(servicio);
+            return RedirectToAction("Admin_Servicios");
         }
 
 

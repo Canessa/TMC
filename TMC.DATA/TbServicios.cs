@@ -15,18 +15,18 @@ namespace TMC.DATA
         public string nombre { get; set; }
 
         [Required(ErrorMessage = "Detalles del servicio requeridos")]
-        [Display(Name = "Detalles sobre el servicio")]
+        [Display(Name = "Detalles")]
         [StringLength(256, ErrorMessage = "Máximo 256 caracteres")]
         public string detalle { get; set; }
 
-        [Required(ErrorMessage = "Precio del servicio requerido")]
-        [Display(Name = "Precio del servicio")]
+        [Required(ErrorMessage = "Precio")]
+        [Display(Name = "Precio")]
         public float precio { get; set; }
 
-        [Display(Name = "Selección del catálogo")]
+        [Display(Name = "Catálogo")]
         public int IDCatalogo { get; set; }
 
-        [Display(Name = "Estado del servicio")]
+        [Display(Name = "Estado")]
         public bool estado { get; set; }
 
         public string foto { get; set; }
