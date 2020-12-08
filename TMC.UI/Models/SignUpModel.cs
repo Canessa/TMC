@@ -32,10 +32,10 @@ namespace TMC.UI.Models
 
         public int IDUsuario { get; set; }
 
-        [Display(Name = "Cédula")]
-        [Required(ErrorMessage = "Cédula requerida")]
-        [StringLength(20, ErrorMessage = "Máximo 20 caracteres")]
-        public string cedula { get; set; }
+        //[Display(Name = "Cédula")]
+        //[Required(ErrorMessage = "Cédula requerida")]
+        //[StringLength(20, ErrorMessage = "Máximo 20 caracteres")]
+        //public string cedula { get; set; }
 
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Nombre requerido")]

@@ -85,6 +85,7 @@ namespace TMC.DAL.Metodos
         {
             try
             {
+                var response = client.Get("TbUsuarios/");
                 var lista = Mostrar().Count;
                 if (lista > 0)
                 {

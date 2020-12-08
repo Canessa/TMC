@@ -11,10 +11,10 @@ namespace TMC.DATA
         public static TbUsuarios usuarioActual = new TbUsuarios();
         public int IDUsuario { get; set; }
 
-        [Display(Name = "Cédula")]
-        [Required(ErrorMessage = "Cédula requerida")]
-        [StringLength(20, ErrorMessage = "Máximo 20 caracteres")]
-        public string cedula { get; set; }
+        //[Display(Name = "Cédula")]
+        //[Required(ErrorMessage = "Cédula requerida")]
+        //[StringLength(10, MinimumLength = 9, ErrorMessage = "Máximo 10 y mínimo 9 caracteres")]
+        //public string cedula { get; set; }
 
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Nombre requerido")]
@@ -56,7 +56,6 @@ namespace TMC.DATA
         public static void setUsuarioActual(TbUsuarios usuario)
         {
             usuarioActual.IDUsuario = usuario.IDUsuario;
-            usuarioActual.cedula = usuario.cedula;
             usuarioActual.nombre = usuario.nombre;
             usuarioActual.apellidos = usuario.apellidos;
             usuarioActual.correo = usuario.correo;
@@ -71,7 +70,6 @@ namespace TMC.DATA
 
         public static void removeUsuarioActual()
         {
-            usuarioActual.cedula = "";
             usuarioActual.nombre = "";
             usuarioActual.apellidos = "";
             usuarioActual.correo = "";
