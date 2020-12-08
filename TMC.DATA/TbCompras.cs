@@ -20,7 +20,7 @@ namespace TMC.DATA
         public string NombreServicio { get; set; }
 
         [Display(Name = "Precio")]
-        public decimal precio { get; set; }
+        public float precio { get; set; }
 
         [Display(Name = "Estado de la compra")]
         public string estado { get; set; }

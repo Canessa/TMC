@@ -556,6 +556,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imgs\CateringService.jpg" />
+    <Content Include="Imgs\contacto.jpg" />
     <Content Include="Imgs\Empty.png" />
     <Content Include="Imgs\Estilista.jpg" />
     <Content Include="Imgs\FotografoProfesional.jpg" />
@@ -563,7 +564,7 @@
     <Content Include="Imgs\logo.png" />
     <Content Include="Imgs\Maquillista.jpg" />
     <Content Include="Imgs\Modista.jpg" />
-    <Content Include="Imgs\Planificacion.jpg" />
+    <Content Include="Imgs\Planificación.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -728,7 +729,7 @@
     <Content Include="Imgs\User.jpg" />
     <Content Include="Views\Usuario\Profile.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
-    <Content Include="Views\TbServicios\Admin_Servicios.cshtml" />
+    <Content Include="Views\TbServicios\Admin_Servicios-ori.cshtml" />
     <Content Include="Views\TbCatalogos\Admin_Catalogos.cshtml" />
     <Content Include="Views\TbRoles\Admin_Roles.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
@@ -745,6 +746,7 @@
     <Content Include="Views\TbServicios\Agendar_Servicio.cshtml" />
     <Content Include="Views\TbCitas\Admin_Citas.cshtml" />
     <Content Include="Views\TbServicios\SearchNotLog.cshtml" />
+    <Content Include="Views\TbServicios\Admin_Servicios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

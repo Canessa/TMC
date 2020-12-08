@@ -21,7 +21,7 @@ namespace TMC.DATA
 
         [Required(ErrorMessage = "Precio del servicio requerido")]
         [Display(Name = "Precio del servicio")]
-        public decimal precio { get; set; }
+        public float precio { get; set; }
 
         [Display(Name = "Selección del catálogo")]
         public int IDCatalogo { get; set; }
@@ -31,6 +31,7 @@ namespace TMC.DATA
 
         public string foto { get; set; }
 
+        [Display(Name = "Nombre del catálogo")]
         public string NombreCatalogo { get; set; }
 
 

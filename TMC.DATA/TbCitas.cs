@@ -27,6 +27,6 @@ namespace TMC.DATA
         [StringLength(50, ErrorMessage = "Campo requerido")]
         public string IDServicio { get; set; }
         [Display(Name = "Precio del servicio")]
-        public decimal precio { get; set; }
+        public float precio { get; set; }
     }
 }

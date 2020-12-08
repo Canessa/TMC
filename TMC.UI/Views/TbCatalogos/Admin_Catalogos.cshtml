@@ -6,9 +6,6 @@
 }
 
 <head>
-
-    <title>Tabla Administrador de  catalogos</title>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +13,35 @@
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosGeneral.css">
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosBarraAdmin.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" class="main-breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">Administrar Catalogos</li>
+        <div class="navbar1">
+            <div class="dropdown1">
+                <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
+                    <nav aria-label="breadcrumb" class="main-breadcrumb">
+                        <a class="breadcrumb-item active" aria-current="page">
+                            <span>
+                                <i class="material-icons">menu</i>
+                                Administrar Catalogos
+                            </span>
+                        </a>
+                    </nav>
+                </button>
+                <div class="dropdown1-content1">
+                    @Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Administrar Citas", "Admin_Citas", "TbCitas", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Administrar Usuarios", "Admin_Users", "TbUsuarios", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })
+                </div>
+            </div>
+        </div>
     </ol>
 </nav>
 <!-- /Breadcrumb -->
@@ -38,37 +56,20 @@
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
-                    <div class="row">
-                        <div class="navbar1">
-
-                            <div class="dropdown1">
-                                <button class="dropbtn1" style=" color: rgba(255, 255, 255, 0.5);">
-                                    <span class="material-icons">
-                                        toc
-                                    </span>
-                                </button>
-
-                                <div class="dropdown1-content1">
-                                    <ul class="navbar1">
-                                        <li>@Html.ActionLink("Administrar Catalogos", "Admin_Catalogos", "TbCatalogos", null, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Administrar Citas", "Admin_Citas", "TbCitas", null, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Administrar Roles", "Admin_Roles", "TbRoles", null, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Administrar Usuarios", "Admin_Users", "TbUsuarios", null, new { @class = "nav-link" })</li>
-                                        <li>@Html.ActionLink("Administrar Servicios", "Admin_Servicios", "TbServicios", null, new { @class = "nav-link" })</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-xs-7">
+                    <div class="row" style=" margin-left: 60%;">
+                        <form class="form-inline d-flex justify-content-center">
+                            <i class="material-icons" aria-hidden="true">search</i>
+                            <input class="form-control form-control-sm" type="text" placeholder="Buscar"
+                                   aria-label="Search">
+                        </form>
+                        
                             <a href="@Url.Action( "Create", "TbCatalogos")" class="btn btn-primary">
                                 <i class="material-icons">&#xE147;</i>
                                 <span>
                                     Agregar Nuevo Catalogo
                                 </span>
                             </a>
-                        </div>
+                   
                     </div>
                 </div>
                 <table class="table table-striped table-hover">
@@ -96,9 +97,9 @@
                                 <a href="@Url.Action( "Edit", "TbCatalogos", new { id = @Html.DisplayFor(model => item.IDCatalogo) })" class="settings" title="Editar" data-toggle="tooltip" value="Editar">
                                     <span class="material-icons">edit</span>
                                 </a>
-                                <a href="@Url.Action( "Delete", "TbCatalogos",new { id = @Html.DisplayFor(model => item.IDCatalogo) })" class="delete" title="Borrar" data-toggle="tooltip">
+                                @*<a href="@Url.Action( "Delete", "TbCatalogos",new { id = @Html.DisplayFor(model => item.IDCatalogo) })" class="delete" title="Borrar" data-toggle="tooltip">
                                     <i class="material-icons">&#xE5C9;</i>
-                                </a>
+                                </a>*@
                             </td>
 
                         </tr>
