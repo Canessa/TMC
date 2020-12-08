@@ -13,8 +13,8 @@ namespace TMC.DAL.Metodos
 {
     public class MServiciosDAL : PrincipalBD, IServiciosDAL
     {
-        
-        public  void Actualizar(TbServicios servicio)
+
+        public void Actualizar(TbServicios servicio)
         {
             try
             {
@@ -29,12 +29,12 @@ namespace TMC.DAL.Metodos
             TbServicios valor = JsonConvert.DeserializeObject<TbServicios>(response.Body);
             return valor;
         }
-        
+
         public void Desactivar(int idServicio)
         {
             try
             {
-                
+
                 var busqueda = Buscar(idServicio);
                 busqueda.estado = false;
                 Actualizar(busqueda);
@@ -42,7 +42,7 @@ namespace TMC.DAL.Metodos
             catch { };
         }
 
-        public  void Insertar(TbServicios servicio)
+        public void Insertar(TbServicios servicio)
         {
             try
             {
@@ -83,21 +83,23 @@ namespace TMC.DAL.Metodos
             return lista;
         }
 
-        public List<TbServicios> obtenerServiciosCliente()
+        public List<TbCompras> obtenerServiciosCliente()
         {
-            var lista = new List<TbServicios>();
-            var listaComprados = new List<TbCompras>();
-                var response = client.Get("TbCompras/");
-                TbServicios[] tabla = JsonConvert.DeserializeObject<TbServicios[]>(response.Body);
-                if (tabla == null) { return null; }
-                
-                foreach (var item in tabla)
+            var lista = new List<TbCompras>();
+            var response = client.Get("TbCompras");
+            if (response.Body == "null") { return null; }
+            string responseBody = response.Body.ToString();
+            TbCompras[] tabla = { };
+            tabla = JsonConvert.DeserializeObject<TbCompras[]>(responseBody);
+
+
+            foreach (var item in tabla)
+            {
+                if (item != null)
                 {
-                    if (item != null)
-                    {
-                        lista.Add(item);
-                    }
+                    lista.Add(item);
                 }
+            }
             return lista;
         }
 
@@ -105,9 +107,11 @@ namespace TMC.DAL.Metodos
         {
             var listaComprados = new List<TbCompras>();
             var response = client.Get("TbCompras");
+            if (response.Body == "null") { return null; }
+            string responseBody = response.Body.ToString();
             TbCompras[] tabla = { };
-            tabla = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
-            if (tabla == null) { return null; }
+            tabla = JsonConvert.DeserializeObject<TbCompras[]>(responseBody);
+            
 
             foreach (var item in tabla)
             {
