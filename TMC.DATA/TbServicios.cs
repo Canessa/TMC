@@ -29,6 +29,7 @@ namespace TMC.DATA
         [Display(Name = "Estado")]
         public bool estado { get; set; }
 
+        [Display(Name = "Fotografía")]
         public string foto { get; set; }
 
         [Display(Name = "Nombre del catálogo")]
