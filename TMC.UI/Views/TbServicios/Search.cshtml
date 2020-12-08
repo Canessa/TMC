@@ -8,8 +8,14 @@
 @if (!Request.IsAuthenticated)
 {
 
+
     Response.Redirect(Url.Action("SearchNotLog", "TbServicios"));
-}
+} 
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 1)
+    {
+
+        Response.Redirect(Url.Action("Admin_Servicios", "TbServicios"));
+    }
 <style>
     .img-card-view {
         width: 100%
