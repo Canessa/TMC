@@ -134,7 +134,7 @@ namespace TMC.UI.Controllers
             cita.IDServicio = servicio.IDServicio.ToString();
             cita.detalle = servicio.detalle;
             cita.precio = servicio.precio;
-            cita.fechaCita = DateTime.Today.AddDays(1);
+            cita.fechaCita = DateTime.Now.AddDays(1);
             return View(cita);
         }
 
