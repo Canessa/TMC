@@ -32,8 +32,11 @@
     </ol>
 </nav>
 <!-- /Breadcrumb -->
+@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 1)
+    {
 
-
+        Response.Redirect(Url.Action("Admin_Servicios", "TbServicios"));
+    }
 <body id="estiloAdmin">
     <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
         Servicios Disponibles
