@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     @model IEnumerable<TMC.DATA.TbServicios>
 }
-@if (TMC.DATA.TbUsuarios.IDRolUsuarioActual == 0)
+@if (!Request.IsAuthenticated)
 {
 
     Response.Redirect(Url.Action("SearchNotLog", "TbServicios"));
