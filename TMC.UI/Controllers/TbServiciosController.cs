@@ -7,17 +7,21 @@ using TMC.DATA;
 
 namespace TMC.UI.Controllers
 {
+
     public class TbServiciosController : Controller
     {
         IServiciosBLL cServicios;
         //Creacion de los metodos para las tablas de las FK
         ICatalogosBLL cCatalogos;
+        ICitasBLL cCitas;
         public TbServiciosController()
         {
             cServicios = new MServiciosBLL();
             //Construccion de los metodos para las tablas de las FK
             cCatalogos = new MCatalogosBLL();
         }
+        static DateTime LastDate;
+
         //Metodo de carga de los dropdown
         private void CargarListas()
         {
@@ -134,6 +138,8 @@ namespace TMC.UI.Controllers
             cita.IDServicio = servicio.IDServicio.ToString();
             cita.detalle = servicio.detalle;
             cita.precio = servicio.precio;
+            //var list = cCitas.Mostrar();
+            //TbCitas LastRecord = list[list.Count - 1];
             cita.fechaCita = DateTime.Now.AddDays(1);
             return View(cita);
         }

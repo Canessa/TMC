@@ -14,6 +14,8 @@ namespace TMC.UI.Controllers
         IUsuariosBLL cUsuarios;
         IProgresosBLL cProgresos;
         IServiciosBLL cServicios;
+
+        static TbCitas TempCita;
         public TbCitasController()
         {
             cCitas = new MCitasBLL();
@@ -82,6 +84,7 @@ namespace TMC.UI.Controllers
         public ActionResult Edit(int id)
         {
             var data = cCitas.Buscar(id);
+            TempCita = data;
             return View(data);
         }
 
@@ -90,18 +93,14 @@ namespace TMC.UI.Controllers
         {
             if (citas.IDUsuario == 0)
             {
+
                 ModelState.AddModelError(string.Empty, "Debe ingresar un usuario primero");
                 return View();
             }
-
-            //if (citas.IDProgreso == 0)
-            //{
-            //    ModelState.AddModelError(string.Empty, "Debe ingresar un progreso primero");
-            //    CargarListas();
-            //    return View();
-            //}
+            citas.IDCita = TempCita.IDCita;
             cCitas.Actualizar(citas);
-            return RedirectToAction("Search");
+            System.Threading.Thread.Sleep(5000);
+            return RedirectToAction("Admin_Citas","TbCitas");
         }
 
         [HttpGet]
