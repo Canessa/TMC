@@ -38,7 +38,7 @@
     <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
         Servicios Disponibles
     </h5>
-    <div class="form-vertical">
+    <div class="form-vertical" style="color:black;">
         <div class="card-columns" style="margin-left: 8%; margin-top: 3%;">
             @foreach (var item in Model)
             {
@@ -52,17 +52,6 @@
                             <p class="card-text">@item.detalle</p>
                             <p class="card-text" style="font-weight: 800;font-size: 20px;">&#8353;@item.precio</p>
                         </div>
-                        @*<div class="card-footer" style="padding: 0;">
-                                       <button class="btn btn-success" style="width: 100%;height: 70px;">
-                                <a href="@Url.Action( "Agendar_Servicio", "TbServicios",new { id = @Html.DisplayFor(model => item.IDServicio) })">
-                                    Agendar
-                                </a>
-                            </button>
-
-
-
-
-                                    </div>*@
                     </div>
                 }
             }
