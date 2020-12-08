@@ -75,20 +75,20 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-10" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
 
 
-                    <div class="form-group">
+                    @*<div class="form-group">
                         @Html.LabelFor(model => model.foto, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.foto, new { htmlAttributes = new { @class = "form-control-file", @type = "file", @id = "fotoPerfil" } })
                             @Html.ValidationMessageFor(model => model.foto, "", new { @class = "text-danger" })
                         </div>
-                    </div>
+                    </div>*@
 
                 </div>
                 <div class="form-group">
@@ -105,3 +105,4 @@
         </div>
     </div>
 </div>
+<br>

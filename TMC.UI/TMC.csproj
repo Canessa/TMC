@@ -563,7 +563,7 @@
     <Content Include="Imgs\logo.png" />
     <Content Include="Imgs\Maquillista.jpg" />
     <Content Include="Imgs\Modista.jpg" />
-    <Content Include="Imgs\Planificación.jpg" />
+    <Content Include="Imgs\Planificacion.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
