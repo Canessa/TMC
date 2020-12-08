@@ -56,7 +56,6 @@ namespace TMC.UI.Controllers
                 password = model.Password;
                 UserGlobal = model.Email;
                 TbUsuarios usuario = new TbUsuarios();
-                usuario.cedula = model.cedula;
                 usuario.nombre = model.nombre;
                 usuario.apellidos = model.apellidos;
                 usuario.correo = model.Email;
