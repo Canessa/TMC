@@ -74,48 +74,31 @@
                     <div class="col-md-8">
                         <div class="card mb-3">
                             <div class="card-body">
-                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Testimonios</h6>
-
-
-
-
-
+                                <h3 class="d-flex justify-content-center mb-3 font-weight-bold">Testimonios</h3>
 
                                 @foreach (var item in Model)
                                 {
-                                    <div class="card" style="width: 100%;margin-top: 2%;margin-right: 1%;">
-                                        <h6>@Html.DisplayFor(modelItem => item.IDUsuario)</h6>
+                                    <div class="d-flex flex-column align-items-center text-center bg-danger" style="width: 100%;margin-top: 2%;margin-right: 1%;">
+                                        <br />
+                                        <h6 class="justify-content-center text-white">@Html.DisplayFor(modelItem => item.IDUsuario)</h6>
                                         <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
 
                                         <br />
-                                        <p>@Html.DisplayFor(modelItem => item.testimonio)</p>
+                                        <p class="text-white">@Html.DisplayFor(modelItem => item.testimonio)</p>
                                     </div>
 
                                 }
 
                             </div>
                         </div>
-
-
                         <br />
                         <div class="col-md-8">
-
-                            <a href="@Url.Action( "CrearBlog", "Home")" class="btn btn-dark">
-                                <i class="material-icons">&#xE147;</i>
-                                <span>
-                                    Agregar Un testimonio
-                                </span>
+                            <a href="@Url.Action( "CrearBlog", "Home")" class="btn btn-danger btn-sm">
+                                <span>Agregar Un testimonio </span>
                             </a>
-
-                            <br />
-
+                            <br>
                         </div>
                     </div>
-
-
-                
-
-
 
 
                 </div>
