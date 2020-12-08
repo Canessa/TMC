@@ -5,10 +5,7 @@
     ViewBag.Title = "BlogLog";
 }
 
-
-
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="~/Estilos/EstilosAdmin.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-
 </head>
 
 
@@ -45,9 +41,12 @@
 
                                     <div class="mt-3">
                                         <div class="col-12">
-                                            <p>Noticia 1</p>
-                                            <a href="#"><img src="~/Imgs/boda2.jpg" class="img-thumbnail" style="border-radius:15px"></a>
-
+                                            <a href="@Url.Action("Search", "TbServicios")" class="text-muted">Más Información</a>
+                                            <br />
+                                            <a href="@Url.Action("Search", "TbServicios")"><img src="~/Imgs/boda2.jpg" class="img-thumbnail" style="border-radius:15px"></a>
+                                            <br />
+                                            <br />
+                                            <h5 href="@Url.Action("Search", "TbServicios")">No esperes más por tu ansiada boda </h5>
                                         </div>
                                     </div>
                                 </div>
@@ -60,9 +59,12 @@
 
                                         <div class="mt-3">
                                             <div class="col-12">
-                                                <p>Noticia 2</p>
-                                                <a href="#"><img src="~/Imgs/boda.jpg" class="img-thumbnail" style="border-radius:15px"></a>
-
+                                                <a href="@Url.Action("Search", "TbServicios")" class="text-muted">Más Información</a>
+                                                <br />
+                                                <a href="@Url.Action("Search", "TbServicios")" class="text-muted"><img src="~/Imgs/boda.jpg" class="img-thumbnail" style="border-radius:15px"></a>
+                                                <br />
+                                                <br />
+                                                <h5 href="@Url.Action("Search", "TbServicios")">El amor puede durar para siempre</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -74,18 +76,18 @@
                     <div class="col-md-8">
                         <div class="card mb-3">
                             <div class="card-body">
-                                <h3 class="d-flex justify-content-center mb-3 font-weight-bold">Testimonios</h3>
+                                <h6 class="d-flex justify-content-center mb-3"><i class="material-icons text-info mr-2"></i>Testimonios</h6>
 
                                 @foreach (var item in Model)
                                 {
-                                    <div class="d-flex flex-column align-items-center text-center bg-danger" style="width: 100%;margin-top: 2%;margin-right: 1%;">
-                                        <br />
-                                        <h6 class="justify-content-center text-white">@Html.DisplayFor(modelItem => item.IDUsuario)</h6>
-                                        <a href="#"><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
+                            <div class="d-flex flex-column align-items-center text-center" style="width: 100%;margin-top: 2%;margin-right: 1%;">
+                                <br />
+                                <h6 class="justify-content-center text-black">@Html.DisplayFor(modelItem => item.IDUsuario)</h6>
+                                <a><img src="~/Imgs/logo.png" class="img-thumbnail" style="border-radius:15px;height:70px"></a>
 
-                                        <br />
-                                        <p class="text-white">@Html.DisplayFor(modelItem => item.testimonio)</p>
-                                    </div>
+                                <br />
+                                <p class="text-black">@Html.DisplayFor(modelItem => item.testimonio)</p>
+                            </div>
 
                                 }
 
@@ -93,7 +95,7 @@
                         </div>
                         <br />
                         <div class="col-md-8">
-                            <a href="@Url.Action( "CrearBlog", "Home")" class="btn btn-danger btn-sm">
+                            <a href="@Url.Action( "CrearBlog", "Home")" class="btn-outline-btn btn-sm">
                                 <span>Agregar Un testimonio </span>
                             </a>
                             <br>
