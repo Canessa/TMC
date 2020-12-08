@@ -31,9 +31,9 @@
 <h2>Editar Cita</h2>
 
 <body id="estiloAdmin">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Admin_Citas", "TbCitas", FormMethod.Post))
     {
-        @Html.AntiForgeryToken()
+        
         <div class="card-body">
             <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
                 Informacion de la Cita
@@ -64,8 +64,16 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.IDUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.DropDownListFor(model => model.IDUsuario, (IEnumerable<SelectListItem>)ViewBag.ddlUsuarios, new { @class = "form-control" })
+                            @Html.EditorFor(model => model.IDUsuario, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.IDUsuario, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.nombreServicio, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.nombreServicio, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.nombreServicio, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -77,13 +85,21 @@
                         </div>
                     </div>
 
-                    @*<div class="form-group">
-                        @Html.LabelFor(model => model.IDProgreso, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.precio, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.DropDownListFor(model => model.IDProgreso, (IEnumerable<SelectListItem>)ViewBag.ddlProgresos, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.IDProgreso, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.precio, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.precio, "", new { @class = "text-danger" })
                         </div>
-                    </div>*@
+                    </div>
+
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.IDProgreso, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IDProgreso, (IEnumerable<SelectListItem>)ViewBag.ddlProgresos, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IDProgreso, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">

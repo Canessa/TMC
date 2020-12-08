@@ -23,27 +23,6 @@ namespace TMC.UI.Controllers
             cServicios = new MServiciosBLL();
         }
 
-        //Metodo de carga de los dropdown
-        private void CargarListas()
-        {
-            //cargado en el View
-            List<TbUsuarios> usuarios = cUsuarios.Mostrar();
-            if (usuarios == null)
-            {
-                usuarios[0].IDUsuario = 0;
-                usuarios[0].correo = "No hay usuarios disponibles";
-            }
-            ViewBag.ddlCatalogos = new SelectList(usuarios, "IDUsuario", "correo");
-
-            List<TbProgresos> progresos = cProgresos.Mostrar();
-            if (progresos == null)
-            {
-                progresos[0].IDProgreso = 0;
-                progresos[0].IDUsuario = 0;
-                progresos[0].porcentaje = 0;
-            }
-            ViewBag.ddlFotos = new SelectList(progresos, "IDProgreso", "progreso");
-        }
 
         [HttpGet]
         public ActionResult Search()
@@ -56,7 +35,7 @@ namespace TMC.UI.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            CargarListas();
+            
             return View();
         }
 
@@ -71,7 +50,7 @@ namespace TMC.UI.Controllers
                 if (citas.IDUsuario == 0)
                 {
                     ModelState.AddModelError(string.Empty, "Debe ingresar un usuario primero");
-                    CargarListas();
+                    
                     return View();
                 }
 
@@ -89,7 +68,6 @@ namespace TMC.UI.Controllers
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
-            CargarListas();
             return View();
         }
 
@@ -104,7 +82,6 @@ namespace TMC.UI.Controllers
         public ActionResult Edit(int id)
         {
             var data = cCitas.Buscar(id);
-            CargarListas();
             return View(data);
         }
 
@@ -114,7 +91,6 @@ namespace TMC.UI.Controllers
             if (citas.IDUsuario == 0)
             {
                 ModelState.AddModelError(string.Empty, "Debe ingresar un usuario primero");
-                CargarListas();
                 return View();
             }
 
