@@ -104,7 +104,9 @@ namespace TMC.DAL.Metodos
         public List<TbServicios> ObtenerComprasId(int Id)
         {
             List<TbServicios> serviciosContratados = new List<TbServicios>();
-            var response = client.Get("TbCompras");
+            var response = client.Get("TbCompras/");
+            if (response.Body == "null") { return null; }
+            string responseBody = response.Body.ToString();
             TbCompras[] servicios = JsonConvert.DeserializeObject<TbCompras[]>(response.Body);
             if (servicios != null){
                 foreach (var item in servicios)

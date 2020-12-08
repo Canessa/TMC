@@ -155,7 +155,7 @@ namespace TMC.UI.Controllers
         public ActionResult cancelarServicio(int id) {
             var idUsuario = TbUsuarios.getUsuarioActual().IDUsuario;
             cCompras.cancelarServicio(idUsuario, id);
-            return RedirectToAction("ComprasUsuario" + idUsuario, "TbCompras");
+            return RedirectToAction("ComprasUsuario/" + idUsuario, "TbCompras");
         }
     }
 }

@@ -256,15 +256,22 @@ namespace TMC.UI.Controllers
             ViewBag.Rol = rolobj.nombre;
             var listaComprados = cServicios.obtenerServiciosComprados(id);
             var pagos = 0;
-            foreach (TbCompras compra in listaComprados)
+            if (listaComprados != null)
             {
-                if (compra.estado == "pagado")
+                foreach (TbCompras compra in listaComprados)
                 {
-                    pagos++;
+                    if (compra.estado == "pagado")
+                    {
+                        pagos++;
+                    }
                 }
+                var resultado = (int)Math.Round((double)(100 * pagos) / listaComprados.Count);
+                ViewBag.porcentaje = resultado + "%";
             }
-            var resultado = (int)Math.Round((double)(100 * pagos) / listaComprados.Count);
-            ViewBag.porcentaje = resultado+"%";
+            else
+            {
+                ViewBag.porcentaje = "0%";
+            }
             return View(Usuario);
         }
 
