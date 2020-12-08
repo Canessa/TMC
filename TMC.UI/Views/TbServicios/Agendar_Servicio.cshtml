@@ -80,15 +80,14 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-success btn-sm">
                         @*<a href="@Url.Action( "Insertar", "TbCitas",new { id = @Html.DisplayFor(model => model.IDServicio) })">
                                 Cancelar
                             </a>*@
                         Agendar
                     </button>
-                    <button class="btn btn-danger">
-                        @Html.ActionLink("Volver", "Search",null,new { @class= "btn btn-danger" })
-                    </button>
+                        @Html.ActionLink("Volver", "Search",null,new { @class= "btn btn-danger btn-sm" })
+                    
                 </div>
             </div>
         </div>
