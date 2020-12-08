@@ -138,8 +138,7 @@ namespace TMC.UI.Controllers
         {
             TbUsuarios usuario = cUsuarios.Buscar(id);
             cUsuarios.Desactivar(id);
-            return View(usuario);
-
+            return RedirectToAction("Admin_Users");
 
 
         }

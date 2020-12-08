@@ -109,7 +109,7 @@ namespace TMC.UI.Controllers
             /*devuelve un int 0 = Cancelada
              * 1 = No se puede cancelar por el progreso avanzado*/
             cCitas.Cancelar(id);
-            return RedirectToAction("Search");
+            return RedirectToAction("Admin_Citas");
         }
 
 
