@@ -19,6 +19,7 @@ namespace TMC.UI.Controllers
             cServicios = new MServiciosBLL();
             //Construccion de los metodos para las tablas de las FK
             cCatalogos = new MCatalogosBLL();
+            cCitas = new MCitasBLL();
         }
         static DateTime LastDate;
 
@@ -138,9 +139,16 @@ namespace TMC.UI.Controllers
             cita.IDServicio = servicio.IDServicio.ToString();
             cita.detalle = servicio.detalle;
             cita.precio = servicio.precio;
-            //var list = cCitas.Mostrar();
-            //TbCitas LastRecord = list[list.Count - 1];
-            cita.fechaCita = DateTime.Now.AddDays(1);
+            //ultima fecha 
+            List<TbCitas> citas = cCitas.Mostrar();
+            TbCitas LastRecord = new TbCitas();
+            foreach (TbCitas item in citas)
+            {
+                LastRecord = item;
+            }
+            DateTime LastDateC = LastRecord.fechaCita;
+            cita.fechaCita = LastDateC.AddDays(1);
+            //cita.fechaCita = DateTime.Now.AddDays(1);
             return View(cita);
         }
 
