@@ -142,16 +142,22 @@ namespace TMC.UI.Controllers
             //ultima fecha 
             List<TbCitas> citas = cCitas.Mostrar();
             TbCitas LastRecord = new TbCitas();
-            foreach (TbCitas item in citas)
+            DateTime LastDateC;
+            if (citas != null)
             {
-                LastRecord = item;
+                foreach (TbCitas item in citas)
+                {
+                    LastRecord = item;
+                }
+                LastDateC = LastRecord.fechaCita;
+                cita.fechaCita = LastDateC.AddDays(1);
+                return View(cita);
             }
-            DateTime LastDateC = LastRecord.fechaCita;
-            cita.fechaCita = LastDateC.AddDays(1);
-            //cita.fechaCita = DateTime.Now.AddDays(1);
-            return View(cita);
+            else
+            {
+                cita.fechaCita = DateTime.Now.AddDays(1);
+                return View(cita);
+            }
         }
-
-
     }
 }
