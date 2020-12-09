@@ -10,19 +10,19 @@ namespace TMC.DATA
         
         public int IDCompra { get; set; }
 
-        [Display(Name = "Selección del servicio")]
+        [Display(Name = "Servicio")]
         public int IDServicio { get; set; }
 
-        [Display(Name = "Selección de usuario")]
+        [Display(Name = "Usuario")]
         public int IDUsuario { get; set; }
 
-        [Display(Name = "Nombre servicio")]
+        [Display(Name = "Servicio")]
         public string NombreServicio { get; set; }
 
         [Display(Name = "Precio")]
         public float precio { get; set; }
 
-        [Display(Name = "Estado de la compra")]
+        [Display(Name = "Estado")]
         public string estado { get; set; }
 
         [Display(Name = "¿Está activo?")]

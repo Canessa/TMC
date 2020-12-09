@@ -13,6 +13,7 @@ namespace TMC.UI.Controllers
         //Creacion de los metodos para las tablas de las FK
         IUsuariosBLL cUsuarios;
         IServiciosBLL cServicios;
+        static TbCompras TempCompra;
         public TbComprasController(int id)
         {
             cCompras = new MComprasBLL();
@@ -50,10 +51,10 @@ namespace TMC.UI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Search()
+        public ActionResult Admin_Compras()
         {
             var list = cCompras.Mostrar();
-            if (list == null) { return RedirectToAction("Create"); };
+            //if (list == null) { return RedirectToAction("Create"); };
             return View(list);
         }
 
@@ -129,8 +130,8 @@ namespace TMC.UI.Controllers
                 return View();
             }
 
-            cCompras.Actualizar(compras);
-            return RedirectToAction("Search");
+            cCompras.Actualizar(compras);    
+            return RedirectToAction("Admin_Compras", "TbCompras");
         }
 
         [HttpGet]

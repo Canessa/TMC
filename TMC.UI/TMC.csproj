@@ -753,6 +753,7 @@
     <Content Include="Views\TbServicios\SearchNotLog.cshtml" />
     <Content Include="Views\Home\BlogLog.cshtml" />
     <Content Include="Views\Home\CrearBlog.cshtml" />
+    <Content Include="Views\TbCompras\Admin_Compras.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

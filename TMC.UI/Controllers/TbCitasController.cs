@@ -27,10 +27,10 @@ namespace TMC.UI.Controllers
 
 
         [HttpGet]
-        public ActionResult Search()
+        public ActionResult Admin_Citas()
         {
             var list = cCitas.Mostrar();
-            if (list == null) { return RedirectToAction("Create"); };
+            //if (list == null) { return RedirectToAction("Create"); };
             return View(list);
         }
 
@@ -70,6 +70,7 @@ namespace TMC.UI.Controllers
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
+
             return View();
         }
 
@@ -109,17 +110,17 @@ namespace TMC.UI.Controllers
             /*devuelve un int 0 = Cancelada
              * 1 = No se puede cancelar por el progreso avanzado*/
             cCitas.Cancelar(id);
-            return RedirectToAction("Search");
+            return RedirectToAction("Admin_Citas", "TbCitas");
         }
 
 
-        public ActionResult Admin_Citas()
-        {
-            List<TbCitas> lista = cCitas.Mostrar();
+        //public ActionResult Admin_Citas()
+        //{
+        //    List<TbCitas> lista = cCitas.Mostrar();
 
-            return View(lista);
+        //    return View(lista);
             
-        }
+        //}
 
 
         private void CargarListaAdminCita()
@@ -141,7 +142,7 @@ namespace TMC.UI.Controllers
             cCitas.Insertar(cita);
             cServicios.Adquirir(idUsuario, Int32.Parse(cita.IDServicio));
             ViewBag.Message = "Su cita fue agendada, gracias.";
-            return RedirectToAction("Search", "TbServicios");
+            return RedirectToAction("Admin_Citas", "TbCitas");
         }
     }
 }

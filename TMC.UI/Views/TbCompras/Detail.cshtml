@@ -21,7 +21,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
+
 <div class="card-body">
     <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
         Información de la Compra
@@ -82,7 +82,7 @@
 </div>
         <p>
             @Html.ActionLink(" Editar", "Edit", new { id = Model.IDCompra }, new { @class = "fas fa-edit text-muted", @title = "Editar Permiso" }) |
-            @Html.ActionLink(" Regresar", "Search", null, new { @class = "fas fa-arrow-circle-left text-muted" })
+            @Html.ActionLink(" Regresar", "TbCompras", null, new { @class = "fas fa-arrow-circle-left text-muted" })
         </p>
         <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
 }

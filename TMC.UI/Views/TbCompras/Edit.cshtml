@@ -30,16 +30,12 @@
 <body id="estiloAdmin">
     @using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
-        <div class="card-body">
+        <div class="card-body form-vertical">
             <h5 style="color: black; background-color: #DD969C;width: inherit;height: 100%;text-align: left">
-                Informacion de la Compra
+                Información de la Compra
             </h5>
-            <div class="card">
-                <br />
-                <div class="form-horizontal">
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-vertical" style="color:black;">
+                <div class="card-columns">
                     <div class="form-group" style="display:none">
                         @Html.LabelFor(model => model.IDCompra, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -88,15 +84,17 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Actualizar" class="btn-outline-btn" />
-                            @*|@Html.ActionLink(" Regresar", "Admin_Compras", "TbCompras", null, new { @class = "text-danger" })*@
-                        </div>
+
+                </div>  
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Actualizar" class="btn-outline-btn btn-sm" /> |
+                        @Html.ActionLink(" Regresar", "Admin_Compras", "TbCompras", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
     }
 
     <script src="https://kit.fontawesome.com/065c8b2d38.js" crossorigin="anonymous"></script>
