@@ -41,20 +41,30 @@ namespace TMC.UI.Controllers
             }
             ViewBag.ddlUsuarios = new SelectList(usuarios, "IDUsuario", "correo");
 
-            List<TbServicios> servicios = cServicios.Mostrar();
-            if (servicios == null)
+            List<string> Estados = new List<string>()
             {
-                servicios[0].IDServicio = 0;
-                servicios[0].nombre = "No hay fotos disponibles";
-            }
-            ViewBag.ddlServicios = new SelectList(servicios, "IDServicio", "nombre");
+                "pagado",
+                "pendiente"
+            };
+            ViewBag.ddlEstados = new SelectList(Estados);
         }
 
-        [HttpGet]
+        private void CargarUsuario(int id)
+        {
+            //cargado en el View
+            TbUsuarios usuarios = cUsuarios.Buscar(id);
+            ViewBag.Usuario = usuarios.correo;
+        }
+            [HttpGet]
         public ActionResult Admin_Compras()
         {
             var list = cCompras.Mostrar();
-            //if (list == null) { return RedirectToAction("Create"); };
+            foreach(var item in list)
+            {
+                int id = item.IDUsuario;
+                TbUsuarios usuario =cUsuarios.Buscar(id);
+               item.Usuario = usuario.correo;
+            }
             return View(list);
         }
 
@@ -109,6 +119,7 @@ namespace TMC.UI.Controllers
         public ActionResult Edit(int id)
         {
             var data = cCompras.Buscar(id);
+            CargarUsuario(data.IDUsuario);
             CargarListas();
             return View(data);
         }

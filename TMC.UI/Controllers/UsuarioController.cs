@@ -150,7 +150,9 @@ namespace TMC.UI.Controllers
                             this.SignInUser(user.Email, token, false);
                             cUsuarios.InsertarHistorial(registro);
                             TbUsuarios.setUsuarioActual(cUsuarios.Buscar(cUsuarios.ObtenerId(UserGlobal)));
-                            //TbUsuarios.
+                            TbUsuarios usuario = TbUsuarios.usuarioActual;
+                            usuario.contrasenna = model.Password;
+                            cUsuarios.Actualizar(usuario);
                             return this.RedirectToIndex("Admin_Users", "TbUsuarios");
                         }
                         else if (rol == 2)
@@ -158,6 +160,9 @@ namespace TMC.UI.Controllers
                             this.SignInUser(user.Email, token, false);
                             cUsuarios.InsertarHistorial(registro);
                             TbUsuarios.setUsuarioActual(cUsuarios.Buscar(cUsuarios.ObtenerId(UserGlobal)));
+                            TbUsuarios usuario = TbUsuarios.usuarioActual;
+                            usuario.contrasenna = model.Password;
+                            cUsuarios.Actualizar(usuario);
                             return this.RedirectToIndex("Profile", "Usuario");
                         }
                     }

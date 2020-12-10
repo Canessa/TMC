@@ -30,7 +30,12 @@ namespace TMC.UI.Controllers
         public ActionResult Admin_Citas()
         {
             var list = cCitas.Mostrar();
-            //if (list == null) { return RedirectToAction("Create"); };
+            foreach (var item in list)
+            {
+                int id = item.IDUsuario;
+                TbUsuarios usuario = cUsuarios.Buscar(id);
+                item.Usuario = usuario.correo;
+            }
             return View(list);
         }
 

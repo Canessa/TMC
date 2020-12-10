@@ -28,5 +28,8 @@ namespace TMC.DATA
         public string IDServicio { get; set; }
         [Display(Name = "Precio")]
         public float precio { get; set; }
+
+        [Display(Name = "Usuario")]
+        public string Usuario { get; set; }
     }
 }
