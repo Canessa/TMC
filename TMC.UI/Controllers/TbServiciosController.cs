@@ -149,7 +149,8 @@ namespace TMC.UI.Controllers
                 {
                     LastRecord = item;
                 }
-                LastDateC = LastRecord.fechaCita;
+                
+                LastDateC = Convert.ToDateTime(LastRecord.fechaCita);
                 cita.fechaCita = LastDateC.AddDays(1);
                 return View(cita);
             }

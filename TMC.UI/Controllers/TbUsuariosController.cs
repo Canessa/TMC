@@ -169,6 +169,7 @@ namespace TMC.UI.Controllers
                 usuario.IDRol = TempUsuario.IDRol;
                 usuario.foto = imagenURL;
                 usuario.estado = TempUsuario.estado;
+                Thread.Sleep(5000);
                 cUsuarios.Actualizar(usuario);
             } catch(Exception e)
             {

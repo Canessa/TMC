@@ -47,7 +47,15 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.IDUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(model => model.IDUsuario, new { @Value = ViewBag.Usuario ,@readonly = "readonly", @class = "form-control" })
+                            @Html.TextBoxFor(model => model.IDUsuario, new { @readonly = "readonly", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IDUsuario, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Usuario, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Usuario, new { @Value= ViewBag.Usuario , @readonly = "readonly", @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.IDUsuario, "", new { @class = "text-danger" })
                         </div>
                     </div>
