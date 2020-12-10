@@ -385,33 +385,8 @@ namespace TMC.UI.Controllers
         [AllowAnonymous]
         public ActionResult Reset_Password(string email)
         {
-            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            char[] caracteres = chars.ToCharArray();
-            Random rnd = new Random();
-            StringBuilder sb = new StringBuilder();
-
-            for (int i = 0; i < 8; i++)
-            {
-                int randomIndex = rnd.Next(chars.Length);
-                sb.Append(caracteres.GetValue(randomIndex));
-            }
-
-            string nombre = email.Substring(0, email.IndexOf("@"));
-            System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
-            mmsg.To.Add(email);
-            mmsg.Subject = "Nueva Contraseña";
-            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
-            mmsg.BodyEncoding = System.Text.Encoding.UTF8;
-            mmsg.IsBodyHtml = true;
-            mmsg.AlternateViews.Add(Mail_Body(nombre,sb.ToString()));
-            mmsg.From = new System.Net.Mail.MailAddress("tumaestrodeceremoniastmc@gmail.com");
-
-            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
-            cliente.EnableSsl = true;
-            //cliente.UseDefaultCredentials = false;
-            cliente.Credentials = new System.Net.NetworkCredential("tumaestrodeceremoniastmc@gmail.com" , "Tumaestro2020");
-            cliente.Host = "smtp.gmail.com"; 
-            cliente.Port = 25;
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
+            auth.SendPasswordResetEmailAsync(email);
             try
             {
                 @ViewBag.Message = "La solicitud para restablecer su contraseña ha sido enviada al correo " + email + "! ";
