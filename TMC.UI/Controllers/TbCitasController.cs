@@ -144,10 +144,32 @@ namespace TMC.UI.Controllers
         {
             var idUsuario = TbUsuarios.getUsuarioActual().IDUsuario;
             cita.IDUsuario = idUsuario;
-            cCitas.Insertar(cita);
-            cServicios.Adquirir(idUsuario, Int32.Parse(cita.IDServicio));
-            ViewBag.Message = "Su cita fue agendada, gracias.";
-            return RedirectToAction("Admin_Citas", "TbCitas");
+            List<TbCitas> citas = cCitas.Mostrar();
+            TbCitas LastRecord = new TbCitas();
+            DateTime LastDateC = DateTime.MinValue;
+            if (citas != null)
+            {
+                foreach (TbCitas item in citas)
+                {
+                    LastRecord = item;
+                }
+
+                LastDateC = Convert.ToDateTime(LastRecord.fechaCita);
+            }
+            if(cita.fechaCita < (LastDateC.AddDays(1)))
+            {
+
+                TempData["shortMessage"] = "Fecha No Disponible";
+                return RedirectToAction("Agendar_Servicio", "TbServicios", new { id = idUsuario });
+            }
+            else
+            {
+                cCitas.Insertar(cita);
+                cServicios.Adquirir(idUsuario, Int32.Parse(cita.IDServicio));
+                ViewBag.Message = "Su cita fue agendada, gracias.";
+                return RedirectToAction("Admin_Citas", "TbCitas");
+            }
+            
         }
     }
 }

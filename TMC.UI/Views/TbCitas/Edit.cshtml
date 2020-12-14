@@ -41,8 +41,7 @@
                 <div class="form-group" style="display:none">
                     @Html.LabelFor(model => model.IDCita, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <input class="form-control" type="date" href=@Html.EditorFor(model => model.fechaCita, new { htmlAttributes = new { @class = "form-control" } })
-                               @*@Html.EditorFor(model => model.IDCita, new { htmlAttributes = new { @class = "form-control" } })*@
+                               @Html.EditorFor(model => model.IDCita, new { htmlAttributes = new { @class = "form-control" } })
                                @Html.ValidationMessageFor(model => model.IDCita, "", new { @class = "text-danger" })
                     </div>
                 </div>

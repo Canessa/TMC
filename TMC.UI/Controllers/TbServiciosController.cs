@@ -139,6 +139,10 @@ namespace TMC.UI.Controllers
             cita.IDServicio = servicio.IDServicio.ToString();
             cita.detalle = servicio.detalle;
             cita.precio = servicio.precio;
+            if (TempData["shortMessage"] != null)
+            {
+                ViewBag.Message = TempData["shortMessage"].ToString();
+            }
             //ultima fecha 
             List<TbCitas> citas = cCitas.Mostrar();
             TbCitas LastRecord = new TbCitas();
