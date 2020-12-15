@@ -89,7 +89,7 @@ namespace TMC.DAL.Metodos
                 var lista = Mostrar().Count;
                 if (lista > 0)
                 {
-                    usuario.IDUsuario = lista;
+                    usuario.IDUsuario = lista+1;
                 }
                 else
                 {

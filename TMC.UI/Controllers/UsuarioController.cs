@@ -152,6 +152,7 @@ namespace TMC.UI.Controllers
                             TbUsuarios.setUsuarioActual(cUsuarios.Buscar(cUsuarios.ObtenerId(UserGlobal)));
                             TbUsuarios usuario = TbUsuarios.usuarioActual;
                             usuario.contrasenna = model.Password;
+                            usuario.estado = true;
                             cUsuarios.Actualizar(usuario);
                             return this.RedirectToIndex("Admin_Users", "TbUsuarios");
                         }
@@ -162,6 +163,7 @@ namespace TMC.UI.Controllers
                             TbUsuarios.setUsuarioActual(cUsuarios.Buscar(cUsuarios.ObtenerId(UserGlobal)));
                             TbUsuarios usuario = TbUsuarios.usuarioActual;
                             usuario.contrasenna = model.Password;
+                            usuario.estado = true;
                             cUsuarios.Actualizar(usuario);
                             return this.RedirectToIndex("Profile", "Usuario");
                         }
