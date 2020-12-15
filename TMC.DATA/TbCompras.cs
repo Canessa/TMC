@@ -10,10 +10,10 @@ namespace TMC.DATA
         
         public int IDCompra { get; set; }
 
-        [Display(Name = "IdServicio")]
+        [Display(Name = "Id Servicio")]
         public int IDServicio { get; set; }
 
-        [Display(Name = "IdUsuario")]
+        [Display(Name = "Id Usuario")]
         public int IDUsuario { get; set; }
 
         [Display(Name = "Servicio")]
