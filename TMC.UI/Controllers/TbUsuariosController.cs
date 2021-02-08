@@ -42,7 +42,13 @@ namespace TMC.UI.Controllers
             usuario.IDUsuario = TempUsuario.IDUsuario;
             usuario.correo = TempUsuario.correo;
             usuario.contrasenna = TempUsuario.contrasenna;
-            usuario.estado = TempUsuario.estado;
+            //usuario.estado = TempUsuario.estado;
+            if (TempUsuario.estado==false) {
+                usuario = cUsuarios.Buscar(usuario.IDUsuario);
+                cUsuarios.Desactivar(usuario.IDUsuario);
+               
+
+            }
             if (foto == null)
             {
                 usuario.foto = TempUsuario.foto;
