@@ -17,4 +17,4 @@ Luego, haz clic en “Administrador de conexiones” y selecciona la opción “
 2. Al abrir Visual Studio seleccione "Clone or check out code", pegue la dirrección del repositorio.
 3. Clic en "Clone".
 
-GitHub link: https://github.com/Daqd1491/TMC
+GitHub link: https://github.com/Canessa/TMC
