@@ -5,7 +5,6 @@ Desarrolladores
 Joseph Hernández Estrada
 Christopher Luna Canessa
 Joshua Murillo Rodríguez
-Diego Quesada Díaz
 
 El propósito del documento es brindar al lector una visión general del proyecto planteado 
 para apoyar a un emprendedor (Tu Maestro de Ceremonias) en la creación de una plataforma web 
