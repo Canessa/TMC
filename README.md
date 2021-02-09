@@ -5,7 +5,6 @@ Desarrolladores
 Joseph Hernández Estrada
 Christopher Luna Canessa
 Joshua Murillo Rodríguez
-Diego Quesada Díaz
 
 El propósito del documento es brindar al lector una visión general del proyecto planteado 
 para apoyar a un emprendedor (Tu Maestro de Ceremonias) en la creación de una plataforma web 
@@ -17,4 +16,4 @@ Luego, haz clic en “Administrador de conexiones” y selecciona la opción “
 2. Al abrir Visual Studio seleccione "Clone or check out code", pegue la dirrección del repositorio.
 3. Clic en "Clone".
 
-GitHub link: https://github.com/Daqd1491/TMC
+GitHub link: https://github.com/Canessa/TMC
