@@ -153,11 +153,19 @@ namespace TMC.UI.Controllers
                 {
                     LastRecord = item;
                 }
-                
                 LastDateC = Convert.ToDateTime(LastRecord.fechaCita);
-                cita.fechaCita = LastDateC.AddDays(1);
-                return View(cita);
+                if(LastDateC < DateTime.Now)
+                {
+                    cita.fechaCita = DateTime.Now.AddDays(1);
+                    return View(cita);
+                }
+                else
+                {
+                    cita.fechaCita = LastDateC.AddDays(1);
+                    return View(cita);
+                }
             }
+                
             else
             {
                 cita.fechaCita = DateTime.Now.AddDays(1);
