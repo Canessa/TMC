@@ -50,7 +50,7 @@ namespace TMC.UI.Models
         [Display(Name = "Teléfono")]
         [Required(ErrorMessage = "Teléfono requerido")]
         [StringLength(15, ErrorMessage = "Máximo 15 caracteres")]
-        public string telefono { get; set; }
+        public int telefono { get; set; }
 
         [Display(Name = "Correo")]
         [Required(ErrorMessage = "Correo electrónico requerido")]

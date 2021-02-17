@@ -25,7 +25,7 @@ namespace TMC.DATA
         [Required(ErrorMessage = "Teléfono requerido")]
         [StringLength(15, ErrorMessage = "Máximo 15 caracteres")]
         [Phone]
-        public string telefono { get; set; }
+        public int telefono { get; set; }
 
         [Display(Name = "Correo")]
         [Required(ErrorMessage = "Correo electrónico requerido")]
@@ -70,7 +70,7 @@ namespace TMC.DATA
             usuarioActual.nombre = "";
             usuarioActual.apellidos = "";
             usuarioActual.correo = "";
-            usuarioActual.telefono = "";
+            usuarioActual.telefono = 0;
             usuarioActual.foto = "";
         }
     }
