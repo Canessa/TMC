@@ -18,7 +18,7 @@ namespace TMC.UI.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Constraseña")]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
     }
 }
