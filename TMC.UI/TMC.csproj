@@ -735,7 +735,7 @@
     <Content Include="Imgs\User.jpg" />
     <Content Include="Views\Usuario\Profile.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
-    <Content Include="Views\TbServicios\Admin_Servicios-ori.cshtml" />
+    <Content Include="Views\TbServicios\Admin_Servicios.cshtml" />
     <Content Include="Views\TbCatalogos\Admin_Catalogos.cshtml" />
     <Content Include="Views\TbRoles\Admin_Roles.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
