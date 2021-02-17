@@ -21,11 +21,18 @@ namespace TMC.DATA
         [StringLength(256, ErrorMessage = "Máximo 256 caracteres")]
         public string apellidos { get; set; }
 
+        //[Display(Name = "Teléfono")]
+        //[Required(ErrorMessage = "Teléfono requerido")]
+        //[Phone]
+        //public int telefono { get; set; }
+
+        [Required]
         [Display(Name = "Teléfono")]
-        [Required(ErrorMessage = "Teléfono requerido")]
-        [StringLength(15, ErrorMessage = "Máximo 15 caracteres")]
-        [Phone]
-        public int telefono { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{2})$", ErrorMessage = "No es un número de teléfono valido (8 digitos)")]
+        public string telefono { get; set; }
+
+
 
         [Display(Name = "Correo")]
         [Required(ErrorMessage = "Correo electrónico requerido")]
@@ -70,7 +77,7 @@ namespace TMC.DATA
             usuarioActual.nombre = "";
             usuarioActual.apellidos = "";
             usuarioActual.correo = "";
-            usuarioActual.telefono = 0;
+            usuarioActual.telefono = "";
             usuarioActual.foto = "";
         }
     }
