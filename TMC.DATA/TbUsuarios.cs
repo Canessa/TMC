@@ -24,6 +24,7 @@ namespace TMC.DATA
         [Display(Name = "Teléfono")]
         [Required(ErrorMessage = "Teléfono requerido")]
         [StringLength(15, ErrorMessage = "Máximo 15 caracteres")]
+        [Phone]
         public string telefono { get; set; }
 
         [Display(Name = "Correo")]
