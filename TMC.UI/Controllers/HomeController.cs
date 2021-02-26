@@ -14,8 +14,26 @@ namespace TMC.UI.Controllers
         public static String UserGlobal;
         public static TbTestimonios TempTestimonio;
         ITestimoniosBLL cTestimonios = new MTestimoniosBLL();
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+
+
+
+
+
+
+
         public ActionResult Index()
         {
+
+            log.Info("información");
+            log.Error("errores");
+            log.Warn("warm");
+            log.Debug("debug");
+            
+           
+
             return View();
         }
 
@@ -45,6 +63,9 @@ namespace TMC.UI.Controllers
 
         private void CargarListasTestimonios()
         {
+
+            
+
             //cargado en el View
             List<TbTestimonios> testimonios = cTestimonios.Mostrar();
             if (testimonios == null)
@@ -98,6 +119,9 @@ namespace TMC.UI.Controllers
 
         public ActionResult BlogLog()
         {
+            
+           
+
             List<TbTestimonios> lista = cTestimonios.Mostrar();
 
             return View(lista);

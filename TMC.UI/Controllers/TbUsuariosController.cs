@@ -14,13 +14,37 @@ using TMC.DATA;
 
 namespace TMC.UI.Controllers
 {
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
     public class TbUsuariosController : Controller
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         string imagenURL;
 
         IRolesBLL cRoles = new MRolesBLL();
         public TbUsuariosController()
         {
+
+            log.Info("información");
+            log.Error("errores");
+            log.Warn("warm");
+            log.Debug("debug");
+
             cUsuarios = new MUsuariosBLL();
         }
         IUsuariosBLL cUsuarios;
