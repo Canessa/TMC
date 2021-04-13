@@ -62,7 +62,7 @@ namespace TMC.UI.Controllers
                 usuario.telefono = model.telefono;
                 usuario.IDRol = 2;
                 usuario.contrasenna = sb.ToString();
-                usuario.foto = "https://firebasestorage.googleapis.com/v0/b/bd-tmc.appspot.com/o/fotosDePerfil%2Fusuario_nuevo.png?alt=media&token=3cd50c1d-649e-4faf-898a-ed2c1f19019d";
+                usuario.foto = "https://firebasestorage.googleapis.com/v0/b/bd-tmc.appspot.com/o/fotosDePerfil%2FClipartKey_809592.png?alt=media&token=9ba3f041-e374-4a18-b465-b870ef5effa2";
                 TbHistorial registro = new TbHistorial();
                 registro.detalle = "se registro un nuevo usuario: " + UserGlobal;
                 registro.fecha = DateTime.Now.ToString();
