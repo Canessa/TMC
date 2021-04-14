@@ -246,6 +246,7 @@ namespace TMC.UI.Controllers
             var ctx = Request.GetOwinContext();
             var authenticationManager = ctx.Authentication;
             authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
             return RedirectToAction("Login", "Usuario");
         }
 
